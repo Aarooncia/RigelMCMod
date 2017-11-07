@@ -1,3 +1,9 @@
+# RigelMCMod 
+
+RigelMCMod is a Plugin for the Free OP server RigelMC
+
+Compilation Instructions coming soon!
+
 # TotalFreedomMod #
 
 
