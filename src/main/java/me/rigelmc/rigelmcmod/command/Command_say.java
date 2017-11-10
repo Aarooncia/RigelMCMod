@@ -1,5 +1,6 @@
 package me.rigelmc.rigelmcmod.command;
 
+import me.rigelmc.rigelmcmod.admin.Admin;
 import me.rigelmc.rigelmcmod.rank.Rank;
 import me.rigelmc.rigelmcmod.util.FUtil;
 import org.apache.commons.lang3.StringUtils;
@@ -39,8 +40,19 @@ public class Command_say extends FreedomCommand
                 return true;
             }
         }
-
-        FUtil.bcastMsg(String.format("[Server:%s] %s", sender.getName(), message), ChatColor.LIGHT_PURPLE);
+        
+        String color = "&d";
+        
+        if (!senderIsConsole)
+        {
+            Admin staffMember = plugin.al.getAdmin(playerSender);
+            if (staffMember.hasCustomShoutColor())
+            {
+                color = staffMember.getShoutColor();
+            }
+        }
+        
+        FUtil.bcastMsg(String.format("%s[Shout:%s] %s",FUtil.colorize(color), sender.getName(), message));
 
         return true;
     }

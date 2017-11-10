@@ -42,6 +42,13 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
     @Getter
     @Setter
     private String discordID = null;
+    @Getter
+    @Setter
+    private String shoutColor = null;
+    @Getter
+    @Setter
+    private String tag = null;
+    
 
     public Admin(Player player)
     {
@@ -64,9 +71,11 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
                 .append("- IPs: ").append(StringUtils.join(ips, ", ")).append("\n")
                 .append("- Last Login: ").append(FUtil.dateToString(lastLogin)).append("\n")
                 .append("- Custom Login Message: ").append(loginMessage).append("\n")
+                .append("- Shout Color: ").append(shoutColor).append("\n")
                 .append("- Rank: ").append(rank.getName()).append("\n")
                 .append("- Is Active: ").append(active)
-                .append("- Discord ID: ").append(discordID).append("\n");
+                .append("- Discord ID: ").append(discordID).append("\n")
+                .append("- Join Tag: ").append(tag);
 
         return output.toString();
     }
@@ -90,6 +99,8 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
         lastLogin = FUtil.stringToDate(cs.getString("last_login"));
         loginMessage = cs.getString("login_message", null);
         discordID = cs.getString("discord_id", null);
+        shoutColor = cs.getString("shout_color", null);
+        tag = cs.getString("tag", null);
     }
 
     @Override
@@ -103,6 +114,8 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
         cs.set("last_login", FUtil.dateToString(lastLogin));
         cs.set("login_message", loginMessage);
         cs.set("discord_id", discordID);
+        cs.set("shout_color", shoutColor);
+        cs.set("tag", tag);
     }
 
     public boolean isAtLeast(Rank pRank)
@@ -115,6 +128,11 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
         return loginMessage != null && !loginMessage.isEmpty();
     }
 
+    public boolean hasCustomShoutColor()
+    {
+        return shoutColor != null && !shoutColor.isEmpty();
+    }
+    
     // Util IP methods
     public void addIp(String ip)
     {

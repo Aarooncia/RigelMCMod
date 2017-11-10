@@ -118,6 +118,16 @@ public class EssentialsBridge extends FreedomService
         return null;
     }
 
+    public String getDisplayName(String username)
+    {
+        String name = getNickname(username);
+        if (name == null)
+        {
+            name = username;
+        }
+        return name;
+    }
+    
     public long getLastActivity(String username)
     {
         try

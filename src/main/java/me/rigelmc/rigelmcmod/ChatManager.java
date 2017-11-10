@@ -3,6 +3,7 @@ package me.rigelmc.rigelmcmod;
 import me.rigelmc.rigelmcmod.player.FPlayer;
 import me.rigelmc.rigelmcmod.util.FLog;
 import me.rigelmc.rigelmcmod.util.FSync;
+import me.rigelmc.rigelmcmod.util.FUtil;
 import static me.rigelmc.rigelmcmod.util.FUtil.playerMsg;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -51,6 +52,15 @@ public class ChatManager extends FreedomService
 
         // Strip color from messages
         message = ChatColor.stripColor(message);
+        
+        if (!FUtil.isExecutive(player.getName()))
+        {
+            message = message.replaceAll(ChatColor.BOLD.toString(), "&l");
+            message = message.replaceAll(ChatColor.MAGIC.toString(), "&k");
+            message = message.replaceAll(ChatColor.ITALIC.toString(), "&o");
+            message = message.replaceAll(ChatColor.UNDERLINE.toString(), "&n");
+            message = message.replaceAll(ChatColor.STRIKETHROUGH.toString(), "&m");
+        }
 
         // Truncate messages that are too long - 256 characters is vanilla client max
         if (message.length() > 256)

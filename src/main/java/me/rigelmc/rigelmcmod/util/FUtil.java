@@ -60,7 +60,16 @@ public class FUtil
             CHAT_COLOR_NAMES.put(chatColor.name().toLowerCase().replace("_", ""), chatColor);
         }
     }
-
+    
+    public static boolean isExecutive(String name)
+    {
+        if (!ConfigEntry.SERVER_EXECUTIVES.getList().contains(name) && !ConfigEntry.SERVER_OWNERS.getList().contains(name) && !ConfigEntry.SERVER_DEVELOPERS.getList().contains(name))
+        {
+            return false;
+        }
+        return true;
+    }
+    
     private FUtil()
     {
     }
