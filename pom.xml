@@ -62,6 +62,10 @@
             <id>sk89q-snapshots</id>
             <url>http://maven.sk89q.com/artifactory/repo</url>
         </repository>
+        <repository>
+            <id>jcenter</id>
+            <url>http://jcenter.bintray.com</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -118,6 +122,12 @@
             <groupId>com.github.TotalFreedom.TF-WorldEdit</groupId>
             <artifactId>worldedit-core</artifactId>
             <version>6.1.0-TF</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>net.dv8tion</groupId>
+            <artifactId>JDA</artifactId>
+            <version>3.3.0_260</version>
         </dependency>
 
     </dependencies>
@@ -254,6 +264,30 @@
                         <item>buildNumber</item>
                     </items>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.4.3</version>
+
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <transformers>
+                              <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                <manifestEntries>
+                                  <Main-Class>net.dv8tion.jda.core.JDA</Main-Class>
+                                  <Build-Number>123</Build-Number>
+                                </manifestEntries>
+                              </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

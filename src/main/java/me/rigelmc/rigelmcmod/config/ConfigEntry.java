@@ -70,6 +70,9 @@ public enum ConfigEntry
     AUTOKICK_THRESHOLD(Double.class, "autokick.threshold"),
     AUTOKICK_TIME(Integer.class, "autokick.time"),
     //
+    DISCORD_VERIFICATION_ENABLED(Boolean.class, "verification.enabled"),
+    DISCORD_VERIFICATION_BOT_TOKEN(String.class, "verification.token"),
+    //
     LOGS_SECRET(String.class, "logs.secret"),
     LOGS_URL(String.class, "logs.url"),
     //

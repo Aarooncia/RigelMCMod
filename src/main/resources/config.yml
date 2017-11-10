@@ -53,7 +53,16 @@ server:
 
   # URL players should appeal for permanent bans at
   permban_url: coming soon!
-
+  
+# The discord bot self verification system
+verification:
+  # Should this be enabled?
+  enabled: false
+  
+  # If you do not know the bot token or don't have a bot created, you can do so at https://discordapp.com/developers/applications/me
+  # A token must be specified if you have enabled verification
+  token: ''
+  
 # Admin list
 adminlist:
 

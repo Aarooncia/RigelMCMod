@@ -18,6 +18,7 @@ import me.rigelmc.rigelmcmod.bridge.BukkitTelnetBridge;
 import me.rigelmc.rigelmcmod.bridge.EssentialsBridge;
 import me.rigelmc.rigelmcmod.bridge.LibsDisguisesBridge;
 import me.rigelmc.rigelmcmod.bridge.WorldEditBridge;
+import me.rigelmc.rigelmcmod.discord.Discord;
 import me.rigelmc.rigelmcmod.caging.Cager;
 import me.rigelmc.rigelmcmod.command.CommandLoader;
 import me.rigelmc.rigelmcmod.config.MainConfig;
@@ -83,6 +84,7 @@ public class RigelMCMod extends AeroPlugin<RigelMCMod>
     public Cager ca;
     public Freezer fm;
     public Orbiter or;
+    public Discord dc;
     public Muter mu;
     public Fuckoff fo;
     public AutoKick ak;
@@ -163,6 +165,7 @@ public class RigelMCMod extends AeroPlugin<RigelMCMod>
         lp = services.registerService(LoginProcess.class);
         nu = services.registerService(AntiNuke.class);
         as = services.registerService(AntiSpam.class);
+        dc = services.registerService(Discord.class);
 
         pl = services.registerService(PlayerList.class);
         an = services.registerService(Announcer.class);
