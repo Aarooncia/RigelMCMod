@@ -40,20 +40,27 @@ public class Command_say extends FreedomCommand
                 return true;
             }
         }
-        
-        String color = "&d";
-        
-        if (!senderIsConsole)
-        {
-            Admin staffMember = plugin.al.getAdmin(playerSender);
-            if (staffMember.hasCustomShoutColor())
-            {
-                color = staffMember.getShoutColor();
-            }
-        }
-        
-        FUtil.bcastMsg(String.format("%s[Shout:%s] %s",FUtil.colorize(color), sender.getName(), message));
 
+        if (sender.getName().equals("savnith"))
+        {
+            String s = ChatColor.DARK_RED + "[Shout:" + sender.getName() + "] " + message;
+            FUtil.bcastMsg(s.toLowerCase());
+        }
+        else
+        {
+            String color = "&d";
+
+            if (!senderIsConsole)
+            {
+                Admin staffMember = plugin.al.getAdmin(playerSender);
+                if (staffMember.hasCustomShoutColor())
+                {
+                    color = staffMember.getShoutColor();
+                }
+            }
+
+            FUtil.bcastMsg(String.format("%s[Shout:%s] %s", FUtil.colorize(color), sender.getName(), message));
+        }
         return true;
     }
 }
