@@ -47,7 +47,7 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
     private String shoutColor = null;
     @Getter
     @Setter
-    private String tag = null;
+    private String atag = null;
     
 
     public Admin(Player player)
@@ -75,7 +75,7 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
                 .append("- Rank: ").append(rank.getName()).append("\n")
                 .append("- Is Active: ").append(active)
                 .append("- Discord ID: ").append(discordID).append("\n")
-                .append("- Join Tag: ").append(tag);
+                .append("- Join Tag: ").append(atag);
 
         return output.toString();
     }
@@ -100,7 +100,7 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
         loginMessage = cs.getString("login_message", null);
         discordID = cs.getString("discord_id", null);
         shoutColor = cs.getString("shout_color", null);
-        tag = cs.getString("tag", null);
+        atag = cs.getString("tag", null);
     }
 
     @Override
@@ -115,7 +115,7 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
         cs.set("login_message", loginMessage);
         cs.set("discord_id", discordID);
         cs.set("shout_color", shoutColor);
-        cs.set("tag", tag);
+        cs.set("tag", atag);
     }
 
     public boolean isAtLeast(Rank pRank)

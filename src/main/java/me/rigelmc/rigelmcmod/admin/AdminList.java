@@ -34,6 +34,7 @@ public class AdminList extends FreedomService
     private final Set<Admin> activeAdmins = Sets.newHashSet();
     private final Map<String, Admin> nameTable = Maps.newHashMap();
     private final Map<String, Admin> ipTable = Maps.newHashMap();
+    private final Map<String, Admin> tagTable = Maps.newHashMap();
     //
     private final YamlConfig config;
 
@@ -292,7 +293,7 @@ public class AdminList extends FreedomService
 
         return true;
     }
-
+    
     public void updateTables()
     {
         activeAdmins.clear();
@@ -348,7 +349,7 @@ public class AdminList extends FreedomService
 
             if (verbose)
             {
-                FUtil.adminAction("TotalFreedomMod", "Deactivating superadmin " + admin.getName() + ", inactive for " + lastLoginHours + " hours", true);
+                FUtil.adminAction("RigelMC", "Deactivating superadmin " + admin.getName() + ", inactive for " + lastLoginHours + " hours", true);
             }
 
             admin.setActive(false);

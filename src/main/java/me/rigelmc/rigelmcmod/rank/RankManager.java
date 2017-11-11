@@ -67,9 +67,7 @@ public class RankManager extends FreedomService
         }
 
         final Rank rank = getRank(player);
-        
-        
-        
+
         // Non-admins don't have titles, display actual rank
         if (!rank.isAdmin())
         {
@@ -89,7 +87,6 @@ public class RankManager extends FreedomService
         {
             return Title.OWNER;
         }
-
         return rank;
     }
 
@@ -194,8 +191,17 @@ public class RankManager extends FreedomService
             }
 
             FUtil.bcastMsg(ChatColor.AQUA + player.getName() + " is " + loginMsg);
-            plugin.pl.getPlayer(player).setTag(display.getColoredTag());
+            Admin target = plugin.al.getAdmin(player);
 
+            if (!target.getAtag().isEmpty())
+            {
+                plugin.pl.getPlayer(player).setTag(target.getAtag());
+            }
+            else
+            {
+                plugin.pl.getPlayer(player).setTag(display.getColoredTag());
+            }
+            
             String displayName = display.getColor() + player.getName();
             try
             {

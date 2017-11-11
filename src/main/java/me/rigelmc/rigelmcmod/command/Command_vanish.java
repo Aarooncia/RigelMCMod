@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package me.rigelmc.rigelmcmod.command;
 
 import java.util.ArrayList;
@@ -41,9 +36,18 @@ public class Command_vanish extends FreedomCommand
                 loginMsg = FUtil.colorize(admin.getLoginMessage());
             }
             FUtil.bcastMsg(ChatColor.AQUA + playerSender.getName() + " is " + loginMsg);
-
             FUtil.bcastMsg(ChatColor.YELLOW + playerSender.getName() + " joined the game");
-            plugin.pl.getPlayer(playerSender).setTag(display.getColoredTag());
+            Admin target = plugin.al.getAdmin(playerSender);
+
+            if (!target.getAtag().isEmpty())
+            {
+                plugin.pl.getPlayer(playerSender).setTag(target.getAtag());
+            }
+            else
+            {
+                plugin.pl.getPlayer(playerSender).setTag(display.getColoredTag());
+            }
+            
             FLog.info(playerSender.getName() + " is no longer vanished.");
             for (Player player : server.getOnlinePlayers())
             {
@@ -59,7 +63,7 @@ public class Command_vanish extends FreedomCommand
         else if (!(vanished.contains(playerSender)))
         {
             msg(ChatColor.GOLD + "You have been vanished.");
-           FUtil.bcastMsg(ChatColor.YELLOW + playerSender.getName() + " left the game");
+            FUtil.bcastMsg(ChatColor.YELLOW + playerSender.getName() + " left the game");
             FLog.info(playerSender.getName() + " is now vanished.");
             for (Player player : server.getOnlinePlayers())
             {
@@ -74,4 +78,3 @@ public class Command_vanish extends FreedomCommand
         return true;
     }
 }
-

@@ -184,8 +184,8 @@ public class Command_myadmin extends FreedomCommand
             {
                 FUtil.adminAction(sender.getName(), "Setting personal default tag" + (init == null ? "" : " for " + targetPlayer.getName()), false);
                 String tag = StringUtils.join(args, " ", 1, args.length);
-                target.setTag(tag);
-                msg((init == null ? "Your" : targetPlayer.getName() + "'s") + " default tag is now: " + FUtil.colorize(target.getTag()));
+                target.setAtag(tag);
+                msg((init == null ? "Your" : targetPlayer.getName() + "'s") + " default tag is now: " + FUtil.colorize(target.getAtag()));
                 plugin.al.save();
                 plugin.al.updateTables();
                 return true;
@@ -195,7 +195,7 @@ public class Command_myadmin extends FreedomCommand
             {
                 FUtil.adminAction(sender.getName(), "Clearing personal default tag" + (init == null ? "" : " for " + targetPlayer.getName()), false);
                 String tag = StringUtils.join(args, " ", 1, args.length);
-                target.setTag(null);
+                target.setAtag(tag);
                 plugin.al.save();
                 plugin.al.updateTables();
                 return true;
