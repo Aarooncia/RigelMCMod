@@ -3,6 +3,7 @@ package me.rigelmc.rigelmcmod;
 import java.util.regex.Pattern;
 import lombok.Getter;
 import lombok.Setter;
+import me.rigelmc.rigelmcmod.command.FreedomCommand;
 import me.rigelmc.rigelmcmod.config.ConfigEntry;
 import me.rigelmc.rigelmcmod.util.FSync;
 import me.rigelmc.rigelmcmod.util.FUtil;
@@ -77,7 +78,14 @@ public class LoginProcess extends FreedomService
         final Player player = event.getPlayer();
         final String username = player.getName();
         final String ip = event.getAddress().getHostAddress().trim();
-
+        
+        // Op player on join if the player is not opped
+        if (ConfigEntry.OP_ON_JOIN.getBoolean() && !player.isOp() && !plugin.al.isAdminImpostor(player))
+        {
+            player.setOp(true);
+            player.sendMessage(FreedomCommand.YOU_ARE_OP);
+        }
+        
         // Check username length
         if (username.length() < MIN_USERNAME_LENGTH || username.length() > MAX_USERNAME_LENGTH)
         {

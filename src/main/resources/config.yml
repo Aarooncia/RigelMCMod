@@ -63,6 +63,9 @@ verification:
   # A token must be specified if you have enabled verification
   token: ''
   
+# Should players be opped on join
+op_on_join: true 
+  
 # Admin list
 adminlist:
 
