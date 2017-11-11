@@ -52,8 +52,15 @@ public class Command_gtfo extends FreedomCommand
         {
         }
 
-        // Rollback
-        plugin.rb.rollback(player.getName());
+        // find coreprotect, if not there just use the normal tf rollback thing.
+        if (!server.getPluginManager().isPluginEnabled("CoreProtect"))
+        {
+            server.dispatchCommand(sender, "co rb u:" + player.getName() + " t:24h r:global #silent");
+        }
+        else
+        {
+            plugin.rb.rollback(player.getName());
+        }
 
         // Deop
         player.setOp(false);
