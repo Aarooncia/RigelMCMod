@@ -13,14 +13,7 @@ import me.rigelmc.rigelmcmod.config.ConfigEntry;
 import me.rigelmc.rigelmcmod.httpd.NanoHTTPD.HTTPSession;
 import me.rigelmc.rigelmcmod.httpd.NanoHTTPD.Response;
 import me.rigelmc.rigelmcmod.httpd.module.HTTPDModule;
-import me.rigelmc.rigelmcmod.httpd.module.Module_dump;
-import me.rigelmc.rigelmcmod.httpd.module.Module_file;
-import me.rigelmc.rigelmcmod.httpd.module.Module_help;
-import me.rigelmc.rigelmcmod.httpd.module.Module_list;
-import me.rigelmc.rigelmcmod.httpd.module.Module_logs;
-import me.rigelmc.rigelmcmod.httpd.module.Module_permbans;
-import me.rigelmc.rigelmcmod.httpd.module.Module_players;
-import me.rigelmc.rigelmcmod.httpd.module.Module_schematic;
+import me.rigelmc.rigelmcmod.httpd.module.*;
 import me.rigelmc.rigelmcmod.util.FLog;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
@@ -61,6 +54,9 @@ public class HTTPDaemon extends FreedomService
         module("permbans", Module_permbans.class, true);
         module("players", Module_players.class, false);
         module("schematic", Module_schematic.class, true);
+        module("logfile", Module_logfile.class, true);
+        module("bans", Module_bans.class, true);
+        module("staff", Module_staff.class, true);
 
         try
         {
@@ -68,11 +64,11 @@ public class HTTPDaemon extends FreedomService
 
             if (httpd.isAlive())
             {
-                FLog.info("TFM HTTPd started. Listening on port: " + httpd.getListeningPort());
+                FLog.info("RMC HTTPd started. Listening on port: " + httpd.getListeningPort());
             }
             else
             {
-                FLog.info("Error starting TFM HTTPd.");
+                FLog.info("Error starting RMC HTTPd.");
             }
         }
         catch (IOException ex)
@@ -91,7 +87,7 @@ public class HTTPDaemon extends FreedomService
 
         httpd.stop();
 
-        FLog.info("TFM HTTPd stopped.");
+        FLog.info("RMC HTTPd stopped.");
     }
 
     private void module(String name, Class<? extends HTTPDModule> clazz, boolean async)

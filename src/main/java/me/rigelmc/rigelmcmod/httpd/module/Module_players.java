@@ -2,6 +2,7 @@ package me.rigelmc.rigelmcmod.httpd.module;
 
 import me.rigelmc.rigelmcmod.RigelMCMod;
 import me.rigelmc.rigelmcmod.admin.Admin;
+import me.rigelmc.rigelmcmod.config.ConfigEntry;
 import me.rigelmc.rigelmcmod.httpd.NanoHTTPD;
 import me.rigelmc.rigelmcmod.util.FUtil;
 import org.bukkit.Bukkit;
@@ -56,6 +57,7 @@ public class Module_players extends HTTPDModule
 
         // Developers
         developers.addAll(FUtil.DEVELOPERS);
+        developers.addAll(ConfigEntry.SERVER_DEVELOPERS.getStringList());
 
         responseObject.put("players", players);
         responseObject.put("superadmins", superadmins);

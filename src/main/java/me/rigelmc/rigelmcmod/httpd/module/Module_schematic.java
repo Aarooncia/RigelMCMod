@@ -59,7 +59,7 @@ public class Module_schematic extends HTTPDModule
 
     public String title()
     {
-        return "TotalFreedomMod :: Schematic Manager";
+        return "RigelMC :: Schematic Manager";
     }
 
     public String body() throws ResponseOverrideException

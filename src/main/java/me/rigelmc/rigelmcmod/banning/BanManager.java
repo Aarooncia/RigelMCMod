@@ -31,6 +31,7 @@ public class BanManager extends FreedomService
     private final Map<String, Ban> nameBans = Maps.newHashMap();
     private final List<String> unbannableUsernames = Lists.newArrayList();
     //
+    public static final String CONFIG_FILENAME = "bans.yml";
     private final YamlConfig config;
 
     public BanManager(RigelMCMod plugin)
@@ -77,6 +78,7 @@ public class BanManager extends FreedomService
     }
 
     @Override
+    @SuppressWarnings("LoggerStringConcat")
     protected void onStop()
     {
         saveAll();
