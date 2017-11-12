@@ -1,10 +1,16 @@
 # RigelMCMod 
 
-[!Build Status] (https://travis-ci.org/RigelMC/RigelMCMod?branch=master)] (https://travis-ci.org/RigelMC/RigelMCMod)
+[!Build Status] (https://travis-ci.org/RigelMC/RigelMCMod.svg?branch=master)] (https://travis-ci.org/RigelMC/RigelMCMod)
 
 RigelMCMod is a plugin made for the RigelMC server, with special implementations that make the server what it is.
 
 Developers, LightWarp, Savnith, Skoonk_Xeoda, and Commodore64x. 
+
+# RigelMC Links
+
+Server IP: play.rigelmc.net
+
+[Discord] (https://discord.gg/pUcyjfW)
 
 # TotalFreedomMod #
 
