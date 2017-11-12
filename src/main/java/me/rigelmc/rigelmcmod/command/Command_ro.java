@@ -111,15 +111,12 @@ public class Command_ro extends FreedomCommand
                 }
             }
         }
-        else
+        else if (targetPlayer.getWorld() != adminWorld)
         {
-            if (targetPlayer.getWorld() != adminWorld)
+            for (Material material : materials)
             {
-                for (Material material : materials)
-                {
-                    FUtil.adminAction(sender.getName(), "Removing all " + names + " within " + radius + " blocks of " + targetPlayer.getName(), false);
-                    affected += replaceBlocks(targetPlayer.getLocation(), material, Material.AIR, radius);
-                }
+                FUtil.adminAction(sender.getName(), "Removing all " + names + " within " + radius + " blocks of " + targetPlayer.getName(), false);
+                affected += replaceBlocks(targetPlayer.getLocation(), material, Material.AIR, radius);
             }
         }
 

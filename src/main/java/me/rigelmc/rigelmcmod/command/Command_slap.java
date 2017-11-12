@@ -25,7 +25,8 @@ public class Command_slap extends FreedomCommand
             msg(FreedomCommand.PLAYER_NOT_FOUND);
             return true;
         }
-        FUtil.bcastMsg(ChatColor.AQUA + plugin.esb.getDisplayName(playerSender.getName()) + ChatColor.AQUA + " gave " + plugin.esb.getDisplayName(player.getName()) + ChatColor.AQUA + " a nice bitch slap to the face!");
+        FUtil.bcastMsg(ChatColor.AQUA + plugin.esb.getDisplayName(playerSender.getName()) + ChatColor.AQUA
+                + " gave " + plugin.esb.getDisplayName(player.getName()) + ChatColor.AQUA + " a nice bitch slap to the face!");
         return true;
     }
 }

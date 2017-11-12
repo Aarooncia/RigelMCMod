@@ -127,7 +127,7 @@ public class EssentialsBridge extends FreedomService
         }
         return name;
     }
-    
+
     public long getLastActivity(String username)
     {
         try

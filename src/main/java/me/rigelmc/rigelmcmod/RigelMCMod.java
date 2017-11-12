@@ -52,6 +52,7 @@ public class RigelMCMod extends AeroPlugin<RigelMCMod>
     public static String pluginName;
     public static String pluginVersion;
     //
+    @SuppressWarnings("FieldNameHidesFieldInSuperclass")
     public MainConfig config;
     //
     // Services
@@ -91,7 +92,6 @@ public class RigelMCMod extends AeroPlugin<RigelMCMod>
     public AutoEject ae;
     public MovementValidator mv;
     public EntityWiper ew;
-    public FrontDoor fd;
     public ServerPing sp;
     public ItemFun it;
     public Landminer lm;
@@ -99,6 +99,8 @@ public class RigelMCMod extends AeroPlugin<RigelMCMod>
     public Jumppads jp;
     public Trailer tr;
     public HTTPDaemon hd;
+    public EditBlocker ebl;
+    public PvPBlocker pbl;
     //
     // Bridges
     public ServiceManager<RigelMCMod> bridges;
@@ -122,7 +124,7 @@ public class RigelMCMod extends AeroPlugin<RigelMCMod>
     @Override
     public void enable()
     {
-        FLog.info("Created by Madgeek1450, Prozza and LightWarp");
+        FLog.info("Created by Madgeek1450, Prozza, Savnith and LightWarp");
         FLog.info("Version " + build.formattedVersion());
         FLog.info("Compiled " + build.date + " by " + build.author);
 
@@ -188,7 +190,6 @@ public class RigelMCMod extends AeroPlugin<RigelMCMod>
 
         mv = services.registerService(MovementValidator.class);
         ew = services.registerService(EntityWiper.class);
-        fd = services.registerService(FrontDoor.class);
         sp = services.registerService(ServerPing.class);
 
         // Fun
@@ -197,6 +198,9 @@ public class RigelMCMod extends AeroPlugin<RigelMCMod>
         mp = services.registerService(MP44.class);
         jp = services.registerService(Jumppads.class);
         tr = services.registerService(Trailer.class);
+        
+        ebl = services.registerService(EditBlocker.class);
+        pbl = services.registerService(PvPBlocker.class);
 
         // HTTPD
         hd = services.registerService(HTTPDaemon.class);

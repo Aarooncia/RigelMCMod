@@ -506,23 +506,20 @@ public class Metrics
 
             throw new IOException(response);
         }
-        else
+        else // Is this the first update this hour?
+        if (response.equals("1") || response.contains("This is your first update this hour"))
         {
-            // Is this the first update this hour?
-            if (response.equals("1") || response.contains("This is your first update this hour"))
+            synchronized (graphs)
             {
-                synchronized (graphs)
+                final Iterator<Graph> iter = graphs.iterator();
+
+                while (iter.hasNext())
                 {
-                    final Iterator<Graph> iter = graphs.iterator();
+                    final Graph graph = iter.next();
 
-                    while (iter.hasNext())
+                    for (Plotter plotter : graph.getPlotters())
                     {
-                        final Graph graph = iter.next();
-
-                        for (Plotter plotter : graph.getPlotters())
-                        {
-                            plotter.reset();
-                        }
+                        plotter.reset();
                     }
                 }
             }

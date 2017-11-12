@@ -57,12 +57,9 @@ public class Command_cartsit extends FreedomCommand
                     {
                         nearest_cart = cart;
                     }
-                    else
+                    else if (cart.getLocation().distanceSquared(targetPlayer.getLocation()) < nearest_cart.getLocation().distanceSquared(targetPlayer.getLocation()))
                     {
-                        if (cart.getLocation().distanceSquared(targetPlayer.getLocation()) < nearest_cart.getLocation().distanceSquared(targetPlayer.getLocation()))
-                        {
-                            nearest_cart = cart;
-                        }
+                        nearest_cart = cart;
                     }
                 }
             }

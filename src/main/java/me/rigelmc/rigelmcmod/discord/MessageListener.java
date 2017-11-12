@@ -7,12 +7,13 @@ import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
 public class MessageListener extends ListenerAdapter
 {
+
     @Override
     public void onPrivateMessageReceived(PrivateMessageReceivedEvent event)
     {
         if (!event.getAuthor().getId().equals(RigelMCMod.plugin().dc.bot.getSelfUser().getId()))
         {
-            
+
             // Handle link code
             if (event.getMessage().getRawContent().matches("[0-9][0-9][0-9][0-9][0-9]"))
             {

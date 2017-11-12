@@ -66,7 +66,7 @@ public class Module_players extends HTTPDModule
         gods.addAll(ConfigEntry.SERVER_GODS.getStringList());
         masterbuilders.addAll(ConfigEntry.SERVER_MASTER_BUILDERS.getStringList());
         buddhists.addAll(ConfigEntry.SERVER_BUDDHISTS.getStringList());
-        
+
         responseObject.put("buddhists", buddhists);
         responseObject.put("masterbuilders", masterbuilders);
         responseObject.put("gods", gods);

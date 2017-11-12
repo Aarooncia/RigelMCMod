@@ -15,6 +15,7 @@ public class UUIDFetcher
 
     private static final String PROFILE_URL = "https://api.mojang.com/profiles/minecraft";
 
+    @SuppressWarnings("ConvertToTryWithResources")
     public static UUID fetch(String name)
     {
         try

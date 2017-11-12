@@ -61,6 +61,7 @@ public class FPlayer
     private BukkitTask mp44ScheduleTask = null;
     private boolean mp44Armed = false;
     private boolean mp44Firing = false;
+    @SuppressWarnings("FieldMayBeFinal")
     private boolean blockEditsBlocked = false;
     @Getter
     @Setter
@@ -353,7 +354,7 @@ public class FPlayer
             @Override
             public void run()
             {
-                FUtil.adminAction("TotalFreedom", "Unblocking block edits for " + getPlayer().getName(), false);
+                FUtil.adminAction("RigelMC", "Unblocking block edits for " + getPlayer().getName(), false);
                 setEditBlocked(false);
             }
         }.runTaskLater(plugin, AUTO_PURGE_TICKS);
@@ -383,7 +384,7 @@ public class FPlayer
             @Override
             public void run()
             {
-                FUtil.adminAction("TotalFreedom", "Enabling PVP mode for " + getPlayer().getName(), false);
+                FUtil.adminAction("RigelMC", "Enabling PVP mode for " + getPlayer().getName(), false);
                 setPVPBlock(false);
             }
         }.runTaskLater(plugin, AUTO_PURGE_TICKS);

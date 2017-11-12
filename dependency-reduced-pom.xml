@@ -4,7 +4,7 @@
   <groupId>me.rigelmc</groupId>
   <artifactId>rigelmc</artifactId>
   <name>RigelMCMod</name>
-  <version>5.0</version>
+  <version>2.1</version>
   <description>Server modification for the RigelMC FreeOP server</description>
   <url>https://github.com/LightWarp/RigelMCMod</url>
   <licenses>
@@ -14,9 +14,9 @@
     </license>
   </licenses>
   <scm>
-    <connection>scm:git:git@github.com:TotalFreedom/TotalFreedomMod.git</connection>
-    <developerConnection>scm:git:git@github.com:TotalFreedom/TotalFreedomMod.git</developerConnection>
-    <url>git@github.com:TotalFreedom/TotalFreedomMod.git</url>
+    <connection>scm:git:git@github.com:RigelMC/RigelMCMod.git</connection>
+    <developerConnection>scm:git:git@github.com:RigelMC/RigelMCMod.git</developerConnection>
+    <url>git@github.com:RigelMC/RigelMCMod.git</url>
   </scm>
   <organization>
     <name>RigelMC</name>

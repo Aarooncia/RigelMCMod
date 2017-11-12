@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 @CommandPermissions(level = Rank.OP, source = SourceType.BOTH)
 @CommandParameters(description = "Go to the AdminWorld.",
         usage = "/<command> [guest < list | purge | add <player> | remove <player> > | time <morning | noon | evening | night> | weather <off | on | storm>]", aliases = "aw")
-        
+
 public class Command_adminworld extends FreedomCommand
 {
 
@@ -77,17 +77,14 @@ public class Command_adminworld extends FreedomCommand
                         msg("Going to the main world.");
                         playerSender.teleport(server.getWorlds().get(0).getSpawnLocation());
                     }
+                    else if (plugin.wm.adminworld.canAccessWorld(playerSender))
+                    {
+                        msg("Going to the AdminWorld.");
+                        plugin.wm.adminworld.sendToWorld(playerSender);
+                    }
                     else
                     {
-                        if (plugin.wm.adminworld.canAccessWorld(playerSender))
-                        {
-                            msg("Going to the AdminWorld.");
-                            plugin.wm.adminworld.sendToWorld(playerSender);
-                        }
-                        else
-                        {
-                            msg("You don't have permission to access the AdminWorld.");
-                        }
+                        msg("You don't have permission to access the AdminWorld.");
                     }
 
                     break;

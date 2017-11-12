@@ -78,14 +78,14 @@ public class LoginProcess extends FreedomService
         final Player player = event.getPlayer();
         final String username = player.getName();
         final String ip = event.getAddress().getHostAddress().trim();
-        
+
         // Op player on join if the player is not opped
         if (ConfigEntry.OP_ON_JOIN.getBoolean() && !player.isOp() && !plugin.al.isAdminImpostor(player))
         {
             player.setOp(true);
             player.sendMessage(FreedomCommand.YOU_ARE_OP);
         }
-        
+
         // Check username length
         if (username.length() < MIN_USERNAME_LENGTH || username.length() > MAX_USERNAME_LENGTH)
         {

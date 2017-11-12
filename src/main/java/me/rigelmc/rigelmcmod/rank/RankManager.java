@@ -201,7 +201,7 @@ public class RankManager extends FreedomService
             {
                 plugin.pl.getPlayer(player).setTag(display.getColoredTag());
             }
-            
+
             String displayName = display.getColor() + player.getName();
             try
             {

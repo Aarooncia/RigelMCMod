@@ -78,7 +78,7 @@ public class Command_list extends FreedomCommand
             msg("/list [-a | -i | -f]", ChatColor.WHITE);
             return true;
         }
-        
+
         final StringBuilder onlineStats = new StringBuilder();
         final StringBuilder onlineUsers = new StringBuilder();
 

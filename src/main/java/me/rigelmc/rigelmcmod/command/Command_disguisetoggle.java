@@ -39,8 +39,8 @@ public class Command_disguisetoggle extends FreedomCommand
 
         return true;
 
-*/
-        
+         */
+
         msg("This command has been disabled for technical reasons. Contact a developer for additional information.");
         return true;
     }

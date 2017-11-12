@@ -52,7 +52,7 @@ public class ChatManager extends FreedomService
 
         // Strip color from messages
         message = ChatColor.stripColor(message);
-        
+
         if (!FUtil.isExecutive(player.getName()))
         {
             message = message.replaceAll(ChatColor.BOLD.toString(), "&l");

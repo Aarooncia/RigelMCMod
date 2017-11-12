@@ -66,16 +66,13 @@ public class Command_cage extends FreedomCommand
 
                 return true;
             }
-            else
+            else if ("darth".equalsIgnoreCase(args[1]))
             {
-                if ("darth".equalsIgnoreCase(args[1]))
-                {
-                    outerMaterial = Material.SKULL;
-                }
-                else if (Material.matchMaterial(args[1]) != null)
-                {
-                    outerMaterial = Material.matchMaterial(args[1]);
-                }
+                outerMaterial = Material.SKULL;
+            }
+            else if (Material.matchMaterial(args[1]) != null)
+            {
+                outerMaterial = Material.matchMaterial(args[1]);
             }
         }
 

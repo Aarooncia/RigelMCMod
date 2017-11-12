@@ -4,7 +4,7 @@
 
     <groupId>me.rigelmc</groupId>
     <artifactId>rigelmc</artifactId>
-    <version>5.0</version>
+    <version>2.1</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -36,9 +36,9 @@
     </organization>
 
     <scm>
-        <connection>scm:git:git@github.com:TotalFreedom/TotalFreedomMod.git</connection>
-        <developerConnection>scm:git:git@github.com:TotalFreedom/TotalFreedomMod.git</developerConnection>
-        <url>git@github.com:TotalFreedom/TotalFreedomMod.git</url>
+        <connection>scm:git:git@github.com:RigelMC/RigelMCMod.git</connection>
+        <developerConnection>scm:git:git@github.com:RigelMC/RigelMCMod.git</developerConnection>
+        <url>git@github.com:RigelMC/RigelMCMod.git</url>
     </scm>
 
     <repositories>

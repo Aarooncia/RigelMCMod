@@ -293,7 +293,7 @@ public class AdminList extends FreedomService
 
         return true;
     }
-    
+
     public void updateTables()
     {
         activeAdmins.clear();

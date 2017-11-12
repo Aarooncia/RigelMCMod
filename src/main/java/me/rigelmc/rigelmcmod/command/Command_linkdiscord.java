@@ -21,14 +21,14 @@ public class Command_linkdiscord extends FreedomCommand
             msg("The discord verification system is currently disabled", ChatColor.RED);
             return true;
         }
-        
+
         Admin admin = plugin.al.getAdmin(playerSender);
         if (admin.getDiscordID() != null)
         {
             msg("Your minecraft account is already linked to a discord account", ChatColor.RED);
             return true;
         }
-        
+
         if (plugin.dc.LINK_CODES.containsValue(admin))
         {
             msg("Your linking code is " + ChatColor.GREEN + plugin.dc.getCodeForAdmin(admin), ChatColor.AQUA);
@@ -37,7 +37,7 @@ public class Command_linkdiscord extends FreedomCommand
         {
             String code = "";
             Random random = new Random();
-            for (int i = 0; i < 4; i++)   
+            for (int i = 0; i < 4; i++)
             {
                 code += random.nextInt(10);
             }

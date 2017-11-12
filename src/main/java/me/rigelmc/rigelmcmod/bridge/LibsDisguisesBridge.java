@@ -13,8 +13,7 @@ import org.bukkit.plugin.Plugin;
 public class LibsDisguisesBridge extends FreedomService
 {
 
-   // private LibsDisguises libsDisguisesPlugin = null;
-
+    // private LibsDisguises libsDisguisesPlugin = null;
     public LibsDisguisesBridge(RigelMCMod plugin)
     {
         super(plugin);
@@ -29,7 +28,7 @@ public class LibsDisguisesBridge extends FreedomService
     protected void onStop()
     {
     }
-/*
+    /*
     public LibsDisguises getLibsDisguisesPlugin()
     {
         if (libsDisguisesPlugin == null)

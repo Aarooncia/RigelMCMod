@@ -10,7 +10,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-
 @CommandPermissions(level = Rank.NON_OP, source = SourceType.BOTH)
 @CommandParameters(description = "Shows information about RigelMCMod or reloads it", usage = "/<command> [reload]", aliases = "rmcm")
 public class Command_rigelmcmod extends FreedomCommand

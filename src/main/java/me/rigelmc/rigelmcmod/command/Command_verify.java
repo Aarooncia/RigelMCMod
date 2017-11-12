@@ -26,21 +26,21 @@ public class Command_verify extends FreedomCommand
             msg("The discord verification system is currently disabled", ChatColor.RED);
             return true;
         }
-        
+
         if (!plugin.al.isAdminImpostor(playerSender))
         {
             msg("You are not an imposter, therefore you do not need to verify", ChatColor.RED);
             return true;
         }
-        
+
         Admin admin = plugin.al.getEntryByName(playerSender.getName());
-        
+
         if (admin.getDiscordID() == null)
         {
             msg("You do not have a discord account linked to your minecraft account, please verify the manual way.", ChatColor.RED);
             return true;
         }
-        
+
         if (args.length < 1)
         {
             String code = "";

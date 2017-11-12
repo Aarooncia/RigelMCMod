@@ -25,7 +25,8 @@ public class Command_pat extends FreedomCommand
             msg(FreedomCommand.PLAYER_NOT_FOUND);
             return true;
         }
-        FUtil.bcastMsg(ChatColor.AQUA + plugin.esb.getDisplayName(playerSender.getName()) + ChatColor.AQUA + " gave " + plugin.esb.getDisplayName(player.getName()) + ChatColor.AQUA + " a pat on the head");
+        FUtil.bcastMsg(ChatColor.AQUA + plugin.esb.getDisplayName(playerSender.getName()) + ChatColor.AQUA
+                + " gave " + plugin.esb.getDisplayName(player.getName()) + ChatColor.AQUA + " a pat on the head");
         return true;
     }
 }

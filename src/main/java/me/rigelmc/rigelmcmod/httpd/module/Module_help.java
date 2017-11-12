@@ -42,8 +42,8 @@ public class Module_help extends HTTPDModule
         final StringBuilder responseBody = new StringBuilder()
                 .append(heading("Command Help", 1))
                 .append(paragraph(
-                                "This page is an automatically generated listing of all plugin commands that are currently live on the server. "
-                                + "Please note that it does not include vanilla server commands."));
+                        "This page is an automatically generated listing of all plugin commands that are currently live on the server. "
+                        + "Please note that it does not include vanilla server commands."));
 
         final Collection<Command> knownCommands = ((SimpleCommandMap) map).getCommands();
         final Map<String, List<Command>> commandsByPlugin = new HashMap<>();

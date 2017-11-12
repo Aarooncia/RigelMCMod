@@ -74,28 +74,25 @@ public class Command_debug extends FreedomCommand
                         throw new Exception("Unknown primitive field type.");
                     }
                 }
+                else if (type.isAssignableFrom(Integer.class))
+                {
+                    newValue = new Integer(newValueString);
+                }
+                else if (type.isAssignableFrom(Double.class))
+                {
+                    newValue = new Double(newValueString);
+                }
+                else if (type.isAssignableFrom(Boolean.class))
+                {
+                    newValue = Boolean.valueOf(newValueString);
+                }
+                else if (type.isAssignableFrom(String.class))
+                {
+                    newValue = newValueString;
+                }
                 else
                 {
-                    if (type.isAssignableFrom(Integer.class))
-                    {
-                        newValue = new Integer(newValueString);
-                    }
-                    else if (type.isAssignableFrom(Double.class))
-                    {
-                        newValue = new Double(newValueString);
-                    }
-                    else if (type.isAssignableFrom(Boolean.class))
-                    {
-                        newValue = Boolean.valueOf(newValueString);
-                    }
-                    else if (type.isAssignableFrom(String.class))
-                    {
-                        newValue = newValueString;
-                    }
-                    else
-                    {
-                        throw new Exception("Unknown complex field type.");
-                    }
+                    throw new Exception("Unknown complex field type.");
                 }
 
                 field.setAccessible(true);

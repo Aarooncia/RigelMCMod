@@ -18,6 +18,7 @@ import me.rigelmc.rigelmcmod.RigelMCMod;
 
 public class Discord extends FreedomService
 {
+
     public static HashMap<String, Admin> LINK_CODES = new HashMap<>();
     public static List<String> VERIFY_CODES = new ArrayList();
     public static JDA bot = null;
@@ -28,8 +29,8 @@ public class Discord extends FreedomService
         super(plugin);
     }
 
-     public void startBot()
-     {
+    public void startBot()
+    {
         if (ConfigEntry.DISCORD_VERIFICATION_ENABLED.getBoolean())
         {
             if (!ConfigEntry.DISCORD_VERIFICATION_BOT_TOKEN.getString().isEmpty())
@@ -45,14 +46,15 @@ public class Discord extends FreedomService
         {
             for (Object o : bot.getRegisteredListeners())
             {
-               bot.removeEventListener(o);
+                bot.removeEventListener(o);
             }
         }
         try
         {
             if (enabled)
             {
-                bot = new JDABuilder(AccountType.BOT).setToken(ConfigEntry.DISCORD_VERIFICATION_BOT_TOKEN.getString()).addEventListener(new MessageListener()).setAudioEnabled(false).setAutoReconnect(true).buildBlocking();
+                bot = new JDABuilder(AccountType.BOT).setToken(ConfigEntry.DISCORD_VERIFICATION_BOT_TOKEN.getString())
+                        .addEventListener(new MessageListener()).setAudioEnabled(false).setAutoReconnect(true).buildBlocking();
                 FLog.info("Discord verification bot has successfully enabled!");
             }
         }
@@ -75,15 +77,16 @@ public class Discord extends FreedomService
     {
         startBot();
     }
-    
+
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     public static void sendMessage(MessageChannel channel, String message)
     {
         channel.sendMessage(message);
     }
-    
+
     public static String getCodeForAdmin(Admin admin)
     {
-        for (String code: LINK_CODES.keySet())
+        for (String code : LINK_CODES.keySet())
         {
             if (LINK_CODES.get(code).equals(admin))
             {

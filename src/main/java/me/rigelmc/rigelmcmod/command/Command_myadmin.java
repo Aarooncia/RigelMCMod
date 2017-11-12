@@ -190,7 +190,7 @@ public class Command_myadmin extends FreedomCommand
                 plugin.al.updateTables();
                 return true;
             }
-            
+
             case "cleartag":
             {
                 FUtil.adminAction(sender.getName(), "Clearing personal default tag" + (init == null ? "" : " for " + targetPlayer.getName()), false);

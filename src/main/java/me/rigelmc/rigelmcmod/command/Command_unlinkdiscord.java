@@ -20,7 +20,7 @@ public class Command_unlinkdiscord extends FreedomCommand
             msg("The discord verification system is currently disabled", ChatColor.RED);
             return true;
         }
-        
+
         Admin admin = plugin.al.getAdmin(playerSender);
         if (admin.getDiscordID() == null)
         {

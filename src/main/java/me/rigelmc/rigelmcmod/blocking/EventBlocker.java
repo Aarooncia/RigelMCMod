@@ -71,7 +71,7 @@ public class EventBlocker extends FreedomService
     {
         if (!ConfigEntry.ALLOW_EXPLOSIONS.getBoolean())
         {
-            event.setCancelled(true);
+            event.blockList().clear();
             return;
         }
 
@@ -111,7 +111,7 @@ public class EventBlocker extends FreedomService
     @EventHandler(priority = EventPriority.HIGH)
     public void onProjectileHit(ProjectileHitEvent event)
     {
-        if (ConfigEntry.ALLOW_EXPLOSIONS.getBoolean())
+        if (ConfigEntry.MAKE_ARROW_EXPLOSIVE.getBoolean())
         {
             Projectile entity = event.getEntity();
             if (event.getEntityType() == EntityType.ARROW)
@@ -168,5 +168,4 @@ public class EventBlocker extends FreedomService
     {
         event.setCancelled(true);
     }
-
 }

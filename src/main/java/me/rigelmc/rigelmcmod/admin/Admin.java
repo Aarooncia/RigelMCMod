@@ -48,7 +48,6 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
     @Getter
     @Setter
     private String atag = null;
-    
 
     public Admin(Player player)
     {
@@ -132,7 +131,7 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
     {
         return shoutColor != null && !shoutColor.isEmpty();
     }
-    
+
     // Util IP methods
     public void addIp(String ip)
     {

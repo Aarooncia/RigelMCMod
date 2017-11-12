@@ -81,5 +81,4 @@ public class ServerInterface extends FreedomService
 //    {
 //        return ((CraftServer) Bukkit.getServer()).getServer();
 //    }
-
 }
