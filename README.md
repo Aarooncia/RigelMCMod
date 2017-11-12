@@ -1,13 +1,12 @@
 # RigelMCMod 
 
-RigelMCMod is a Plugin for the Free OP server RigelMC
+[!Build Status] (https://travis-ci.org/RigelMC/RigelMCMod?branch=master)] (https://travis-ci.org/RigelMC/RigelMCMod)
 
-Compilation Instructions coming soon!
+RigelMCMod is a plugin made for the RigelMC server, with special implementations that make the server what it is.
+
+Developers, LightWarp, Savnith, Skoonk_Xeoda, and Commodore64x. 
 
 # TotalFreedomMod #
-
-
-[![Build Status](https://travis-ci.org/TotalFreedom/TotalFreedomMod.svg?branch=TFM1.12-Alpha)](https://travis-ci.org/TotalFreedom/TotalFreedomMod)
 
 TotalFreedomMod is a CraftBukkit server plugin designed primarily to support the [Official TotalFreedom Minecraft Server](http://totalfreedom.me/). However, you are more than welcome to adapt the source for your own server.
 
