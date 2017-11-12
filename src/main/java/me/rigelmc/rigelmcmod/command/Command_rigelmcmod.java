@@ -48,19 +48,9 @@ public class Command_rigelmcmod extends FreedomCommand
         msg("RigelMCMod for 'RigelMC', an all-op server.", ChatColor.GOLD);
         msg("Running on " + ConfigEntry.SERVER_NAME.getString() + ".", ChatColor.GOLD);
         msg("Created by Madgeek1450, Prozza and LightWarp.", ChatColor.GOLD);
-        msg(String.format("Version "
-                + ChatColor.BLUE + "%s %s.%s " + ChatColor.GOLD + "("
-                + ChatColor.BLUE + "%s" + ChatColor.GOLD + ")",
-                build.codename,
-                build.version,
-                build.number,
-                build.head), ChatColor.GOLD);
-        msg(String.format("Compiled "
-                + ChatColor.BLUE + "%s" + ChatColor.GOLD + " by "
-                + ChatColor.BLUE + "%s",
-                build.date,
-                build.author), ChatColor.GOLD);
-        msg("Visit " + ChatColor.AQUA + "http://github.com/LightWarp/RigelMCMod "
+        msg(String.format("Version " + ChatColor.BLUE + "%s ", plugin.getDescription().getVersion()), ChatColor.GOLD);
+        msg(String.format("Developers " + ChatColor.BLUE + "%s", plugin.getDescription().getAuthors()), ChatColor.GOLD);
+        msg("Visit " + ChatColor.AQUA + "http://github.com/RigelMC/RigelMCMod "
                 + ChatColor.GREEN + " for more information.", ChatColor.GREEN);
 
         return true;
