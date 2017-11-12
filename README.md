@@ -1,6 +1,6 @@
 # RigelMCMod 
 
-[!Build Status] (https://travis-ci.org/RigelMC/RigelMCMod.svg?branch=master)] (https://travis-ci.org/RigelMC/RigelMCMod)
+[![Build Status](https://travis-ci.org/RigelMC/RigelMCMod.svg?branch=master)](https://travis-ci.org/RigelMC/RigelMCMod)
 
 RigelMCMod is a plugin made for the RigelMC server, with special implementations that make the server what it is.
 
