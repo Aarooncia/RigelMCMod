@@ -15,7 +15,7 @@ public class Command_wipeuserdata extends FreedomCommand
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
-        if (!server.getPluginManager().isPluginEnabled("Essentials"))
+        if (!server.getPluginManager().isPluginEnabled("RMC-Essentials"))
         {
             msg("Essentials is not enabled on this server");
             return true;
@@ -23,7 +23,7 @@ public class Command_wipeuserdata extends FreedomCommand
 
         FUtil.adminAction(sender.getName(), "Wiping Essentials playerdata", true);
 
-        FUtil.deleteFolder(new File(server.getPluginManager().getPlugin("Essentials").getDataFolder(), "userdata"));
+        FUtil.deleteFolder(new File(server.getPluginManager().getPlugin("RMC-Essentials").getDataFolder(), "userdata"));
 
         msg("All playerdata deleted.");
         return true;
