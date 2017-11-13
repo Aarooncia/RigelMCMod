@@ -18,6 +18,7 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.entity.ExplosionPrimeEvent;
+import org.bukkit.event.entity.FireworkExplodeEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 
@@ -167,5 +168,14 @@ public class EventBlocker extends FreedomService
     public void onLeavesDecay(LeavesDecayEvent event)
     {
         event.setCancelled(true);
+    }
+    @EventHandler(priority = EventPriority.HIGH)
+    
+    public void onFireworkExplode(FireworkExplodeEvent event)
+    {
+        if (!ConfigEntry.ALLOW_FIREWORK_EXPLOSIONS.getBoolean())
+        {
+            event.setCancelled(true);
+        }
     }
 }

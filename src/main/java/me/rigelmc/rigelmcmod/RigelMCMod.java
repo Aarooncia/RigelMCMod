@@ -27,8 +27,12 @@ import me.rigelmc.rigelmcmod.fun.ItemFun;
 import me.rigelmc.rigelmcmod.fun.Jumppads;
 import me.rigelmc.rigelmcmod.fun.Landminer;
 import me.rigelmc.rigelmcmod.fun.MP44;
+import me.rigelmc.rigelmcmod.fun.MagicWand;
+import me.rigelmc.rigelmcmod.fun.ThorHammer;
 import me.rigelmc.rigelmcmod.httpd.HTTPDaemon;
 import me.rigelmc.rigelmcmod.player.PlayerList;
+import me.rigelmc.rigelmcmod.shop.Shop;
+import me.rigelmc.rigelmcmod.shop.ShopGUIListener;
 import me.rigelmc.rigelmcmod.rank.RankManager;
 import me.rigelmc.rigelmcmod.rollback.RollbackManager;
 import me.rigelmc.rigelmcmod.util.FLog;
@@ -74,6 +78,8 @@ public class RigelMCMod extends AeroPlugin<RigelMCMod>
     public AntiNuke nu;
     public AntiSpam as;
     public PlayerList pl;
+    public Shop sh;
+    public ShopGUIListener sl;
     public Announcer an;
     public ChatManager cm;
     public BanManager bm;
@@ -101,6 +107,8 @@ public class RigelMCMod extends AeroPlugin<RigelMCMod>
     public HTTPDaemon hd;
     public EditBlocker ebl;
     public PvPBlocker pbl;
+    public MagicWand mw;
+    public ThorHammer th;
     //
     // Bridges
     public ServiceManager<RigelMCMod> bridges;
@@ -170,6 +178,8 @@ public class RigelMCMod extends AeroPlugin<RigelMCMod>
         dc = services.registerService(Discord.class);
 
         pl = services.registerService(PlayerList.class);
+        sh = services.registerService(Shop.class);
+        sl = services.registerService(ShopGUIListener.class);
         an = services.registerService(Announcer.class);
         cm = services.registerService(ChatManager.class);
         bm = services.registerService(BanManager.class);
@@ -198,6 +208,8 @@ public class RigelMCMod extends AeroPlugin<RigelMCMod>
         mp = services.registerService(MP44.class);
         jp = services.registerService(Jumppads.class);
         tr = services.registerService(Trailer.class);
+        mw = services.registerService(MagicWand.class);
+        th = services.registerService(ThorHammer.class);
         
         ebl = services.registerService(EditBlocker.class);
         pbl = services.registerService(PvPBlocker.class);

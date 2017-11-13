@@ -21,6 +21,7 @@ server:
   owners:
     - LightWarp
     - CeceliaArtemis
+    - TruVanillaYami
     
   # All players who show up as developer  
   developers:
@@ -36,7 +37,6 @@ server:
     - Santadeath
     - BibleRule
     - GraceC3013
-    - TruVanillaYami
     
   # All players who show up as master builders  
   master_builders: []
@@ -64,6 +64,32 @@ verification:
   
 # Should players be opped on join
 op_on_join: true 
+  
+# The shop
+shop:
+  # Enable the shop
+  enabled: true
+  
+  # Shop prefix
+  prefix: '&6&l[&a&lRMC Shop&6&l]'
+  
+  # How much should colored chat cost
+  colored_chat_price: 50
+  
+  # How much should login messages cost
+  login_message_price: 100
+  
+  # How much should the Thor Hammer cost
+  thor_hammer_price: 150
+  
+  # How much should Crescent Rose cost
+  magic_wand_price: 300
+  
+  # How much should it cost a player to use Crescent Rose per attack
+  magic_wand_use_price: 15
+  
+  # How much should the minigun cost
+  minigun_price: 200  
   
 # Admin list
 adminlist:

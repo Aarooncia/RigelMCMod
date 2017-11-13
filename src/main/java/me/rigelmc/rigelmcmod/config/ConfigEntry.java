@@ -19,6 +19,7 @@ public enum ConfigEntry
     ALLOW_TNT_MINECARTS(Boolean.class, "allow.tnt_minecarts"),
     ALLOW_WATER_PLACE(Boolean.class, "allow.water_place"),
     ALLOW_REDSTONE(Boolean.class, "allow.redstone"),
+    ALLOW_FIREWORK_EXPLOSIONS(Boolean.class, "allow.firework_explosions"),
     //
     MOB_LIMITER_ENABLED(Boolean.class, "moblimiter.enabled"),
     MOB_LIMITER_MAX(Integer.class, "moblimiter.max"),
@@ -48,6 +49,15 @@ public enum ConfigEntry
     ADMINLIST_CONSOLE_IS_SENIOR(Boolean.class, "adminlist.console_is_senior"),
     //
     OP_ON_JOIN(Boolean.class, "op_on_join"),
+    //
+    SHOP_ENABLED(Boolean.class, "shop.enabled"),
+    SHOP_PREFIX(String.class, "shop.prefix"),
+    SHOP_COLORED_CHAT_PRICE(Integer.class, "shop.colored_chat_price"),
+    SHOP_LOGIN_MESSAGE_PRICE(Integer.class, "shop.login_message_price"),
+    SHOP_THOR_HAMMER_PRICE(Integer.class, "shop.thor_hammer_price"),
+    SHOP_MAGIC_WAND_PRICE(Integer.class, "shop.magic_wand_price"),
+    SHOP_MAGIC_WAND_USE_PRICE(Integer.class, "shop.magic_wand_use_price"),
+    SHOP_MINIGUN_PRICE(Integer.class, "shop.minigun_price"),
     //
     DISABLE_NIGHT(Boolean.class, "disable.night"),
     DISABLE_WEATHER(Boolean.class, "disable.weather"),

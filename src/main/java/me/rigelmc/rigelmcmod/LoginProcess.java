@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import me.rigelmc.rigelmcmod.command.FreedomCommand;
 import me.rigelmc.rigelmcmod.config.ConfigEntry;
+import me.rigelmc.rigelmcmod.shop.ShopData;
 import me.rigelmc.rigelmcmod.util.FSync;
 import me.rigelmc.rigelmcmod.util.FUtil;
 import org.bukkit.ChatColor;
@@ -75,16 +76,11 @@ public class LoginProcess extends FreedomService
     @EventHandler(priority = EventPriority.HIGH)
     public void onPlayerLogin(PlayerLoginEvent event)
     {
+        
         final Player player = event.getPlayer();
         final String username = player.getName();
         final String ip = event.getAddress().getHostAddress().trim();
 
-        // Op player on join if the player is not opped
-        if (ConfigEntry.OP_ON_JOIN.getBoolean() && !player.isOp() && !plugin.al.isAdminImpostor(player))
-        {
-            player.setOp(true);
-            player.sendMessage(FreedomCommand.YOU_ARE_OP);
-        }
 
         // Check username length
         if (username.length() < MIN_USERNAME_LENGTH || username.length() > MAX_USERNAME_LENGTH)
@@ -191,7 +187,21 @@ public class LoginProcess extends FreedomService
     public void onPlayerJoin(PlayerJoinEvent event)
     {
         final Player player = event.getPlayer();
+        final ShopData sd = plugin.sh.getData(player);
 
+        // Op player on join if the player is not opped
+        if (ConfigEntry.OP_ON_JOIN.getBoolean() && !player.isOp() && !plugin.al.isAdminImpostor(player))
+        {
+            player.setOp(true);
+            player.sendMessage(FreedomCommand.YOU_ARE_OP);
+        }
+        
+        // Has shop custom login message
+        if (!plugin.al.isAdmin(player) && !plugin.al.isAdminImpostor(player) && sd.isCustomLoginMessage() && !sd.getLoginMessage().equalsIgnoreCase("none"))
+        {
+            FUtil.bcastMsg(plugin.sl.createLoginMessage(player, sd.getLoginMessage()));
+        }
+        
         new BukkitRunnable()
         {
             @Override

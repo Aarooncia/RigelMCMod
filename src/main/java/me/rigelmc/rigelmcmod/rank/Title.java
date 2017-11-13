@@ -43,5 +43,18 @@ public enum Title implements Displayable
     {
         return determiner + " " + color + ChatColor.ITALIC + name;
     }
+    
+    @Override
+    public String getDeterminer()
+    {
+        return determiner;
+    }
 
+
+    @Override
+    public String getItalicColoredName()
+    {
+        return color.toString() + ChatColor.ITALIC + name;
+    }
+    
 }

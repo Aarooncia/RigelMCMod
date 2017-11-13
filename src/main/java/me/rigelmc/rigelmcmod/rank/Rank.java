@@ -37,6 +37,18 @@ public enum Rank implements Displayable
     }
 
     @Override
+    public String getDeterminer()
+    {
+        return determiner;
+    }
+    
+    @Override
+    public String getItalicColoredName()
+    {
+        return color.toString() + ChatColor.ITALIC + name;
+    }
+    
+    @Override
     public String getColoredName()
     {
         return color + name;
