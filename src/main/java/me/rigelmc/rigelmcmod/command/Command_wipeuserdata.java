@@ -1,6 +1,7 @@
 package me.rigelmc.rigelmcmod.command;
 
 import java.io.File;
+import me.rigelmc.rigelmcmod.config.ConfigEntry;
 import me.rigelmc.rigelmcmod.rank.Rank;
 import me.rigelmc.rigelmcmod.util.FUtil;
 import org.bukkit.command.Command;
@@ -15,15 +16,15 @@ public class Command_wipeuserdata extends FreedomCommand
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
-        if (!server.getPluginManager().isPluginEnabled("RMC-Essentials"))
+        if (!server.getPluginManager().isPluginEnabled(ConfigEntry.SERVER_ESSENTIALS.getString()))
         {
-            msg("Essentials is not enabled on this server");
+            msg(ConfigEntry.SERVER_ESSENTIALS.getString() + " is not enabled on this server, if you think this is an error contact a developer.");
             return true;
         }
 
         FUtil.adminAction(sender.getName(), "Wiping Essentials playerdata", true);
 
-        FUtil.deleteFolder(new File(server.getPluginManager().getPlugin("RMC-Essentials").getDataFolder(), "userdata"));
+        FUtil.deleteFolder(new File(server.getPluginManager().getPlugin(ConfigEntry.SERVER_ESSENTIALS.getString()).getDataFolder(), "userdata"));
 
         msg("All playerdata deleted.");
         return true;

@@ -55,6 +55,7 @@ public class ShopGUIListener extends FreedomService
             int thorHammerPrice = ConfigEntry.SHOP_LOGIN_MESSAGE_PRICE.getInteger();
             int crescentRosePrice = ConfigEntry.SHOP_MAGIC_WAND_PRICE.getInteger();
             int minigunPrice = ConfigEntry.SHOP_MINIGUN_PRICE.getInteger();
+            
             if (is.getType().equals(Material.BOOK_AND_QUILL) && !sd.isColoredchat() && canAfford(coloredChatPrice, coins))
             {
                 sd.setCoins(coins - coloredChatPrice);
@@ -64,6 +65,7 @@ public class ShopGUIListener extends FreedomService
                 event.setCancelled(true);
                 p.closeInventory();
             }
+            
             else if (is.getType().equals(Material.NAME_TAG) && !sd.isCustomLoginMessage() && canAfford(customLoginMessagePrice, coins))
             {
                 sd.setCoins(coins - customLoginMessagePrice);
@@ -73,6 +75,7 @@ public class ShopGUIListener extends FreedomService
                 event.setCancelled(true);
                 p.closeInventory();
             }
+            
             else if (is.getType().equals(Material.IRON_PICKAXE) && !sd.isThorHammer() && canAfford(thorHammerPrice, coins))
             {
                 sd.setCoins(coins - thorHammerPrice);
@@ -82,6 +85,7 @@ public class ShopGUIListener extends FreedomService
                 event.setCancelled(true);
                 p.closeInventory();
             }
+            
             else if (is.getType().equals(Material.DIAMOND_HOE) && !sd.isCrescentRose() && canAfford(crescentRosePrice, coins))
             {
                 sd.setCoins(coins - crescentRosePrice);
@@ -91,6 +95,7 @@ public class ShopGUIListener extends FreedomService
                 event.setCancelled(true);
                 p.closeInventory();
             }
+            
             else if (is.getType().equals(Material.IRON_BARDING) && !sd.isMinigun() && canAfford(minigunPrice, coins))
             {
                 sd.setCoins(coins - minigunPrice);
@@ -101,6 +106,7 @@ public class ShopGUIListener extends FreedomService
                 p.closeInventory();
             }
         }
+        
         else if (i.getTitle().equals(ChatColor.AQUA + "Login Messages"))
         {
             if (is.getType().equals(Material.BARRIER))

@@ -19,7 +19,7 @@ import org.bukkit.potion.PotionEffectType;
 public class Command_vanish extends FreedomCommand
 {
 
-    public static ArrayList<Player> vanished = new ArrayList<Player>();
+    public static ArrayList<Player> vanished = new ArrayList<>();
 
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
