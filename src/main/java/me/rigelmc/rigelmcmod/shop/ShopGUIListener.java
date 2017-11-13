@@ -124,9 +124,9 @@ public class ShopGUIListener extends FreedomService
                 p.closeInventory();
                 p.sendMessage(ChatColor.GREEN + "Your login message is now " + createLoginMessage(p, sd.getLoginMessage()));
             }
-            else if (is.getItemMeta().getDisplayName().equals(ChatColor.GOLD + "UnraveledMC Addict"))
+            else if (is.getItemMeta().getDisplayName().equals(ChatColor.GOLD + "RigelMC Addict"))
             {
-                sd.setLoginMessage("an &7&lUnraveled&8&lMC &e&lAddict");
+                sd.setLoginMessage("an &7&lRigel&8&lMC &e&lAddict");
                 plugin.sh.save(sd);
                 p.closeInventory();
                 p.sendMessage(ChatColor.GREEN + "Your login message is now " + createLoginMessage(p, sd.getLoginMessage()));
@@ -138,9 +138,9 @@ public class ShopGUIListener extends FreedomService
                 p.closeInventory();
                 p.sendMessage(ChatColor.GREEN + "Your login message is now " + createLoginMessage(p, sd.getLoginMessage()));
             }
-            else if (is.getItemMeta().getDisplayName().equals(ChatColor.DARK_RED + "motherfuckin' pincher"))
+            else if (is.getItemMeta().getDisplayName().equals(ChatColor.DARK_RED + "motherfuckin' savage"))
             {
-                sd.setLoginMessage("a &9motherfuckin' &bpincher");
+                sd.setLoginMessage("a &9motherfuckin' &bsavage");
                 plugin.sh.save(sd);
                 p.closeInventory();
                 p.sendMessage(ChatColor.GREEN + "Your login message is now " + createLoginMessage(p, sd.getLoginMessage()));

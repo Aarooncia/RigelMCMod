@@ -1,6 +1,7 @@
 package me.rigelmc.rigelmcmod;
 
 import me.rigelmc.rigelmcmod.player.FPlayer;
+import me.rigelmc.rigelmcmod.shop.ShopData;
 import me.rigelmc.rigelmcmod.util.FLog;
 import me.rigelmc.rigelmcmod.util.FSync;
 import me.rigelmc.rigelmcmod.util.FUtil;
@@ -49,9 +50,18 @@ public class ChatManager extends FreedomService
     {
         final Player player = event.getPlayer();
         String message = event.getMessage().trim();
-
-        // Strip color from messages
-        message = ChatColor.stripColor(message);
+        final ShopData sd = plugin.sh.getData(player);
+        
+        if (!sd.isColoredchat())
+        {
+            // Strip color from messages
+            message = ChatColor.stripColor(message);
+        }
+        else
+        {
+            // Format color
+            message = FUtil.colorize(message);
+        }
 
         if (!FUtil.isExecutive(player.getName()))
         {
