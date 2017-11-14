@@ -85,10 +85,10 @@ shop:
   # How much should the Thor Hammer cost
   thor_hammer_price: 150
   
-  # How much should Crescent Rose cost
+  # How much should Magic Wand cost
   magic_wand_price: 300
   
-  # How much should it cost a player to use Crescent Rose per attack
+  # How much should it cost a player to use Magic Wand per attack
   magic_wand_use_price: 15
   
   # How much should the minigun cost

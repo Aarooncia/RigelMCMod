@@ -53,7 +53,7 @@ public class ShopGUIListener extends FreedomService
             int coloredChatPrice = ConfigEntry.SHOP_COLORED_CHAT_PRICE.getInteger();
             int customLoginMessagePrice = ConfigEntry.SHOP_LOGIN_MESSAGE_PRICE.getInteger();
             int thorHammerPrice = ConfigEntry.SHOP_LOGIN_MESSAGE_PRICE.getInteger();
-            int crescentRosePrice = ConfigEntry.SHOP_MAGIC_WAND_PRICE.getInteger();
+            int magicWandPrice = ConfigEntry.SHOP_MAGIC_WAND_PRICE.getInteger();
             int minigunPrice = ConfigEntry.SHOP_MINIGUN_PRICE.getInteger();
             
             if (is.getType().equals(Material.BOOK_AND_QUILL) && !sd.isColoredchat() && canAfford(coloredChatPrice, coins))
@@ -86,12 +86,12 @@ public class ShopGUIListener extends FreedomService
                 p.closeInventory();
             }
             
-            else if (is.getType().equals(Material.DIAMOND_HOE) && !sd.isCrescentRose() && canAfford(crescentRosePrice, coins))
+            else if (is.getType().equals(Material.STICK) && !sd.isMagicWand() && canAfford(magicWandPrice, coins))
             {
-                sd.setCoins(coins - crescentRosePrice);
-                sd.setCrescentRose(true);
+                sd.setCoins(coins - magicWandPrice);
+                sd.setMagicWand(true);
                 plugin.sh.save(sd);
-                p.sendMessage(prefix + ChatColor.GREEN + "You have successfully bought " + ChatColor.RED + "Crescent Rose" + ChatColor.GREEN + "! Do /crescentrose to get one!");
+                p.sendMessage(prefix + ChatColor.GREEN + "You have successfully bought " + ChatColor.RED + "Magic Wand" + ChatColor.GREEN + "! Do /magicwand to get one!");
                 event.setCancelled(true);
                 p.closeInventory();
             }

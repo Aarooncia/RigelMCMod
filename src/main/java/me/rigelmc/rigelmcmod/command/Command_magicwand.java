@@ -13,20 +13,20 @@ import me.rigelmc.rigelmcmod.shop.ShopData;
 import org.bukkit.ChatColor;
 
 @CommandPermissions(level = Rank.OP, source = SourceType.ONLY_IN_GAME)
-@CommandParameters(description = "Gives you Crescent Rose", usage = "/<command>", aliases = "mw")
+@CommandParameters(description = "Gives you the Magic Wand", usage = "/<command>", aliases = "mw")
 public class Command_magicwand extends FreedomCommand
 {
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
         ShopData sd = plugin.sh.getData(playerSender);
-        if (!sd.isCrescentRose())
+        if (!sd.isMagicWand())
         {
-            msg("You have not yet purchased Crescent Rose from the shop!", ChatColor.RED);
+            msg("You have not yet purchased the Magic Wand from the shop!", ChatColor.RED);
             return true;
         }
-        playerSender.getInventory().addItem(plugin.mw.getCrescentRose());
-        msg("You have been given Crescent Rose!", ChatColor.GREEN);
+        playerSender.getInventory().addItem(plugin.mw.getMagicWand());
+        msg("You have been given the Magic Wand!", ChatColor.GREEN);
         return true;
     }
 }

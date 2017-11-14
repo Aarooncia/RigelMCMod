@@ -41,7 +41,7 @@ public class Command_shop extends FreedomCommand
         Boolean hasColoredChat = sd.isColoredchat();
         Boolean hasCustomLoginMessages = sd.isCustomLoginMessage();
         Boolean hasThorHammer = sd.isThorHammer();
-        Boolean hasCrescentRose = sd.isCrescentRose();
+        Boolean hasMagicWand = sd.isMagicWand();
         Boolean hasMinigun = sd.isMinigun();
         Inventory i = server.createInventory(null, 36, plugin.sh.GUIName);
         for (int slot = 0; slot < 36; slot++)
@@ -58,7 +58,7 @@ public class Command_shop extends FreedomCommand
         i.setItem(12, customLoginMessage);
         ItemStack thorHammer = newShopItem(new ItemStack(Material.IRON_PICKAXE), ChatColor.GREEN, "Thor's Hammer", thorHammerPrice, hasThorHammer);
         i.setItem(14, thorHammer);
-        ItemStack magicWand = newShopItem(new ItemStack(Material.STICK), ChatColor.DARK_RED, "Magic Wand", magicWandPrice, hasCrescentRose);
+        ItemStack magicWand = newShopItem(new ItemStack(Material.STICK), ChatColor.DARK_RED, "Magic Wand", magicWandPrice, hasMagicWand);
         i.setItem(16, magicWand);
         ItemStack minigun = newShopItem(new ItemStack(Material.IRON_BARDING), ChatColor.YELLOW, "Minigun", minigunPrice, hasMinigun);
         i.setItem(20, minigun);
@@ -122,7 +122,7 @@ public class Command_shop extends FreedomCommand
         Shop layout:
         
         Dimensions: 9x4
-        Key: c = Chat Color, l = Login Message, t = Thor's Hammer, r = Crescent Rose, m = Minigun $ = Coins}
+        Key: c = Chat Color, l = Login Message, t = Thor's Hammer, r = Magic Wand, m = Minigun $ = Coins}
         ---------
         -c-l-t-r-
         --m------

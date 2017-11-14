@@ -80,7 +80,7 @@ public class MagicWand extends FreedomService
                         Player target = (Player)event.getHitEntity();
                         if (plugin.al.isAdmin(target) && !FUtil.isExecutive(shooter.getName()))
                         {
-                            FUtil.playerMsg(shooter, "Sorry, but you can't attack staff members with Crescent Rose!", ChatColor.RED);
+                            FUtil.playerMsg(shooter, "Sorry, but you can't attack staff members with Magic Wand!", ChatColor.RED);
                             return;
                         }
                         if (target.getGameMode().equals(GameMode.CREATIVE) && !FUtil.isExecutive(shooter.getName()))
@@ -118,7 +118,7 @@ public class MagicWand extends FreedomService
     	if (event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK))
     	{
             Player p = event.getPlayer();
-            if (p.getInventory().getItemInMainHand().equals(getCrescentRose()))
+            if (p.getInventory().getItemInMainHand().equals(getMagicWand()))
             {
                 if (!FUtil.isExecutive(p.getName()))
                 {
@@ -131,7 +131,7 @@ public class MagicWand extends FreedomService
                     else
                     {
                         int coins_needed = use_price - sd.getCoins();
-                        FUtil.playerMsg(p, ChatColor.RED + "You only have " + ChatColor.DARK_RED + sd.getCoins() + ChatColor.RED + " coins. You need " + ChatColor.DARK_RED + coins_needed + ChatColor.RED + " more coins to use Crescent Rose!");
+                        FUtil.playerMsg(p, ChatColor.RED + "You only have " + ChatColor.DARK_RED + sd.getCoins() + ChatColor.RED + " coins. You need " + ChatColor.DARK_RED + coins_needed + ChatColor.RED + " more coins to use the Magic Wand!");
                         return;
                     }
                 }
@@ -140,7 +140,7 @@ public class MagicWand extends FreedomService
                     long secondsLeft = ((cooldowns.get(p.getName()) / 1000) + cooldownTime) - (System.currentTimeMillis() / 1000);
                     if (secondsLeft > 0)
                     {
-                        FUtil.playerMsg(p, "You can't use the Crescent Rose for another " + secondsLeft + " seconds!", ChatColor.RED);
+                        FUtil.playerMsg(p, "You can't use the Magic Wand for another " + secondsLeft + " seconds!", ChatColor.RED);
                         return;
                     }
                 }
@@ -167,10 +167,10 @@ public class MagicWand extends FreedomService
         {
             Player p = (Player)attacker;
             ItemStack i = p.getInventory().getItemInMainHand();
-            if (i != null && i.equals(getCrescentRose()))
+            if (i != null && i.equals(getMagicWand()))
             {	 
                 ShopData sd = plugin.sh.getData(p);
-                if (sd.isCrescentRose())
+                if (sd.isMagicWand())
                 {
                     if (!FUtil.isExecutive(p.getName()))
                     {
@@ -181,7 +181,7 @@ public class MagicWand extends FreedomService
                         else
                         {
                             int coins_needed = use_price - sd.getCoins();
-                            FUtil.playerMsg(p, ChatColor.RED + "You only have " + ChatColor.DARK_RED + sd.getCoins() + ChatColor.RED + " coins. You need " + ChatColor.DARK_RED + coins_needed + ChatColor.RED + " more coins to use Crescent Rose!");
+                            FUtil.playerMsg(p, ChatColor.RED + "You only have " + ChatColor.DARK_RED + sd.getCoins() + ChatColor.RED + " coins. You need " + ChatColor.DARK_RED + coins_needed + ChatColor.RED + " more coins to use the Magic Wand!");
                             return;
                         }
                     }
@@ -190,13 +190,13 @@ public class MagicWand extends FreedomService
                         long secondsLeft = ((cooldowns.get(p.getName()) / 1000) + cooldownTime) - (System.currentTimeMillis() / 1000);
                         if (secondsLeft > 0)
                         {
-                            FUtil.playerMsg(p, "You can't use the Crescent Rose for another " + secondsLeft + " seconds!", ChatColor.RED);
+                            FUtil.playerMsg(p, "You can't use the Magic Wand for another " + secondsLeft + " seconds!", ChatColor.RED);
                             return;
                         }
                     }
                     if (target instanceof Player && !plugin.al.isAdmin(p) && plugin.al.isAdmin((Player)target))
                     {	
-                        FUtil.playerMsg(p, "Sorry, but you can't attack staff members with Crescent Rose!", ChatColor.RED);
+                        FUtil.playerMsg(p, "Sorry, but you can't attack staff members with the Magic Wand!", ChatColor.RED);
                         return;
                     }
                     // Executives don't need a cool down :^)
@@ -216,7 +216,7 @@ public class MagicWand extends FreedomService
         }
     }
     
-    public ItemStack getCrescentRose()
+    public ItemStack getMagicWand()
     {
         ItemStack MAGIC_WAND = new ItemStack(Material.STICK);
         ItemMeta datMeta = MAGIC_WAND.getItemMeta();

@@ -36,7 +36,7 @@ public class ShopData implements ConfigLoadable, ConfigSavable, Validatable
     private boolean thorHammer = false;
     @Getter
     @Setter
-    private boolean crescentRose = false;
+    private boolean magicWand = false;
     @Getter
     @Setter
     private boolean minigun = false;
@@ -62,7 +62,7 @@ public class ShopData implements ConfigLoadable, ConfigSavable, Validatable
         this.customLoginMessage = cs.getBoolean("customLoginMessage", customLoginMessage);
         this.loginMessage = cs.getString("loginMessage", loginMessage);
         this.thorHammer = cs.getBoolean("thorHammer", thorHammer);
-        this.crescentRose = cs.getBoolean("crescentRose", crescentRose);
+        this.magicWand = cs.getBoolean("magicWand", magicWand);
         this.minigun = cs.getBoolean("minigun", minigun);
     }
 
@@ -77,7 +77,7 @@ public class ShopData implements ConfigLoadable, ConfigSavable, Validatable
         cs.set("customLoginMessage", customLoginMessage);
         cs.set("loginMessage", loginMessage);
         cs.set("thorHammer", thorHammer);
-        cs.set("crescentRose", crescentRose);
+        cs.set("magicWand", magicWand);
         cs.set("minigun", minigun);
     }
 
