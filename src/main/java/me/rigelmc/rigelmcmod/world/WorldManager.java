@@ -22,6 +22,7 @@ public class WorldManager extends FreedomService
 {
 
     public Flatlands flatlands;
+    public GamesWorld gw;
     public AdminWorld adminworld;
 
     public WorldManager(RigelMCMod plugin)
@@ -30,6 +31,7 @@ public class WorldManager extends FreedomService
 
         this.flatlands = new Flatlands();
         this.adminworld = new AdminWorld();
+        this.gw = new GamesWorld();
     }
 
     @Override
@@ -37,6 +39,7 @@ public class WorldManager extends FreedomService
     {
         flatlands.getWorld();
         adminworld.getWorld();
+        gw.getWorld();
 
         // Disable weather
         if (ConfigEntry.DISABLE_WEATHER.getBoolean())
@@ -56,6 +59,7 @@ public class WorldManager extends FreedomService
     {
         flatlands.getWorld().save();
         adminworld.getWorld().save();
+        gw.getWorld().save();
     }
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)

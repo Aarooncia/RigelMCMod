@@ -276,6 +276,13 @@ flatlands:
 
   # Flatlands generation parameters - Uses CleanroomGenerator syntax - http://dev.bukkit.org/server-mods/cleanroomgenerator/
   generate_params: 16,stone,32,dirt,1,grass
+  
+# GamesWorld
+gamesworld:
+  generate: true
+
+  # Flatlands generation parameters - Uses CleanroomGenerator syntax - http://dev.bukkit.org/server-mods/cleanroomgenerator/
+  generate_params: 16,stone,32,dirt,1,grass
 
 # Admin-Only Mode
 admin_only_mode: false

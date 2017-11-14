@@ -3,7 +3,6 @@ package me.rigelmc.rigelmcmod.world;
 import java.io.File;
 import me.rigelmc.rigelmcmod.config.ConfigEntry;
 import me.rigelmc.rigelmcmod.util.FLog;
-import me.rigelmc.rigelmcmod.util.FUtil;
 import org.apache.commons.io.FileUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

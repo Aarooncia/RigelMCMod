@@ -93,6 +93,9 @@ public enum ConfigEntry
     FLATLANDS_GENERATE(Boolean.class, "flatlands.generate"),
     FLATLANDS_GENERATE_PARAMS(String.class, "flatlands.generate_params"),
     //
+    GAMESWORLD_GENERATE(Boolean.class, "gamesworld.generate"),
+    GAMESWORLD_GENERATE_PARAMS(String.class, "gamesworld.generate_params"),
+    //
     ANNOUNCER_ENABLED(Boolean.class, "announcer.enabled"),
     ANNOUNCER_INTERVAL(Integer.class, "announcer.interval"),
     ANNOUNCER_PREFIX(String.class, "announcer.prefix"),
