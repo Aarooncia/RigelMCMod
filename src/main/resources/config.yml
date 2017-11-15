@@ -1,6 +1,5 @@
 #
 # RigelMCMod Configuration
-# by Madgeek1450 and Prozza
 #
 
 # Generic server information
@@ -51,10 +50,10 @@ server:
   buddhists: []
 
   # URL players should appeal for bans at
-  ban_url: coming soon!
+  ban_url: https://discord.gg/pUcyjfW
 
   # URL players should appeal for permanent bans at
-  permban_url: coming soon!
+  permban_url: https://discord.gg/pUcyjfW
   
 # The discord bot self verification system
 verification:
@@ -329,7 +328,7 @@ announcer:
     - 'Invisible potions are allowed!'
     - 'Serial griefing and trolling will result in a permanent ban!'
     - 'Sexual and offensive builds &6ARE &callowed!'
-    - 'Join our Discord Server! &6https://discord.gg/T6trSED'
+    - 'Join our Discord Server! &6https://discord.gg/pUcyjfW'
 
 # Famous players - cannot be banned by username
 famous_players:
