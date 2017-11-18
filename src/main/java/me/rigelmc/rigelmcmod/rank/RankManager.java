@@ -66,6 +66,11 @@ public class RankManager extends FreedomService
             return Title.DEVELOPER;
         }
 
+        if (FUtil.LEAD_DEV.contains(player.getName()))
+        {
+            return Title.LEAD_DEV;
+        }
+
         final Rank rank = getRank(player);
 
         // Non-admins don't have titles, display actual rank
@@ -176,7 +181,7 @@ public class RankManager extends FreedomService
         }
 
         // Set display
-        if (isAdmin || FUtil.DEVELOPERS.contains(player.getName()))
+        if (isAdmin || FUtil.DEVELOPERS.contains(player.getName()) || FUtil.LEAD_DEV.contains(player.getName()))
         {
             final Displayable display = getDisplay(player);
             String loginMsg = display.getColoredLoginMessage();

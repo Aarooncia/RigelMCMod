@@ -10,6 +10,7 @@ public enum Title implements Displayable
     MASTER_BUILDER("a", "Master Builder", ChatColor.DARK_AQUA, "MB"),
     DEVELOPER("a", "Developer", ChatColor.DARK_PURPLE, "TF-Dev"),
     RMC_DEV("a", "Developer", ChatColor.DARK_PURPLE, "RMC-Dev"),
+    LEAD_DEV("the", "Lead Developer", ChatColor.DARK_PURPLE, "LDev"),
     EXECUTIVE("an", "Executive", ChatColor.DARK_RED, "Executive"),
     OWNER("the", "Owner", ChatColor.BLUE, "Owner");
 
