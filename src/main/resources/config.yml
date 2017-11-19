@@ -23,22 +23,20 @@ server:
   owners:
     - LightWarp
     - CeceliaArtemis
-    - TruVanillaYami
-    
-  # All players who show up as developer  
-  developers:
-    - Commodore64x
-    - Skoonk_and_Xeoda
-    - EmmaProxy
-    - LuckyMartian
+    - TruVanillaYami                        
     
   # All players who show up as executive  
   executives:
-    - LuckyMartian
     - 2015febrot
     - Santadeath
     - BibleRule
     - GraceC3013
+    - Sniper_Aaron
+    - _Jg
+    - Commodore64x
+    - Skoonk_and_Xeoda
+    - EmmaProxy
+    - LuckyMartian
     
   # All players who show up as master builders  
   master_builders: []

@@ -8,8 +8,8 @@ public enum Title implements Displayable
     BUDDHIST("a true", "Buddhist", ChatColor.YELLOW, "Buddhist"),
     GOD("a fucking", "God", ChatColor.LIGHT_PURPLE, "God"),
     MASTER_BUILDER("a", "Master Builder", ChatColor.DARK_AQUA, "MB"),
-    DEVELOPER("a", "Developer", ChatColor.DARK_PURPLE, "TF-Dev"),
-    RMC_DEV("a", "Developer", ChatColor.DARK_PURPLE, "RMC-Dev"),
+    DEVELOPER("a", "TotalFreedom Developer", ChatColor.DARK_PURPLE, "TF-Dev"),
+    RMCDEV("a", "RigelMC Developer", ChatColor.DARK_PURPLE, "RMC-Dev"),
     LEAD_DEV("the", "Lead Developer", ChatColor.DARK_PURPLE, "Lead-Dev"),
     EXECUTIVE("an", "Executive", ChatColor.DARK_RED, "Executive"),
     OWNER("the", "Owner", ChatColor.BLUE, "Owner");

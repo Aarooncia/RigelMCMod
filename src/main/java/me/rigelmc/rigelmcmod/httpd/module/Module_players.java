@@ -60,8 +60,8 @@ public class Module_players extends HTTPDModule
         }
 
         // Developers
-        developers.addAll(FUtil.DEVELOPERS);
-        developers.addAll(ConfigEntry.SERVER_DEVELOPERS.getStringList());
+        developers.addAll(FUtil.TFDEVS);
+        developers.addAll(FUtil.RMCDEVS);
         executives.addAll(ConfigEntry.SERVER_EXECUTIVES.getStringList());
         gods.addAll(ConfigEntry.SERVER_GODS.getStringList());
         masterbuilders.addAll(ConfigEntry.SERVER_MASTER_BUILDERS.getStringList());

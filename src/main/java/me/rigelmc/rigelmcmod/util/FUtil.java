@@ -36,7 +36,8 @@ public class FUtil
     //
     public static final String SAVED_FLAGS_FILENAME = "savedflags.dat";
     // See https://github.com/TotalFreedom/License - None of the listed names may be removed.
-    public static final List<String> DEVELOPERS = Arrays.asList("Madgeek1450", "Prozza", "Wild1145", "WickedGamingUK", "aggelosQQ");
+    public static final List<String> TFDEVS = Arrays.asList("Madgeek1450", "Prozza", "Wild1145", "WickedGamingUK", "aggelosQQ");
+    public static final List<String> RMCDEVS = Arrays.asList("Skoonk_and_Xeoda", "LuckyMartian", "EmmaProxy", "savnith", "Commodore64x");
     public static final String LEAD_DEV = "savnith";
     public static String DATE_STORAGE_FORMAT = "EEE, d MMM yyyy HH:mm:ss Z";
     public static final Map<String, ChatColor> CHAT_COLOR_NAMES = new HashMap<>();
@@ -64,7 +65,7 @@ public class FUtil
     
     public static boolean isExecutive(String name)
     {
-        if (!ConfigEntry.SERVER_EXECUTIVES.getList().contains(name) && !ConfigEntry.SERVER_OWNERS.getList().contains(name) && !ConfigEntry.SERVER_DEVELOPERS.getList().contains(name))
+        if (!ConfigEntry.SERVER_EXECUTIVES.getList().contains(name) && !ConfigEntry.SERVER_OWNERS.getList().contains(name))
         {
             return false;
         }

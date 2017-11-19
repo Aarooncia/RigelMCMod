@@ -38,7 +38,6 @@ public enum ConfigEntry
     SERVER_MOTD(String.class, "server.motd"),
     SERVER_OWNERS(List.class, "server.owners"),
     SERVER_EXECUTIVES(List.class, "server.executives"),
-    SERVER_DEVELOPERS(List.class, "server.developers"),
     SERVER_MASTER_BUILDERS(List.class, "server.master_builders"),
     SERVER_GODS(List.class, "server.gods"),
     SERVER_BUDDHISTS(List.class, "server.buddhists"),
