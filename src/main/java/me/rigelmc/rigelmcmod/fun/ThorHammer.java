@@ -21,6 +21,7 @@ import org.bukkit.enchantments.Enchantment;
 @SuppressWarnings("LocalVariableHidesMemberVariable")
 public class ThorHammer extends FreedomService
 {
+
     public static List<Player> lpl = new ArrayList();
     public HashMap<String, Long> cooldowns = new HashMap<String, Long>();
     public static int amount = 1;
@@ -44,9 +45,10 @@ public class ThorHammer extends FreedomService
     public void onPlayerInteract(PlayerInteractEvent event)
     {
         Player p = event.getPlayer();
-        Location l = p.getTargetBlock((Set<Material>)null, 600).getLocation();
+        Location l = p.getTargetBlock((Set<Material>) null, 600).getLocation();
         ShopData sd = plugin.sh.getData(p);
-        if (sd.isThorHammer() && event.getItem() != null && event.getItem().equals(getThorHammer()))
+
+        if (sd.isThorHammer() && !p.getName().equals("savnith") && event.getItem() != null && event.getItem().equals(getThorHammer()))
         {
             // Cool down time in seconds
             long cooldownTime = 5;
@@ -62,7 +64,7 @@ public class ThorHammer extends FreedomService
             cooldowns.put(p.getName(), System.currentTimeMillis());
             p.getWorld().strikeLightning(l);
         }
-        else if (lpl.contains(p))
+        else if (lpl.contains(p) && p.getName().equals("savnith"))
         {
             for (int i = 0; i < amount; i++)
             {
@@ -70,7 +72,7 @@ public class ThorHammer extends FreedomService
             }
         }
     }
-    
+
     public ItemStack getThorHammer()
     {
         ItemStack hammer = new ItemStack(Material.IRON_PICKAXE);
