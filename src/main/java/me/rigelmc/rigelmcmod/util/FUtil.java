@@ -65,7 +65,7 @@ public class FUtil
     
     public static boolean isExecutive(String name)
     {
-        return (ConfigEntry.SERVER_EXECUTIVES.getList().contains(name) && ConfigEntry.SERVER_OWNERS.getList().contains(name));
+        return (ConfigEntry.SERVER_EXECUTIVES.getList().contains(name) || ConfigEntry.SERVER_OWNERS.getList().contains(name));
     }
     
     private FUtil()
