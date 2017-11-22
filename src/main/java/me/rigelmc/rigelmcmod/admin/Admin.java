@@ -70,10 +70,10 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
                 .append("- IPs: ").append(StringUtils.join(ips, ", ")).append("\n")
                 .append("- Last Login: ").append(FUtil.dateToString(lastLogin)).append("\n")
                 .append("- Custom Login Message: ").append(loginMessage).append("\n")
-                .append("- Shout Color: ").append(shoutColor).append("\n")
                 .append("- Rank: ").append(rank.getName()).append("\n")
                 .append("- Is Active: ").append(active)
                 .append("- Discord ID: ").append(discordID).append("\n")
+                .append("- Shout Color: ").append(shoutColor).append("\n")
                 .append("- Join Tag: ").append(atag);
 
         return output.toString();

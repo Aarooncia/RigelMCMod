@@ -40,12 +40,6 @@ public class Command_say extends FreedomCommand
                 return true;
             }
         }
-
-        if (sender.getName().equals("savnith"))
-        {
-            String s = ChatColor.DARK_RED + "[Shout:" + sender.getName() + "] " + message;
-            FUtil.bcastMsg(s.toLowerCase());
-        }
         else
         {
             String color = "&d";

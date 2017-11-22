@@ -27,6 +27,7 @@ server:
     
   # All players who show up as executive  
   executives:
+    - OxLemonxO
     - 2015febrot
     - Santadeath
     - BibleRule
