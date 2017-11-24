@@ -50,7 +50,7 @@ public class EssentialsBridge extends FreedomService
         {
             try
             {
-                final Plugin essentials = Bukkit.getServer().getPluginManager().getPlugin("Essentials");
+                final Plugin essentials = Bukkit.getServer().getPluginManager().getPlugin("RMC-Essentials");
                 if (essentials != null)
                 {
                     if (essentials instanceof Essentials)
