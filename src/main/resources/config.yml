@@ -102,6 +102,12 @@ adminlist:
   # Handy in development environments.
   console_is_senior: true
 
+coreprotect:
+  # Is the wiper enabled? WARNING: Disabling could cause server to crash
+  wiper_enabled: true
+  # Limit of the file in Gigabytes
+  file_limit: 1
+
 # ForceIP configuration
 forceip:
   enabled: false

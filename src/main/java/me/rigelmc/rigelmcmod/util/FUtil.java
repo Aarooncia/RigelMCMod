@@ -144,6 +144,16 @@ public class FUtil
         return false;
     }
 
+    public static boolean deleteFile(final File file)
+    {
+        if (file.exists())
+        {
+            return FileUtils.deleteQuietly(file);
+        }
+        return false;
+    }
+
+    
     public static void deleteCoreDumps()
     {
         final File[] coreDumps = new File(".").listFiles(new FileFilter()

@@ -116,6 +116,7 @@ public class RigelMCMod extends AeroPlugin<RigelMCMod>
     public EssentialsBridge esb;
     public LibsDisguisesBridge ldb;
     public WorldEditBridge web;
+    public CoreProtectDatabase cpd;
 
     @Override
     public void load()
@@ -224,6 +225,7 @@ public class RigelMCMod extends AeroPlugin<RigelMCMod>
         esb = bridges.registerService(EssentialsBridge.class);
         ldb = bridges.registerService(LibsDisguisesBridge.class);
         web = bridges.registerService(WorldEditBridge.class);
+        cpd = bridges.registerService(CoreProtectDatabase.class);
         bridges.start();
 
         timer.update();

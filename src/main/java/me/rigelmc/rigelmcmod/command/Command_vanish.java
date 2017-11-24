@@ -19,7 +19,7 @@ import org.bukkit.potion.PotionEffectType;
 public class Command_vanish extends FreedomCommand
 {
 
-    public static ArrayList<Player> vanished = new ArrayList<>();
+     public static ArrayList<Player> vanished = new ArrayList<Player>();
 
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
@@ -36,18 +36,9 @@ public class Command_vanish extends FreedomCommand
                 loginMsg = FUtil.colorize(admin.getLoginMessage());
             }
             FUtil.bcastMsg(ChatColor.AQUA + playerSender.getName() + " is " + loginMsg);
-            FUtil.bcastMsg(ChatColor.YELLOW + playerSender.getName() + " joined the game");
-            Admin target = plugin.al.getAdmin(playerSender);
 
-            if (!target.getAtag().isEmpty())
-            {
-                plugin.pl.getPlayer(playerSender).setTag(target.getAtag());
-            }
-            else
-            {
-                plugin.pl.getPlayer(playerSender).setTag(display.getColoredTag());
-            }
-
+            FUtil.bcastMsg(playerSender.getName() + " joined the game", ChatColor.YELLOW);
+            plugin.pl.getPlayer(playerSender).setTag(display.getColoredTag());
             FLog.info(playerSender.getName() + " is no longer vanished.");
             for (Player player : server.getOnlinePlayers())
             {
@@ -63,7 +54,7 @@ public class Command_vanish extends FreedomCommand
         else if (!(vanished.contains(playerSender)))
         {
             msg(ChatColor.GOLD + "You have been vanished.");
-            FUtil.bcastMsg(ChatColor.YELLOW + playerSender.getName() + " left the game");
+            FUtil.bcastMsg(playerSender.getName() + " left the game", ChatColor.YELLOW);
             FLog.info(playerSender.getName() + " is now vanished.");
             for (Player player : server.getOnlinePlayers())
             {

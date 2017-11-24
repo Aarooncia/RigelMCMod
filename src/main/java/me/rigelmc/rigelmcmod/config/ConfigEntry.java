@@ -83,6 +83,9 @@ public enum ConfigEntry
     AUTOKICK_THRESHOLD(Double.class, "autokick.threshold"),
     AUTOKICK_TIME(Integer.class, "autokick.time"),
     //
+    COREPROTECT_WIPER_ENABLED(Boolean.class, "coreprotect.wiper_enabled"),
+    COREPROTECT_FILE_LIMIT(Integer.class, "coreprotect.file_limit"),
+    //
     DISCORD_VERIFICATION_ENABLED(Boolean.class, "verification.enabled"),
     DISCORD_VERIFICATION_BOT_TOKEN(String.class, "verification.token"),
     //
@@ -110,6 +113,7 @@ public enum ConfigEntry
     NOADMIN_IPS(List.class, "noadmin_ips"),
     ADMIN_ONLY_MODE(Boolean.class, "admin_only_mode"),
     AUTO_ENTITY_WIPE(Boolean.class, "auto_wipe");
+    
     //
     private final Class<?> type;
     private final String configName;
