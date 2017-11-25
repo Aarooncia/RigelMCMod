@@ -62,7 +62,7 @@ public class ShopData implements ConfigLoadable, ConfigSavable, Validatable
         this.customLoginMessage = cs.getBoolean("customLoginMessage", customLoginMessage);
         this.loginMessage = cs.getString("loginMessage", loginMessage);
         this.thorHammer = cs.getBoolean("thorHammer", thorHammer);
-        this.magicWand = cs.getBoolean("magicWand", magicWand);
+        this.magicWand = cs.getBoolean("magicWand", magicWand);                 
         this.minigun = cs.getBoolean("minigun", minigun);
     }
 

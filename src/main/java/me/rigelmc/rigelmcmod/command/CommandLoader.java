@@ -9,6 +9,8 @@ import org.bukkit.ChatColor;
 
 public class CommandLoader extends FreedomService
 {
+    
+    public int totalCommands;
 
     @Getter
     private final SimpleCommandHandler<RigelMCMod> handler;
@@ -31,7 +33,8 @@ public class CommandLoader extends FreedomService
         handler.setOnlyPlayerMessage(ChatColor.RED + "This command can only be used by players.");
 
         handler.loadFrom(FreedomCommand.class.getPackage());
-        handler.registerAll("TotalFreedomMod", true);
+        handler.registerAll("RigelMCMod", true);
+        totalCommands = handler.getExecutors().size();
 
         FLog.info("Loaded " + handler.getExecutors().size() + " commands.");
     }

@@ -1,6 +1,7 @@
 package me.rigelmc.rigelmcmod.command;
 
 import me.rigelmc.rigelmcmod.rank.Rank;
+import me.rigelmc.rigelmcmod.util.FLog;
 import me.rigelmc.rigelmcmod.util.FUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -43,7 +44,6 @@ public class Command_onlinemode extends FreedomCommand
                 return false;
             }
 
-            /*
             try
             {
                 plugin.si.setOnlineMode(onlineMode);
@@ -63,9 +63,7 @@ public class Command_onlinemode extends FreedomCommand
             {
                 FLog.severe(ex);
             }
-            */
-            
-            FUtil.adminAction(sender.getName(), "Online-Mode toggling is temporarily disabled.", true);
+         
         }
 
         return true;

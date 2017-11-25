@@ -2,6 +2,10 @@ package me.rigelmc.rigelmcmod.util;
 
 import java.io.File;
 import java.io.FileFilter;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.lang.reflect.Field;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -18,6 +22,7 @@ import java.util.Random;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import me.rigelmc.rigelmcmod.RigelMCMod;
 import me.rigelmc.rigelmcmod.config.ConfigEntry;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -170,6 +175,24 @@ public class FUtil
             FLog.info("Removing core dump file: " + dump.getName());
             dump.delete();
         }
+    }
+    
+    public static void copyFile(InputStream in, String name) throws IOException
+    {
+        File file = new File(RigelMCMod.plugin().getDataFolder(), name);
+        if (!file.exists())
+        {
+            file.getParentFile().mkdirs();
+        }
+        OutputStream out = new FileOutputStream(file);
+        byte[] buf = new byte[1024];
+        int len;
+        while ((len = in.read(buf)) > 0)
+        {
+            out.write(buf, 0, len);
+        }
+        out.close();
+        in.close();
     }
 
     public static Date parseDateOffset(String time)

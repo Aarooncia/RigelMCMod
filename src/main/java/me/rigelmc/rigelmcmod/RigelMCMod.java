@@ -60,6 +60,7 @@ public class RigelMCMod extends AeroPlugin<RigelMCMod>
     public MainConfig config;
     //
     // Services
+    public AntiSpamBot asb;
     public ServiceManager<RigelMCMod> services;
     public ServerInterface si;
     public SavedFlags sf;
@@ -187,6 +188,7 @@ public class RigelMCMod extends AeroPlugin<RigelMCMod>
         pm = services.registerService(PermbanList.class);
         pa = services.registerService(ProtectArea.class);
         gr = services.registerService(GameRuleHandler.class);
+        asb = services.registerService(AntiSpamBot.class);
 
         // Single admin utils
         rb = services.registerService(RollbackManager.class);

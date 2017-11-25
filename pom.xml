@@ -129,7 +129,12 @@
             <artifactId>JDA</artifactId>
             <version>3.3.0_260</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot</artifactId>
+            <version>1.12.2</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>
 
     <build>
