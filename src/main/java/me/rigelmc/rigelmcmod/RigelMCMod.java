@@ -15,6 +15,7 @@ import me.rigelmc.rigelmcmod.blocking.MobBlocker;
 import me.rigelmc.rigelmcmod.blocking.PotionBlocker;
 import me.rigelmc.rigelmcmod.blocking.command.CommandBlocker;
 import me.rigelmc.rigelmcmod.bridge.BukkitTelnetBridge;
+import me.rigelmc.rigelmcmod.bridge.CoreProtectBridge;
 import me.rigelmc.rigelmcmod.bridge.EssentialsBridge;
 import me.rigelmc.rigelmcmod.bridge.LibsDisguisesBridge;
 import me.rigelmc.rigelmcmod.bridge.WorldEditBridge;
@@ -117,8 +118,8 @@ public class RigelMCMod extends AeroPlugin<RigelMCMod>
     public EssentialsBridge esb;
     public LibsDisguisesBridge ldb;
     public WorldEditBridge web;
-    public CoreProtectDatabase cpd;
-
+    public CoreProtectBridge cpb;
+    
     @Override
     public void load()
     {
@@ -227,7 +228,7 @@ public class RigelMCMod extends AeroPlugin<RigelMCMod>
         esb = bridges.registerService(EssentialsBridge.class);
         ldb = bridges.registerService(LibsDisguisesBridge.class);
         web = bridges.registerService(WorldEditBridge.class);
-        cpd = bridges.registerService(CoreProtectDatabase.class);
+        cpb = bridges.registerService(CoreProtectBridge.class);
         bridges.start();
 
         timer.update();

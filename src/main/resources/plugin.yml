@@ -1,6 +1,6 @@
 name: RigelMCMod
 main: me.rigelmc.rigelmcmod.RigelMCMod
-version: ${tfm.build.version}
+version: 2.2
 description: Plugin for the RigelMC server.
 depend: [Aero, WorldEdit]
 softdepend: [BukkitTelnet, RMC-Essentials, LibsDisguises]

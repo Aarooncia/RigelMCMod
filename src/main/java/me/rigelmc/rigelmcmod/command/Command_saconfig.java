@@ -60,7 +60,7 @@ public class Command_saconfig extends FreedomCommand
             {
                 checkConsole();
                 checkNotHostConsole();
-                checkRank(Rank.SENIOR_CONSOLE);
+                checkRank(Rank.SENIOR_ADMIN);
 
                 if (args.length < 3)
                 {
