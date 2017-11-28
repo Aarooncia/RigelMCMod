@@ -92,15 +92,6 @@ public class EventBlocker extends FreedomService
     }
 
     @EventHandler(priority = EventPriority.HIGH)
-    public void onEntityCombust(EntityCombustEvent event)
-    {
-        if (!ConfigEntry.ALLOW_EXPLOSIONS.getBoolean())
-        {
-            event.setCancelled(true);
-        }
-    }
-
-    @EventHandler(priority = EventPriority.HIGH)
     public void onEntityDeath(EntityDeathEvent event)
     {
         if (ConfigEntry.AUTO_ENTITY_WIPE.getBoolean())
