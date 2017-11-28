@@ -130,6 +130,7 @@ allow:
   tnt_minecarts: false
   explosions: false
   redstone: false
+  firework_explosions: false
 
 # Blocked commands:
 #
