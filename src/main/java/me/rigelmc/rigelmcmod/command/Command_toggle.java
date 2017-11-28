@@ -32,6 +32,7 @@ public class Command_toggle extends FreedomCommand
             msg("- explosivearrows");
             msg("- nonuke [range] [count]");
             msg("- explosives [radius]");
+            msg("- fireworks");
             return false;
         }
 
@@ -105,6 +106,12 @@ public class Command_toggle extends FreedomCommand
             return true;
         }
 
+        if (args[0].equals("fireworks"))
+        {
+            toggle("Firework explosions are", ConfigEntry.ALLOW_FIREWORK_EXPLOSIONS);
+            return true;
+        }
+        
         if (args[0].equals("nonuke"))
         {
             if (args.length >= 2)
