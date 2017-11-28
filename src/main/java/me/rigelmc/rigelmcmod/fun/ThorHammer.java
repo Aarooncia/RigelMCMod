@@ -48,7 +48,7 @@ public class ThorHammer extends FreedomService
         Location l = p.getTargetBlock((Set<Material>) null, 600).getLocation();
         ShopData sd = plugin.sh.getData(p);
 
-        if (sd.isThorHammer() && !p.getName().equals("savnith") && event.getItem() != null && event.getItem().equals(getThorHammer()))
+        if (sd.isThorHammer()  && event.getItem() != null && event.getItem().equals(getThorHammer()))
         {
             // Cool down time in seconds
             long cooldownTime = 5;
@@ -64,7 +64,7 @@ public class ThorHammer extends FreedomService
             cooldowns.put(p.getName(), System.currentTimeMillis());
             p.getWorld().strikeLightning(l);
         }
-        else if (lpl.contains(p) && p.getName().equals("savnith"))
+        else if (lpl.contains(p))
         {
             for (int i = 0; i < amount; i++)
             {
