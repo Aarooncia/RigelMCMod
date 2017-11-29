@@ -1,5 +1,6 @@
 package me.rigelmc.rigelmcmod.command;
 
+import me.rigelmc.rigelmcmod.admin.Admin;
 import me.rigelmc.rigelmcmod.rank.Rank;
 import me.rigelmc.rigelmcmod.util.FUtil;
 import org.bukkit.ChatColor;
@@ -15,8 +16,20 @@ public class Command_suicide extends FreedomCommand
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
-        playerSender.setHealth(0);
-        FUtil.bcastMsg(playerSender.getName() + " has killed themself!", ChatColor.RED);
-        return true;
+        Admin target = getAdmin(playerSender);
+        
+        if (FUtil.isBuddhist(target.getName()))
+        {
+            playerSender.setHealth(0);
+            FUtil.bcastMsg(playerSender.getName() + " has killed themself, and is a curtain now!", ChatColor.RED);
+            return true;  
+        } 
+        else
+        {
+            playerSender.setHealth(0);
+            FUtil.bcastMsg(playerSender.getName() + " has killed themself, RIP!", ChatColor.RED);
+            return true; 
+        }
+        
     }
 }
