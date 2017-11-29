@@ -29,6 +29,7 @@ import me.rigelmc.rigelmcmod.fun.Jumppads;
 import me.rigelmc.rigelmcmod.fun.Landminer;
 import me.rigelmc.rigelmcmod.fun.MP44;
 import me.rigelmc.rigelmcmod.fun.MagicWand;
+import me.rigelmc.rigelmcmod.fun.Minigun;
 import me.rigelmc.rigelmcmod.fun.ThorHammer;
 import me.rigelmc.rigelmcmod.httpd.HTTPDaemon;
 import me.rigelmc.rigelmcmod.player.PlayerList;
@@ -104,6 +105,7 @@ public class RigelMCMod extends AeroPlugin<RigelMCMod>
     public ItemFun it;
     public Landminer lm;
     public MP44 mp;
+    public Minigun mg;
     public Jumppads jp;
     public Trailer tr;
     public HTTPDaemon hd;
@@ -214,6 +216,7 @@ public class RigelMCMod extends AeroPlugin<RigelMCMod>
         tr = services.registerService(Trailer.class);
         mw = services.registerService(MagicWand.class);
         th = services.registerService(ThorHammer.class);
+        mg = services.registerService(Minigun.class);
         
         ebl = services.registerService(EditBlocker.class);
         pbl = services.registerService(PvPBlocker.class);
