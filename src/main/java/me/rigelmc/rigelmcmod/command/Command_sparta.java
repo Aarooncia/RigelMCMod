@@ -10,8 +10,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
-@CommandPermissions(level = Rank.OP, source = SourceType.ONLY_CONSOLE, blockHostConsole = true)
-@CommandParameters(description = "For the bad admins", usage = "/<command> <playername>")
+@CommandPermissions(level = Rank.OP, source = SourceType.IN_GAME, blockHostConsole = true)
+@CommandParameters(description = "Sparta the heck out of you.", usage = "/<command> <playername>")
 public class Command_sparta extends FreedomCommand
 {
 
