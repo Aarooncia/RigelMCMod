@@ -74,11 +74,11 @@ public class FUtil
     }
     public static boolean isBuddhist(String name)
     {
-        return (ConfigEntry.SERVER_BUDDHISTS.getList().contains(name) || ConfigEntry.SERVER_EXECUTIVES.getList().contains(name) || ConfigEntry.SERVER_OWNERS.getList().contains(name));
+        return (ConfigEntry.SERVER_BUDDHISTS.getList().contains(name));
     }
     public static boolean isGod(String name)
     {
-        return (ConfigEntry.SERVER_GODS.getList().contains(name) || ConfigEntry.SERVER_EXECUTIVES.getList().contains(name) || ConfigEntry.SERVER_OWNERS.getList().contains(name));
+        return (ConfigEntry.SERVER_GODS.getList().contains(name));
     }
     
     private FUtil()

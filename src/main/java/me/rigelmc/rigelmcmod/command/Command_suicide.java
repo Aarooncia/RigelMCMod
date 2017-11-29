@@ -18,18 +18,14 @@ public class Command_suicide extends FreedomCommand
     {
         Admin target = getAdmin(playerSender);
         
-        if (FUtil.isBuddhist(target.getName()))
-        {
-            playerSender.setHealth(0);
-            FUtil.bcastMsg(playerSender.getName() + " has killed themself, and is a curtain now!", ChatColor.RED);
-            return true;  
-        } 
-        else
+        if (!FUtil.isBuddhist(target.getName()))
         {
             playerSender.setHealth(0);
             FUtil.bcastMsg(playerSender.getName() + " has killed themself, RIP!", ChatColor.RED);
-            return true; 
-        }
-        
+            return true;  
+        } 
+        playerSender.setHealth(0);
+        FUtil.bcastMsg(playerSender.getName() + " has killed themself, and is a curtain now!", ChatColor.RED);
+        return true;        
     }
 }
