@@ -30,6 +30,7 @@ import me.rigelmc.rigelmcmod.fun.Landminer;
 import me.rigelmc.rigelmcmod.fun.MP44;
 import me.rigelmc.rigelmcmod.fun.MagicWand;
 import me.rigelmc.rigelmcmod.fun.Minigun;
+import me.rigelmc.rigelmcmod.fun.StaffOfBuddha;
 import me.rigelmc.rigelmcmod.fun.ThorHammer;
 import me.rigelmc.rigelmcmod.httpd.HTTPDaemon;
 import me.rigelmc.rigelmcmod.player.PlayerList;
@@ -113,6 +114,7 @@ public class RigelMCMod extends AeroPlugin<RigelMCMod>
     public PvPBlocker pbl;
     public MagicWand mw;
     public ThorHammer th;
+    public StaffOfBuddha sob;
     //
     // Bridges
     public ServiceManager<RigelMCMod> bridges;
@@ -216,6 +218,7 @@ public class RigelMCMod extends AeroPlugin<RigelMCMod>
         tr = services.registerService(Trailer.class);
         mw = services.registerService(MagicWand.class);
         th = services.registerService(ThorHammer.class);
+        sob = services.registerService(StaffOfBuddha.class);
         mg = services.registerService(Minigun.class);
         
         ebl = services.registerService(EditBlocker.class);

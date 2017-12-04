@@ -10,8 +10,8 @@ import me.rigelmc.rigelmcmod.util.FUtil;
 import org.bukkit.ChatColor;
 
 @CommandPermissions(level = Rank.OP, source = SourceType.ONLY_IN_GAME)
-@CommandParameters(description = "Gives you Thor's hammer", usage = "/<command>")
-public class Command_thorhammer extends FreedomCommand
+@CommandParameters(description = "Gives you Thor's hammer", usage = "/<command>", aliases = "sob")
+public class Command_staffofbuddha extends FreedomCommand
 {
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
@@ -19,20 +19,16 @@ public class Command_thorhammer extends FreedomCommand
         Player init = null;
         Player targetPlayer = playerSender;
         Admin target = getAdmin(playerSender);
-        ShopData sd = plugin.sh.getData(playerSender);
-        if (!sd.isThorHammer())
+        if (FUtil.isBuddhist(target.getName()))
         {
-            msg("You have not yet purchased Thor's hammer from the shop!", ChatColor.RED);
+            playerSender.getInventory().addItem(plugin.sob.getStaffOfBuddha());
+            msg("You have been given The Staff Of Buddha!", ChatColor.GREEN);
             return true;
         }
-        if (!FUtil.isGod(target.getName()))
+        else 
         {
-            playerSender.getInventory().addItem(plugin.th.getThorHammer());
-            msg("You have been given Thor's hammer!", ChatColor.GREEN);
-            return true;
+            msg("You are not a Buddhist!", ChatColor.RED);
         }
-        playerSender.getInventory().addItem(plugin.th.getThorHammer());
-        msg("You have been given Thor's hammer!", ChatColor.GREEN);
         return true;
     }
 }
