@@ -17,12 +17,14 @@ import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.event.weather.ThunderChangeEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
 import static me.rigelmc.rigelmcmod.util.FUtil.playerMsg;
+import static me.rigelmc.rigelmcmod.util.FUtil.playerMsg;
+import static me.rigelmc.rigelmcmod.util.FUtil.playerMsg;
 
 public class WorldManager extends FreedomService
 {
 
     public Flatlands flatlands;
-    public GamesWorld gw;
+    public MasterBuilderWorld masterbuilderworld;
     public AdminWorld adminworld;
 
     public WorldManager(RigelMCMod plugin)
@@ -31,7 +33,7 @@ public class WorldManager extends FreedomService
 
         this.flatlands = new Flatlands();
         this.adminworld = new AdminWorld();
-        this.gw = new GamesWorld();
+        this.masterbuilderworld = new MasterBuilderWorld();
     }
 
     @Override
@@ -39,7 +41,7 @@ public class WorldManager extends FreedomService
     {
         flatlands.getWorld();
         adminworld.getWorld();
-        gw.getWorld();
+        masterbuilderworld.getWorld();
 
         // Disable weather
         if (ConfigEntry.DISABLE_WEATHER.getBoolean())
@@ -59,7 +61,7 @@ public class WorldManager extends FreedomService
     {
         flatlands.getWorld().save();
         adminworld.getWorld().save();
-        gw.getWorld().save();
+        masterbuilderworld.getWorld().save();
     }
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)

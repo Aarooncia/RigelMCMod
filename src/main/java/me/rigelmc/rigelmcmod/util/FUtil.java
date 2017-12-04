@@ -72,6 +72,10 @@ public class FUtil
     {
         return (ConfigEntry.SERVER_EXECUTIVES.getList().contains(name) || ConfigEntry.SERVER_OWNERS.getList().contains(name));
     }
+    public static boolean isMasterBuilder(String name)
+    {
+        return (ConfigEntry.SERVER_MASTER_BUILDERS.getList().contains(name));
+    }
     public static boolean isBuddhist(String name)
     {
         return (ConfigEntry.SERVER_BUDDHISTS.getList().contains(name));

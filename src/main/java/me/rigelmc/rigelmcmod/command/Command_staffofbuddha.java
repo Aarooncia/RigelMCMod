@@ -16,10 +16,10 @@ public class Command_staffofbuddha extends FreedomCommand
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
-        Player init = null;
+        /*Player init = null;
         Player targetPlayer = playerSender;
-        Admin target = getAdmin(playerSender);
-        if (FUtil.isBuddhist(target.getName()))
+        Admin target = getAdmin(playerSender);*/
+        if (FUtil.isBuddhist(sender.getName()))
         {
             playerSender.getInventory().addItem(plugin.sob.getStaffOfBuddha());
             msg("You have been given The Staff Of Buddha!", ChatColor.GREEN);
