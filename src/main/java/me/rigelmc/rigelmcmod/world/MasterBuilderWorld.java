@@ -1,6 +1,9 @@
 package me.rigelmc.rigelmcmod.world;
 
+import java.util.HashMap;
+import java.util.Map;
 import me.rigelmc.rigelmcmod.config.ConfigEntry;
+import me.rigelmc.rigelmcmod.util.FUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -9,6 +12,8 @@ import org.bukkit.WorldCreator;
 import org.bukkit.WorldType;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 public class MasterBuilderWorld extends CustomWorld
 {
@@ -46,7 +51,7 @@ public class MasterBuilderWorld extends CustomWorld
         org.bukkit.material.Sign signData = (org.bukkit.material.Sign) welcomeSign.getData();
         signData.setFacingDirection(BlockFace.NORTH);
 
-        welcomeSign.setLine(0, ChatColor.GREEN + "Master Builder World");
+        welcomeSign.setLine(0, ChatColor.GREEN + "MB World");
         welcomeSign.setLine(1, ChatColor.DARK_GRAY + "---");
         welcomeSign.setLine(2, ChatColor.YELLOW + "Spawn Point");
         welcomeSign.setLine(3, ChatColor.DARK_GRAY + "---");
