@@ -160,8 +160,9 @@ public class EventBlocker extends FreedomService
     {
         event.setCancelled(true);
     }
+
     @EventHandler(priority = EventPriority.HIGH)
-    
+
     public void onFireworkExplode(FireworkExplodeEvent event)
     {
         if (!ConfigEntry.ALLOW_FIREWORK_EXPLOSIONS.getBoolean())

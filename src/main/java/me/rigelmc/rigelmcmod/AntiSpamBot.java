@@ -13,13 +13,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import me.rigelmc.rigelmcmod.util.FUtil;
-    
 
 public class AntiSpamBot extends FreedomService
 {
-    
+
     public final List<String> SPAMBOT_IPS = new ArrayList();
-    
+
     public AntiSpamBot(RigelMCMod plugin)
     {
         super(plugin);
@@ -52,7 +51,7 @@ public class AntiSpamBot extends FreedomService
     {
         SPAMBOT_IPS.clear();
     }
-    
+
     public void loadIps() throws FileNotFoundException
     {
         Scanner scanner = new Scanner(new File(plugin.getDataFolder().getPath() + "/deathbotips.txt"));
@@ -62,7 +61,7 @@ public class AntiSpamBot extends FreedomService
         }
         FLog.info("Loaded " + SPAMBOT_IPS.size() + " spambot ips");
     }
-    
+
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlayerPreLogin(AsyncPlayerPreLoginEvent event)
     {

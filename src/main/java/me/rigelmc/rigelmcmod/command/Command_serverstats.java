@@ -15,15 +15,15 @@ public class Command_serverstats extends FreedomCommand
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
-        msg("-==" + ConfigEntry.SERVER_NAME.getString() + " server stats==-", ChatColor.GOLD);
-        msg("Total opped players: " + server.getOperators().size(), ChatColor.RED);
-        msg("Total staff: " + plugin.al.getAllAdmins().size() + " (" + plugin.al.getActiveAdmins().size() + " active)", ChatColor.BLUE);
+        msg("-==" + ConfigEntry.SERVER_NAME.getString() + " Server Stats ==-", ChatColor.GOLD);
+        msg("Total OPs: " + server.getOperators().size(), ChatColor.RED);
+        msg("Total Staff: " + plugin.al.getAllAdmins().size() + " (" + plugin.al.getActiveAdmins().size() + " active)", ChatColor.BLUE);
         int tpbips = plugin.pm.getPermbannedIps().size();
         int tpbns = plugin.pm.getPermbannedNames().size();
         int tpbs = tpbips + tpbns;
-        msg("Total perm bans: " + tpbs + " (" + tpbips + " ips " + tpbns + " names)", ChatColor.GREEN);
-        msg("Freedom command count: " + plugin.cl.totalCommands, ChatColor.AQUA);
-        msg("Total blocked deathbot ips: " + plugin.asb.SPAMBOT_IPS.size(), ChatColor.YELLOW);
+        msg("Total Permbans: " + tpbs + " (" + tpbips + " ips " + tpbns + " names)", ChatColor.GREEN);
+        msg("Freedom Command Count: " + plugin.cl.totalCommands, ChatColor.AQUA);
+        msg("Total Blocked Deathbot IPs: " + plugin.asb.SPAMBOT_IPS.size(), ChatColor.YELLOW);
         return true;
     }
 }

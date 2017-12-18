@@ -17,20 +17,19 @@ public class Command_suicide extends FreedomCommand
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
         Admin target = getAdmin(playerSender);
-        
+
         if (FUtil.isBuddhist(target.getName()))
         {
             playerSender.setHealth(0);
             FUtil.bcastMsg(playerSender.getName() + " has killed themself, and is a curtain now!", ChatColor.RED);
-            return true; 
+            return true;
         }
         else
         {
             playerSender.setHealth(0);
             FUtil.bcastMsg(playerSender.getName() + " has killed themself, RIP!", ChatColor.RED);
-            return true;  
-        } 
-        
-                
+            return true;
+        }
+
     }
 }

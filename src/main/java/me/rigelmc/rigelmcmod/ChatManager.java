@@ -51,7 +51,7 @@ public class ChatManager extends FreedomService
         final Player player = event.getPlayer();
         String message = event.getMessage().trim();
         final ShopData sd = plugin.sh.getData(player);
-        
+
         if (!sd.isColoredchat())
         {
             // Strip color from messages

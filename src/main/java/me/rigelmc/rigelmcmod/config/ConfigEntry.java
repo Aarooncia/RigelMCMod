@@ -113,7 +113,7 @@ public enum ConfigEntry
     NOADMIN_IPS(List.class, "noadmin_ips"),
     ADMIN_ONLY_MODE(Boolean.class, "admin_only_mode"),
     AUTO_ENTITY_WIPE(Boolean.class, "auto_wipe");
-    
+
     //
     private final Class<?> type;
     private final String configName;

@@ -36,17 +36,14 @@ public class Command_coins extends FreedomCommand
                 return true;
             }
         }
+        else if (senderIsConsole)
+        {
+            msg(prefix + ChatColor.RED + "You are not a player, use /coins <playername>");
+            return true;
+        }
         else
         {
-            if (senderIsConsole)
-            {
-                msg(prefix + ChatColor.RED + "You are not a player, use /coins <playername>");
-                return true;
-            }
-            else
-            {
-                p = playerSender;
-            }
+            p = playerSender;
         }
         ShopData sd = plugin.sh.getData(p);
         msg(prefix + ChatColor.GREEN + (args.length > 0 ? p.getName() + " has " : "You have ") + ChatColor.RED + sd.getCoins() + ChatColor.GREEN + " coins.");

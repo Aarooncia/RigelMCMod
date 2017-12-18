@@ -25,7 +25,7 @@ public class Command_hug extends FreedomCommand
             msg(FreedomCommand.PLAYER_NOT_FOUND);
             return true;
         }
-        
+
         FUtil.bcastMsg(ChatColor.AQUA + plugin.esb.getDisplayName(playerSender.getName()) + ChatColor.AQUA + " has given "
                 + plugin.esb.getDisplayName(player.getName()) + ChatColor.AQUA + " a warm hug!");
         return true;

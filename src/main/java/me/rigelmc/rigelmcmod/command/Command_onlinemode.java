@@ -16,7 +16,7 @@ public class Command_onlinemode extends FreedomCommand
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
-        if (args.length < 1)
+        /*if (args.length < 1)
         {
             msg("Server is currently running with 'online-mode=" + (server.getOnlineMode() ? "true" : "false") + "'.", ChatColor.WHITE);
             msg("\"/onlinemode on\" and \"/onlinemode off\" can be used to change online mode from the console.", ChatColor.WHITE);
@@ -48,24 +48,25 @@ public class Command_onlinemode extends FreedomCommand
             {
                 plugin.si.setOnlineMode(onlineMode);
 
-              if (onlineMode)
-               {
+                if (onlineMode)
+                {
                     for (Player player : server.getOnlinePlayers())
                     {
-                       player.kickPlayer("Server is activating \"online-mode=true\". Please reconnect.");
+                        player.kickPlayer("Server is activating \"online-mode=true\". Please reconnect.");
                     }
                 }
-             FUtil.adminAction(sender.getName(), "Turning player validation " + (onlineMode ? "on" : "off") + ".", true);
+                FUtil.adminAction(sender.getName(), "Turning player validation " + (onlineMode ? "on" : "off") + ".", true);
 
-               server.reload();
+                server.reload();
             }
             catch (Exception ex)
             {
                 FLog.severe(ex);
             }
-         
-        }
 
+        }*/
+
+        msg("Sorry, but the onlinemode command is not available at the moment.");
         return true;
     }
 }

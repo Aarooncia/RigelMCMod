@@ -43,7 +43,10 @@ public class CleanroomChunkGenerator extends ChunkGenerator
         this("64,stone");
     }
 
-    @SuppressWarnings({"LoggerStringConcat", "CallToPrintStackTrace"})
+    @SuppressWarnings(
+            {
+                "LoggerStringConcat", "CallToPrintStackTrace"
+            })
     public CleanroomChunkGenerator(String id)
     {
         if (id != null)

@@ -20,7 +20,7 @@ import org.bukkit.entity.Player;
 
 public class Admin implements ConfigLoadable, ConfigSavable, Validatable
 {
-
+    
     @Getter
     private String configKey;
     @Getter
@@ -48,37 +48,37 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
     @Getter
     @Setter
     private String atag = null;
-
+    
     public Admin(Player player)
     {
         this.configKey = player.getName().toLowerCase();
         this.name = player.getName();
         this.ips.add(Ips.getIp(player));
     }
-
+    
     public Admin(String configKey)
     {
         this.configKey = configKey;
     }
-
+    
     @Override
     public String toString()
     {
         final StringBuilder output = new StringBuilder();
-
+        
         output.append("Admin: ").append(name).append("\n")
                 .append("- IPs: ").append(StringUtils.join(ips, ", ")).append("\n")
                 .append("- Last Login: ").append(FUtil.dateToString(lastLogin)).append("\n")
                 .append("- Custom Login Message: ").append(loginMessage).append("\n")
                 .append("- Rank: ").append(rank.getName()).append("\n")
-                .append("- Is Active: ").append(active)
+                .append("- Is Active: ").append(active).append("\n")
                 .append("- Discord ID: ").append(discordID).append("\n")
                 .append("- Shout Color: ").append(shoutColor).append("\n")
                 .append("- Join Tag: ").append(atag);
-
+        
         return output.toString();
     }
-
+    
     public void loadFrom(Player player)
     {
         configKey = player.getName().toLowerCase();
@@ -86,7 +86,7 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
         ips.clear();
         ips.add(Ips.getIp(player));
     }
-
+    
     @Override
     public void loadFrom(ConfigurationSection cs)
     {
@@ -101,7 +101,7 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
         shoutColor = cs.getString("shout_color", null);
         atag = cs.getString("tag", null);
     }
-
+    
     @Override
     public void saveTo(ConfigurationSection cs)
     {
@@ -116,17 +116,17 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
         cs.set("shout_color", shoutColor);
         cs.set("tag", atag);
     }
-
+    
     public boolean isAtLeast(Rank pRank)
     {
         return rank.isAtLeast(pRank);
     }
-
+    
     public boolean hasLoginMessage()
     {
         return loginMessage != null && !loginMessage.isEmpty();
     }
-
+    
     public boolean hasCustomShoutColor()
     {
         return shoutColor != null && !shoutColor.isEmpty();
@@ -140,7 +140,7 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
             ips.add(ip);
         }
     }
-
+    
     public void addIps(List<String> ips)
     {
         for (String ip : ips)
@@ -148,7 +148,7 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
             addIp(ip);
         }
     }
-
+    
     public void removeIp(String ip)
     {
         if (ips.contains(ip))
@@ -156,18 +156,18 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
             ips.remove(ip);
         }
     }
-
+    
     public void clearIPs()
     {
         ips.clear();
     }
-
+    
     public void setActive(boolean active)
     {
         this.active = active;
-
+        
         final RigelMCMod plugin = RigelMCMod.plugin();
-
+        
         if (!active)
         {
             if (getRank().isAtLeast(Rank.TELNET_ADMIN))
@@ -177,11 +177,11 @@ public class Admin implements ConfigLoadable, ConfigSavable, Validatable
                     plugin.btb.killTelnetSessions(getName());
                 }
             }
-
+            
             plugin.lv.updateLogsRegistration(null, getName(), LogsRegistrationMode.DELETE);
         }
     }
-
+    
     @Override
     public boolean isValid()
     {

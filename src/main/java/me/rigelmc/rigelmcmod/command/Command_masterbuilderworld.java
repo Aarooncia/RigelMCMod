@@ -15,7 +15,8 @@ public class Command_masterbuilderworld extends FreedomCommand
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
-        if (FUtil.isMasterBuilder(sender.getName()) || FUtil.isExecutive(sender.getName()) || plugin.al.isAdmin(sender)) {
+        if (FUtil.isMasterBuilder(sender.getName()) || FUtil.isExecutive(sender.getName()) || plugin.al.isAdmin(sender))
+        {
             if (ConfigEntry.FLATLANDS_GENERATE.getBoolean())
             {
                 plugin.wm.masterbuilderworld.sendToWorld(playerSender);
@@ -25,7 +26,7 @@ public class Command_masterbuilderworld extends FreedomCommand
             {
                 msg("MasterBuilderWorld is currently disabled.");
                 return true;
-            }        
+            }
         }
         return true;
     }

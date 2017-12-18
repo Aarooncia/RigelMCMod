@@ -80,17 +80,17 @@ public class RankManager extends FreedomService
         }
 
         // Staff Titles
-        if (FUtil.RMCDEVS.contains(player.getName()) && !ConfigEntry.SERVER_OWNERS.getList().contains(player.getName()))
+        if (ConfigEntry.SERVER_OWNERS.getList().contains(player.getName()))
+        {
+            return Title.OWNER;
+        }
+        if (FUtil.RMCDEVS.contains(player.getName()))
         {
             return Title.RMCDEV;
         }
         if (ConfigEntry.SERVER_EXECUTIVES.getList().contains(player.getName()))
         {
             return Title.EXECUTIVE;
-        }
-        if (ConfigEntry.SERVER_OWNERS.getList().contains(player.getName()))
-        {
-            return Title.OWNER;
         }
         return rank;
     }
@@ -147,7 +147,6 @@ public class RankManager extends FreedomService
     public void onPlayerJoin(PlayerJoinEvent event)
     {
         final Player player = event.getPlayer();
-        //plugin.pl.getData(player);
         final FPlayer fPlayer = plugin.pl.getPlayer(player);
 
         // Unban admins
@@ -181,7 +180,7 @@ public class RankManager extends FreedomService
         }
 
         // Set display
-        if (isAdmin || FUtil.TFDEVS.contains(player.getName()) || FUtil.LEAD_DEV.contains(player.getName()))
+        if (isAdmin || FUtil.TFDEVS.contains(player.getName()) || FUtil.LEAD_DEV.contains(player.getName()) || FUtil.RMCDEVS.contains(player.getName()))
         {
             final Displayable display = getDisplay(player);
             String loginMsg = display.getColoredLoginMessage();

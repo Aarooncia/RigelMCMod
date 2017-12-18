@@ -22,6 +22,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 public class Shop extends FreedomService
 {
+
     public final String GUIName = ChatColor.AQUA + "RigelMC Shop";
     @Getter
     public final Map<String, ShopData> dataMap = Maps.newHashMap(); // ip,dataMap
@@ -49,7 +50,7 @@ public class Shop extends FreedomService
             save(sd);
         }
     }
-    
+
     public void save(ShopData data)
     {
         YamlConfig config = getConfig(data);
@@ -68,7 +69,7 @@ public class Shop extends FreedomService
 
         return (entry == null ? null : entry.getIps().iterator().next());
     }
-    
+
     public String getShopPrefix()
     {
         return FUtil.colorize(ConfigEntry.SHOP_PREFIX.getString() + " ");
@@ -96,7 +97,7 @@ public class Shop extends FreedomService
             final long unix = FUtil.getUnixTime();
             data = new ShopData(player);
             data.addIp(Ips.getIp(player));
-            
+
             // Set defaults
             data.setCoins(0);
             data.setColoredchat(false);

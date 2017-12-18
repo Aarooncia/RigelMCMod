@@ -15,6 +15,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 
 public class ShopGUIListener extends FreedomService
 {
+
     public ShopGUIListener(RigelMCMod plugin)
     {
         super(plugin);
@@ -29,7 +30,7 @@ public class ShopGUIListener extends FreedomService
     protected void onStop()
     {
     }
-    
+
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onInventoryClick(InventoryClickEvent event)
     {
@@ -55,7 +56,7 @@ public class ShopGUIListener extends FreedomService
             int thorHammerPrice = ConfigEntry.SHOP_LOGIN_MESSAGE_PRICE.getInteger();
             int magicWandPrice = ConfigEntry.SHOP_MAGIC_WAND_PRICE.getInteger();
             int minigunPrice = ConfigEntry.SHOP_MINIGUN_PRICE.getInteger();
-            
+
             if (is.getType().equals(Material.BOOK_AND_QUILL) && !sd.isColoredchat() && canAfford(coloredChatPrice, coins))
             {
                 sd.setCoins(coins - coloredChatPrice);
@@ -65,7 +66,7 @@ public class ShopGUIListener extends FreedomService
                 event.setCancelled(true);
                 p.closeInventory();
             }
-            
+
             else if (is.getType().equals(Material.NAME_TAG) && !sd.isCustomLoginMessage() && canAfford(customLoginMessagePrice, coins))
             {
                 sd.setCoins(coins - customLoginMessagePrice);
@@ -75,7 +76,7 @@ public class ShopGUIListener extends FreedomService
                 event.setCancelled(true);
                 p.closeInventory();
             }
-            
+
             else if (is.getType().equals(Material.IRON_PICKAXE) && !sd.isThorHammer() && canAfford(thorHammerPrice, coins))
             {
                 sd.setCoins(coins - thorHammerPrice);
@@ -85,7 +86,7 @@ public class ShopGUIListener extends FreedomService
                 event.setCancelled(true);
                 p.closeInventory();
             }
-            
+
             else if (is.getType().equals(Material.STICK) && !sd.isMagicWand() && canAfford(magicWandPrice, coins))
             {
                 sd.setCoins(coins - magicWandPrice);
@@ -95,7 +96,7 @@ public class ShopGUIListener extends FreedomService
                 event.setCancelled(true);
                 p.closeInventory();
             }
-            
+
             else if (is.getType().equals(Material.IRON_BARDING) && !sd.isMinigun() && canAfford(minigunPrice, coins))
             {
                 sd.setCoins(coins - minigunPrice);
@@ -106,7 +107,7 @@ public class ShopGUIListener extends FreedomService
                 p.closeInventory();
             }
         }
-        
+
         else if (i.getTitle().equals(ChatColor.AQUA + "Login Messages"))
         {
             if (is.getType().equals(Material.BARRIER))
@@ -153,14 +154,14 @@ public class ShopGUIListener extends FreedomService
             }
         }
     }
-    
+
     public String createLoginMessage(Player player, String msg)
     {
         String loginMessage = ChatColor.AQUA + player.getName() + " is " + plugin.rm.getDisplay(player).getDeterminer() + " "
                 + plugin.rm.getDisplay(player).getItalicColoredName() + ChatColor.AQUA + " and " + FUtil.colorize(msg);
         return loginMessage;
     }
-    
+
     public boolean canAfford(int price, int coins)
     {
         return (coins >= price);

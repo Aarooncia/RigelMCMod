@@ -37,7 +37,7 @@ public class Command_linkdiscord extends FreedomCommand
         {
             String code = "";
             Random random = new Random();
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 5; i++)
             {
                 code += random.nextInt(10);
             }

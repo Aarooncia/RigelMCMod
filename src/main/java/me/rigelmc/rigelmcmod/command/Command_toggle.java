@@ -111,7 +111,7 @@ public class Command_toggle extends FreedomCommand
             toggle("Firework explosions are", ConfigEntry.ALLOW_FIREWORK_EXPLOSIONS);
             return true;
         }
-        
+
         if (args[0].equals("nonuke"))
         {
             if (args.length >= 2)
