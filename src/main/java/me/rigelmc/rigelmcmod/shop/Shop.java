@@ -94,7 +94,6 @@ public class Shop extends FreedomService
             FLog.info("Creating new shop data entry for " + player.getName());
 
             // Create new player
-            final long unix = FUtil.getUnixTime();
             data = new ShopData(player);
             data.addIp(Ips.getIp(player));
 

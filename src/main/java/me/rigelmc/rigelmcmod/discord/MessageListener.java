@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 
 public class MessageListener extends ListenerAdapter
 {
-    
+
     @Override
     public void onPrivateMessageReceived(PrivateMessageReceivedEvent event)
     {
@@ -25,10 +25,12 @@ public class MessageListener extends ListenerAdapter
                     Admin admin = Discord.LINK_CODES.get(code);
                     admin.setDiscordID(event.getMessage().getAuthor().getId());
                     Discord.LINK_CODES.remove(code);
-                    Discord.sendMessage(event.getChannel(), "Link successful. Now this Discord account is linked with the Minecraft account `" + admin.getName() + "`.");
-                    Discord.sendMessage(event.getChannel(), "Now when you are an impostor on the server you may now use `/verify` to verify.");
+                    Discord.sendMessage(event.getChannel(), "The linking process has been succesful. This discord account is now linked with `" + admin.getName() + "`.");
+                    Discord.sendMessage(event.getChannel(), "If you show up as an impostor, you may use `/verify`.");
                     Player player = RigelMCMod.plugin().getServer().getPlayer(admin.getName());
-                    player.sendMessage(ChatColor.GREEN + "Succesfully linked your Discord account to this account!");
+                    player.sendMessage(ChatColor.GREEN + "Successfully linked " + event.getMessage().getAuthor().getName()
+                            + "#" + event.getMessage().getAuthor().getDiscriminator()
+                            + " to this account!");
                 }
             }
         }

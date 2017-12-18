@@ -81,7 +81,7 @@ public class Discord extends FreedomService
 
     public static void sendMessage(MessageChannel channel, String message)
     {
-        RestAction<Message> sendMessage = channel.sendMessage(message);
+        channel.sendMessage(message).complete();
     }
 
     public static String getCodeForAdmin(Admin admin)

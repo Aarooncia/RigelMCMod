@@ -112,42 +112,35 @@ public class ShopGUIListener extends FreedomService
         {
             if (is.getType().equals(Material.BARRIER))
             {
-                sd.setLoginMessage("none");
+                sd.setLoginMessage(null);
                 plugin.sh.save(sd);
                 p.closeInventory();
                 p.sendMessage(ChatColor.GREEN + "Successfully removed your current login message!");
             }
-            else if (is.getItemMeta().getDisplayName().equals(ChatColor.RED + "Anime Fan"))
+            else if (is.getItemMeta().getDisplayName().equals(ChatColor.YELLOW + "Buddhism Hotline Fan"))
             {
-                sd.setLoginMessage("&ban &cAnime Fan");
+                sd.setLoginMessage("&ba fan of the &eBuddhism Hotline");
                 plugin.sh.save(sd);
                 p.closeInventory();
                 p.sendMessage(ChatColor.GREEN + "Your login message is now " + createLoginMessage(p, sd.getLoginMessage()));
             }
-            else if (is.getItemMeta().getDisplayName().equals(ChatColor.GREEN + "Some damn bot"))
+            else if (is.getItemMeta().getDisplayName().equals(ChatColor.GREEN + "Autist"))
             {
-                sd.setLoginMessage("&aprobably some damn bot");
+                sd.setLoginMessage("&ban &aAutist");
                 plugin.sh.save(sd);
                 p.closeInventory();
                 p.sendMessage(ChatColor.GREEN + "Your login message is now " + createLoginMessage(p, sd.getLoginMessage()));
             }
-            else if (is.getItemMeta().getDisplayName().equals(ChatColor.GOLD + "RigelMC Addict"))
+            else if (is.getItemMeta().getDisplayName().equals(ChatColor.RED + "Anti Jake Pauler"))
             {
-                sd.setLoginMessage("an &7&lRigel&8&lMC &e&lAddict");
+                sd.setLoginMessage("&ban &cAnti Jake Pauler");
                 plugin.sh.save(sd);
                 p.closeInventory();
                 p.sendMessage(ChatColor.GREEN + "Your login message is now " + createLoginMessage(p, sd.getLoginMessage()));
             }
-            else if (is.getItemMeta().getDisplayName().equals(ChatColor.LIGHT_PURPLE + "RWBY Fan"))
+            else if (is.getItemMeta().getDisplayName().equals(ChatColor.GOLD + "Depressed Memer"))
             {
-                sd.setLoginMessage("a &4R&fW&8B&6Y &dFan");
-                plugin.sh.save(sd);
-                p.closeInventory();
-                p.sendMessage(ChatColor.GREEN + "Your login message is now " + createLoginMessage(p, sd.getLoginMessage()));
-            }
-            else if (is.getItemMeta().getDisplayName().equals(ChatColor.DARK_RED + "motherfuckin' savage"))
-            {
-                sd.setLoginMessage("a &9motherfuckin' &bsavage");
+                sd.setLoginMessage("&ba &6Depressed Memer");
                 plugin.sh.save(sd);
                 p.closeInventory();
                 p.sendMessage(ChatColor.GREEN + "Your login message is now " + createLoginMessage(p, sd.getLoginMessage()));

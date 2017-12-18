@@ -5,8 +5,8 @@ import me.rigelmc.rigelmcmod.RigelMCMod;
 import me.rigelmc.rigelmcmod.admin.Admin;
 import me.rigelmc.rigelmcmod.config.ConfigEntry;
 import me.rigelmc.rigelmcmod.player.FPlayer;
+import me.rigelmc.rigelmcmod.shop.ShopData;
 import me.rigelmc.rigelmcmod.util.FUtil;
-import net.pravian.aero.util.ChatUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
@@ -148,6 +148,7 @@ public class RankManager extends FreedomService
     {
         final Player player = event.getPlayer();
         final FPlayer fPlayer = plugin.pl.getPlayer(player);
+        final ShopData sd = plugin.sh.getData(player);
 
         // Unban admins
         boolean isAdmin = plugin.al.isAdmin(player);
@@ -190,7 +191,11 @@ public class RankManager extends FreedomService
                 Admin admin = plugin.al.getAdmin(player);
                 if (admin.hasLoginMessage())
                 {
-                    loginMsg = ChatUtils.colorize(admin.getLoginMessage());
+                    loginMsg = FUtil.colorize(admin.getLoginMessage());
+                }
+                else if (sd.isCustomLoginMessage() && sd.hasLoginMessage())
+                {
+                    loginMsg = display.getColoredLoginMessage() + FUtil.colorize(" &band " + sd.getLoginMessage());
                 }
             }
 
@@ -215,10 +220,16 @@ public class RankManager extends FreedomService
             {
             }
         }
-        if (!plugin.al.isAdmin(player) && ConfigEntry.SERVER_MASTER_BUILDERS.getList().contains(player.getName()))
+        else if (!isAdmin && ConfigEntry.SERVER_MASTER_BUILDERS.getList().contains(player.getName()))
         {
             final Displayable display = getDisplay(player);
             String loginMsg = display.getColoredLoginMessage();
+
+            if (sd.isCustomLoginMessage() && sd.hasLoginMessage())
+            {
+                loginMsg = loginMsg + FUtil.colorize(" &band " + sd.getLoginMessage());
+            }
+
             FUtil.bcastMsg(ChatColor.AQUA + player.getName() + " is " + loginMsg);
             String displayName = display.getColor() + player.getName();
             plugin.pl.getPlayer(player).setTag(display.getColoredTag());
@@ -230,10 +241,16 @@ public class RankManager extends FreedomService
             {
             }
         }
-        if (!plugin.al.isAdmin(player) && ConfigEntry.SERVER_GODS.getList().contains(player.getName()))
+        else if (!isAdmin && ConfigEntry.SERVER_GODS.getList().contains(player.getName()))
         {
             final Displayable display = getDisplay(player);
             String loginMsg = display.getColoredLoginMessage();
+
+            if (sd.isCustomLoginMessage() && sd.hasLoginMessage())
+            {
+                loginMsg = loginMsg + FUtil.colorize(" &band " + sd.getLoginMessage());
+            }
+
             FUtil.bcastMsg(ChatColor.AQUA + player.getName() + " is " + loginMsg);
             String displayName = display.getColor() + player.getName();
             plugin.pl.getPlayer(player).setTag(display.getColoredTag());
@@ -245,10 +262,16 @@ public class RankManager extends FreedomService
             {
             }
         }
-        if (!plugin.al.isAdmin(player) && ConfigEntry.SERVER_BUDDHISTS.getList().contains(player.getName()))
+        else if (!isAdmin && ConfigEntry.SERVER_BUDDHISTS.getList().contains(player.getName()))
         {
             final Displayable display = getDisplay(player);
             String loginMsg = display.getColoredLoginMessage();
+
+            if (sd.isCustomLoginMessage() && sd.hasLoginMessage())
+            {
+                loginMsg = loginMsg + FUtil.colorize(" &band " + sd.getLoginMessage());
+            }
+
             FUtil.bcastMsg(ChatColor.AQUA + player.getName() + " is " + loginMsg);
             String displayName = display.getColor() + player.getName();
             plugin.pl.getPlayer(player).setTag(display.getColoredTag());
@@ -259,6 +282,10 @@ public class RankManager extends FreedomService
             catch (IllegalArgumentException ex)
             {
             }
+        }
+        else if (!isAdmin && sd.isCustomLoginMessage() && sd.hasLoginMessage())
+        {
+            FUtil.bcastMsg(ChatColor.AQUA + player.getName() + " is " + FUtil.colorize(sd.getLoginMessage()));
         }
     }
 }
