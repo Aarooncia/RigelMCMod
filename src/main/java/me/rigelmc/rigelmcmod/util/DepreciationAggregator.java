@@ -1,6 +1,6 @@
 package me.rigelmc.rigelmcmod.util;
 
-import java.util.HashSet;
+import java.util.Set;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.Server;
@@ -13,9 +13,9 @@ import org.bukkit.material.MaterialData;
 public class DepreciationAggregator
 {
 
-    public static Block getTargetBlock(LivingEntity entity, HashSet<Byte> transparent, int maxDistance)
+    public static Block getTargetBlock(LivingEntity entity, Set<Material> material, int maxDistance)
     {
-        return entity.getTargetBlock(transparent, maxDistance);
+        return entity.getTargetBlock(material, maxDistance);
     }
 
     public static OfflinePlayer getOfflinePlayer(Server server, String name)

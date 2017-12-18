@@ -65,7 +65,7 @@ public class RigelMCMod extends AeroPlugin<RigelMCMod>
     // Services
     public AntiSpamBot asb;
     public ServiceManager<RigelMCMod> services;
-    public ServerInterface si;
+    //public ServerInterface si;
     public SavedFlags sf;
     public WorldManager wm;
     public LogViewer lv;
@@ -123,7 +123,7 @@ public class RigelMCMod extends AeroPlugin<RigelMCMod>
     public LibsDisguisesBridge ldb;
     public WorldEditBridge web;
     public CoreProtectBridge cpb;
-    
+
     @Override
     public void load()
     {
@@ -139,7 +139,7 @@ public class RigelMCMod extends AeroPlugin<RigelMCMod>
     @Override
     public void enable()
     {
-        FLog.info("Created by Madgeek1450, Prozza, Savnith and LightWarp");
+        FLog.info("Created by Madgeek1450, Prozza, OxLemonxO, _Fleek and LightWarp");
         FLog.info("Version " + build.formattedVersion());
         FLog.info("Compiled " + build.date + " by " + build.author);
 
@@ -147,8 +147,7 @@ public class RigelMCMod extends AeroPlugin<RigelMCMod>
         timer.start();
 
         // Warn if we're running on a wrong version
-        ServerInterface.warnVersion();
-
+        //ServerInterface.warnVersion();
         // Delete unused files
         FUtil.deleteCoreDumps();
         FUtil.deleteFolder(new File("./_deleteme"));
@@ -166,7 +165,7 @@ public class RigelMCMod extends AeroPlugin<RigelMCMod>
 
         // Start services
         services = new ServiceManager<>(plugin);
-        si = services.registerService(ServerInterface.class);
+        //si = services.registerService(ServerInterface.class);
         sf = services.registerService(SavedFlags.class);
         wm = services.registerService(WorldManager.class);
         lv = services.registerService(LogViewer.class);
@@ -220,7 +219,7 @@ public class RigelMCMod extends AeroPlugin<RigelMCMod>
         th = services.registerService(ThorHammer.class);
         sob = services.registerService(StaffOfBuddha.class);
         mg = services.registerService(Minigun.class);
-        
+
         ebl = services.registerService(EditBlocker.class);
         pbl = services.registerService(PvPBlocker.class);
 
@@ -238,7 +237,7 @@ public class RigelMCMod extends AeroPlugin<RigelMCMod>
         bridges.start();
 
         timer.update();
-        FLog.info("Version " + pluginVersion + " for " + ServerInterface.COMPILE_NMS_VERSION + " enabled in " + timer.getTotal() + "ms");
+        FLog.info("Version " + pluginVersion + " for 1_12_R1 enabled in " + timer.getTotal() + "ms");
 
         // Metrics @ http://mcstats.org/plugin/TotalFreedomMod
         try

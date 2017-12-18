@@ -30,7 +30,7 @@ public class ShopData implements ConfigLoadable, ConfigSavable, Validatable
     private boolean customLoginMessage = false;
     @Getter
     @Setter
-    private String loginMessage = "none";
+    private String loginMessage = null;
     @Getter
     @Setter
     private boolean thorHammer = false;
@@ -62,7 +62,7 @@ public class ShopData implements ConfigLoadable, ConfigSavable, Validatable
         this.customLoginMessage = cs.getBoolean("customLoginMessage", customLoginMessage);
         this.loginMessage = cs.getString("loginMessage", loginMessage);
         this.thorHammer = cs.getBoolean("thorHammer", thorHammer);
-        this.magicWand = cs.getBoolean("magicWand", magicWand);                 
+        this.magicWand = cs.getBoolean("magicWand", magicWand);
         this.minigun = cs.getBoolean("minigun", minigun);
     }
 
@@ -97,11 +97,16 @@ public class ShopData implements ConfigLoadable, ConfigSavable, Validatable
         return ips.remove(ip);
     }
 
+    public boolean hasLoginMessage()
+    {
+        return loginMessage != null
+                && !loginMessage.isEmpty();
+    }
+
     @Override
     public boolean isValid()
     {
         return username != null
-                && !ips.isEmpty()
-                && !loginMessage.isEmpty();
+                && !ips.isEmpty();
     }
 }

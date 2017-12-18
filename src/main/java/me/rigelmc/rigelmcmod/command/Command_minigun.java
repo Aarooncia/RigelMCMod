@@ -11,6 +11,7 @@ import org.bukkit.ChatColor;
 @CommandParameters(description = "Gives you a minigun", usage = "/<command>", aliases = "mg")
 public class Command_minigun extends FreedomCommand
 {
+
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {

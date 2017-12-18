@@ -11,14 +11,17 @@ import java.util.Random;
 @CommandParameters(description = "i dont fucking know, what even", usage = "thot if you dont know what this does then dont use it")
 public class Command_idfk extends FreedomCommand
 {
-    
-    public static final String[] DRUNK_LINES = new String[]{"i is thy best bitch in teh world xD xD xD",
-            "ooga boga ooga boga ooga boga ooga boga", "jake u dog fukr", "jonathon hills is a buddhist",
-            "Aaron is gay", "ABABABABABABABABABA ABAOBOABOBA", "Lemon is a fuckin Lemon",
-            "explosive errors == explosive arrows", "sync; echo 3 > /proc/sys/vm/drop_caches", "yeet",
-            "si", "bubble bass thicc :weary::sweat_drops: :ok_hand:", "diabeetus", "McDiabeto", "oh",
-            "say heck to diabetes im having chocolate cake"};
-    
+
+    public static final String[] DRUNK_LINES = new String[]
+    {
+        "i is thy best bitch in teh world xD xD xD",
+        "ooga boga ooga boga ooga boga ooga boga", "jake u dog fukr", "jonathon hills is a buddhist",
+        "Aaron is gay", "ABABABABABABABABABA ABAOBOABOBA", "Lemon is a fuckin Lemon",
+        "explosive errors == explosive arrows", "sync; echo 3 > /proc/sys/vm/drop_caches", "yeet",
+        "si", "bubble bass thicc :weary::sweat_drops: :ok_hand:", "diabeetus", "McDiabeto", "oh",
+        "say heck to diabetes im having chocolate cake"
+    };
+
     private static final Random random = new Random();
 
     @Override
@@ -28,7 +31,7 @@ public class Command_idfk extends FreedomCommand
         {
             return false;
         }
-        
+
         switch (args[0])
         {
             case "killmepls":

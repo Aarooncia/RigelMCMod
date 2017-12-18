@@ -1,4 +1,4 @@
-package me.rigelmc.rigelmcmod;
+/*package me.rigelmc.rigelmcmod;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -42,7 +42,7 @@ public class ServerInterface extends FreedomService
         }
     }
 
-public void setOnlineMode(boolean mode)
+    public void setOnlineMode(boolean mode)
     {
         final PropertyManager manager = getServer().getPropertyManager();
         manager.setProperty("online-mode", mode);
@@ -95,4 +95,4 @@ public void setOnlineMode(boolean mode)
     {
         return ((CraftServer) Bukkit.getServer()).getServer();
     }
-}
+}*/

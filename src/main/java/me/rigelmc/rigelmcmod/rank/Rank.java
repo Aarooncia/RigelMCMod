@@ -41,13 +41,13 @@ public enum Rank implements Displayable
     {
         return determiner;
     }
-    
+
     @Override
     public String getItalicColoredName()
     {
         return color.toString() + ChatColor.ITALIC + name;
     }
-    
+
     @Override
     public String getColoredName()
     {

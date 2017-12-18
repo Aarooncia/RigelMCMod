@@ -13,6 +13,7 @@ import org.bukkit.ChatColor;
 @CommandParameters(description = "Gives you Thor's hammer", usage = "/<command>")
 public class Command_thorhammer extends FreedomCommand
 {
+
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
@@ -28,7 +29,7 @@ public class Command_thorhammer extends FreedomCommand
             msg("You have been given Thor's hammer!", ChatColor.GREEN);
             return true;
         }
-        else 
+        else
         {
             playerSender.getInventory().addItem(plugin.th.getThorHammer());
             msg("You have been given Thor's hammer!", ChatColor.GREEN);

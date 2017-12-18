@@ -19,13 +19,13 @@ import org.bukkit.inventory.meta.ItemMeta;
 @CommandParameters(description = "Open the shop GUI", usage = "/<command>", aliases = "sh")
 public class Command_shop extends FreedomCommand
 {
+
     public final int coloredChatPrice = ConfigEntry.SHOP_COLORED_CHAT_PRICE.getInteger();
     public final int customLoginMessagePrice = ConfigEntry.SHOP_LOGIN_MESSAGE_PRICE.getInteger();
     public final int thorHammerPrice = ConfigEntry.SHOP_THOR_HAMMER_PRICE.getInteger();
     public final int magicWandPrice = ConfigEntry.SHOP_MAGIC_WAND_PRICE.getInteger();
     public final int minigunPrice = ConfigEntry.SHOP_MINIGUN_PRICE.getInteger();
     public int coins;
-    
 
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
@@ -35,7 +35,7 @@ public class Command_shop extends FreedomCommand
             msg("The shop is currently disabled!", ChatColor.RED);
             return true;
         }
-        
+
         ShopData sd = plugin.sh.getData(playerSender);
         coins = sd.getCoins();
         Boolean hasColoredChat = sd.isColoredchat();
@@ -68,10 +68,11 @@ public class Command_shop extends FreedomCommand
         m.setDisplayName(FUtil.colorize("&c&lYou have &e&l" + sd.getCoins() + "&c&l coins"));
         coins.setItemMeta(m);
         i.setItem(35, coins);
-        
+
         playerSender.openInventory(i);
         return true;
     }
+
     public boolean canOfford(int p, int c)
     {
         if (c >= p)
@@ -83,7 +84,7 @@ public class Command_shop extends FreedomCommand
             return false;
         }
     }
-    
+
     public int amountNeeded(int p)
     {
         return p - coins;
@@ -96,7 +97,7 @@ public class Command_shop extends FreedomCommand
         Boolean co = canOfford(price, coins);
         List<String> l = new ArrayList();
         if (!purchased)
-            {
+        {
             l.add(ChatColor.GOLD + "Price: " + (co ? ChatColor.DARK_GREEN : ChatColor.RED) + price);
             if (!co)
             {
@@ -112,7 +113,7 @@ public class Command_shop extends FreedomCommand
         is.setItemMeta(m);
         return is;
     }
-    
+
     public ItemStack newShopItem(Material mat, ChatColor color, String name, int price, Boolean purchased)
     {
         return newShopItem(new ItemStack(mat), color, name, price, purchased);
@@ -127,4 +128,4 @@ public class Command_shop extends FreedomCommand
         -c-l-t-r-
         --m------
         --------$
-*/
+ */

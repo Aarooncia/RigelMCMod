@@ -20,8 +20,9 @@ import java.util.Arrays;
 
 public class CoreProtectBridge extends FreedomService
 {
+
     private CoreProtectAPI coreProtectAPI = null;
-    
+
     private final List<String> tables = Arrays.asList("co_sign", "co_session", "co_container", "co_block");
 
     public CoreProtectBridge(RigelMCMod plugin)
@@ -38,7 +39,7 @@ public class CoreProtectBridge extends FreedomService
     protected void onStop()
     {
     }
-    
+
     public CoreProtect getCoreProtect()
     {
         CoreProtect coreProtect = null;
@@ -48,7 +49,7 @@ public class CoreProtectBridge extends FreedomService
 
             if (coreProtectPlugin != null && coreProtectPlugin instanceof CoreProtect)
             {
-                coreProtect = (CoreProtect)coreProtectPlugin;
+                coreProtect = (CoreProtect) coreProtectPlugin;
             }
         }
         catch (Exception ex)
@@ -65,9 +66,9 @@ public class CoreProtectBridge extends FreedomService
             try
             {
                 final CoreProtect coreProtect = getCoreProtect();
-                
+
                 coreProtectAPI = coreProtect.getAPI();
-                
+
                 // Check if the plugin or api is not enabled, if so, return null
                 if (!coreProtect.isEnabled() || !coreProtectAPI.isEnabled())
                 {
@@ -81,7 +82,7 @@ public class CoreProtectBridge extends FreedomService
         }
         return coreProtectAPI;
     }
-    
+
     public boolean isEnabled()
     {
         final CoreProtect coreProtect = getCoreProtect();
@@ -98,7 +99,7 @@ public class CoreProtectBridge extends FreedomService
         {
             return;
         }
-        
+
         new BukkitRunnable()
         {
             @Override
@@ -108,7 +109,7 @@ public class CoreProtectBridge extends FreedomService
             }
         }.runTaskAsynchronously(plugin);
     }
-    
+
     // Reverts a rollback for the specifed player's edits that were in the last 24 hours.
     public void undoRollback(final String name)
     {
@@ -128,13 +129,13 @@ public class CoreProtectBridge extends FreedomService
             }
         }.runTaskAsynchronously(plugin);
     }
-    
+
     // Wipes DB for the specified world
     public void clearDatabase(World world)
     {
         clearDatabase(world, false);
     }
-    
+
     // Wipes DB for the specified world
     public void clearDatabase(World world, Boolean shutdown)
     {
@@ -144,7 +145,7 @@ public class CoreProtectBridge extends FreedomService
         {
             return;
         }
-        
+
         /* As CoreProtect doesn't have an api method for deleting all of the data for a specific world
            we have to do this manually via sql */
         File databaseFile = new File(coreProtect.getDataFolder(), "database.db");
@@ -154,7 +155,7 @@ public class CoreProtectBridge extends FreedomService
             connection = DriverManager.getConnection("jdbc:sqlite:" + databaseFile);
             Statement statement = connection.createStatement();
             statement.setQueryTimeout(30);
-            
+
             // Obtain world ID from CoreProtect database
             ResultSet resultSet = statement.executeQuery("SELECT id FROM co_world WHERE world = '" + world.getName() + "'");
             String worldID = null;
@@ -174,7 +175,7 @@ public class CoreProtectBridge extends FreedomService
             {
                 statement.executeUpdate("DELETE FROM " + table + " WHERE wid = " + worldID);
             }
-            
+
             // This shrinks down the file size
             statement.executeUpdate("VACUUM");
 
@@ -184,7 +185,7 @@ public class CoreProtectBridge extends FreedomService
         {
             FLog.warning("Failed to delete the CoreProtect data for the " + world.getName());
         }
-        
+
         // Shutdown the server
         if (shutdown)
         {

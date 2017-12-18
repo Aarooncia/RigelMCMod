@@ -19,6 +19,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 @CommandParameters(description = "Open the GUI to set your login message", usage = "/<command>", aliases = "lm")
 public class Command_loginmessage extends FreedomCommand
 {
+
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
@@ -39,13 +40,13 @@ public class Command_loginmessage extends FreedomCommand
         meta.setDisplayName(ChatColor.RED + "Remove current login message");
         removeLoginMessage.setItemMeta(meta);
         i.setItem(0, removeLoginMessage);
-        ItemStack buddhismHotlineFan = newLoginMessage(new ItemStack(Material.NAME_TAG), "Buddhism Hotline Fan", ChatColor.RED, "a fan of the &eBuddhism Hotline", playerSender);
+        ItemStack buddhismHotlineFan = newLoginMessage(new ItemStack(Material.NAME_TAG), "Buddhism Hotline Fan", ChatColor.YELLOW, "a fan of the &eBuddhism Hotline", playerSender);
         i.setItem(1, buddhismHotlineFan);
-        ItemStack autist = newLoginMessage(new ItemStack(Material.NAME_TAG), "Autist", ChatColor.GREEN, " an &aAutist", playerSender);
+        ItemStack autist = newLoginMessage(new ItemStack(Material.NAME_TAG), "Autist", ChatColor.GREEN, "an &aAutist", playerSender);
         i.setItem(2, autist);
-        ItemStack AntiJakePauler = newLoginMessage(new ItemStack(Material.NAME_TAG), "Anti Jake Pauler", ChatColor.GOLD, "an &cAnti Jake Pauler", playerSender);
+        ItemStack AntiJakePauler = newLoginMessage(new ItemStack(Material.NAME_TAG), "Anti Jake Pauler", ChatColor.RED, "an &cAnti Jake Pauler", playerSender);
         i.setItem(3, AntiJakePauler);
-        ItemStack DepressedMemer = newLoginMessage(new ItemStack(Material.NAME_TAG), "Depressed Memer", ChatColor.LIGHT_PURPLE, "a &6Depressed Memer", playerSender);
+        ItemStack DepressedMemer = newLoginMessage(new ItemStack(Material.NAME_TAG), "Depressed Memer", ChatColor.GOLD, "a &6Depressed Memer", playerSender);
         i.setItem(4, DepressedMemer);
         playerSender.openInventory(i);
         return true;
@@ -62,7 +63,7 @@ public class Command_loginmessage extends FreedomCommand
         is.setItemMeta(m);
         return is;
     }
-    
+
     public ItemStack newLoginMessage(Material mat, String name, ChatColor color, String message, Player player)
     {
         return newLoginMessage(new ItemStack(mat), name, color, message, player);

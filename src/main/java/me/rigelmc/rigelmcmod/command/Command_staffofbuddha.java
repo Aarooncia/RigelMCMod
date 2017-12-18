@@ -13,6 +13,7 @@ import org.bukkit.ChatColor;
 @CommandParameters(description = "Gives you Thor's hammer", usage = "/<command>", aliases = "sob")
 public class Command_staffofbuddha extends FreedomCommand
 {
+
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
@@ -25,7 +26,7 @@ public class Command_staffofbuddha extends FreedomCommand
             msg("You have been given The Staff Of Buddha!", ChatColor.GREEN);
             return true;
         }
-        else 
+        else
         {
             msg("You are not a Buddhist!", ChatColor.RED);
         }

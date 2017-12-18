@@ -15,6 +15,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 
 public class ShopGUIListener extends FreedomService
 {
+
     public ShopGUIListener(RigelMCMod plugin)
     {
         super(plugin);
@@ -29,7 +30,7 @@ public class ShopGUIListener extends FreedomService
     protected void onStop()
     {
     }
-    
+
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onInventoryClick(InventoryClickEvent event)
     {
@@ -55,7 +56,7 @@ public class ShopGUIListener extends FreedomService
             int thorHammerPrice = ConfigEntry.SHOP_LOGIN_MESSAGE_PRICE.getInteger();
             int magicWandPrice = ConfigEntry.SHOP_MAGIC_WAND_PRICE.getInteger();
             int minigunPrice = ConfigEntry.SHOP_MINIGUN_PRICE.getInteger();
-            
+
             if (is.getType().equals(Material.BOOK_AND_QUILL) && !sd.isColoredchat() && canAfford(coloredChatPrice, coins))
             {
                 sd.setCoins(coins - coloredChatPrice);
@@ -65,7 +66,7 @@ public class ShopGUIListener extends FreedomService
                 event.setCancelled(true);
                 p.closeInventory();
             }
-            
+
             else if (is.getType().equals(Material.NAME_TAG) && !sd.isCustomLoginMessage() && canAfford(customLoginMessagePrice, coins))
             {
                 sd.setCoins(coins - customLoginMessagePrice);
@@ -75,7 +76,7 @@ public class ShopGUIListener extends FreedomService
                 event.setCancelled(true);
                 p.closeInventory();
             }
-            
+
             else if (is.getType().equals(Material.IRON_PICKAXE) && !sd.isThorHammer() && canAfford(thorHammerPrice, coins))
             {
                 sd.setCoins(coins - thorHammerPrice);
@@ -85,7 +86,7 @@ public class ShopGUIListener extends FreedomService
                 event.setCancelled(true);
                 p.closeInventory();
             }
-            
+
             else if (is.getType().equals(Material.STICK) && !sd.isMagicWand() && canAfford(magicWandPrice, coins))
             {
                 sd.setCoins(coins - magicWandPrice);
@@ -95,7 +96,7 @@ public class ShopGUIListener extends FreedomService
                 event.setCancelled(true);
                 p.closeInventory();
             }
-            
+
             else if (is.getType().equals(Material.IRON_BARDING) && !sd.isMinigun() && canAfford(minigunPrice, coins))
             {
                 sd.setCoins(coins - minigunPrice);
@@ -106,61 +107,54 @@ public class ShopGUIListener extends FreedomService
                 p.closeInventory();
             }
         }
-        
+
         else if (i.getTitle().equals(ChatColor.AQUA + "Login Messages"))
         {
             if (is.getType().equals(Material.BARRIER))
             {
-                sd.setLoginMessage("none");
+                sd.setLoginMessage(null);
                 plugin.sh.save(sd);
                 p.closeInventory();
                 p.sendMessage(ChatColor.GREEN + "Successfully removed your current login message!");
             }
-            else if (is.getItemMeta().getDisplayName().equals(ChatColor.RED + "Anime Fan"))
+            else if (is.getItemMeta().getDisplayName().equals(ChatColor.YELLOW + "Buddhism Hotline Fan"))
             {
-                sd.setLoginMessage("&ban &cAnime Fan");
+                sd.setLoginMessage("&ba fan of the &eBuddhism Hotline");
                 plugin.sh.save(sd);
                 p.closeInventory();
                 p.sendMessage(ChatColor.GREEN + "Your login message is now " + createLoginMessage(p, sd.getLoginMessage()));
             }
-            else if (is.getItemMeta().getDisplayName().equals(ChatColor.GREEN + "Some damn bot"))
+            else if (is.getItemMeta().getDisplayName().equals(ChatColor.GREEN + "Autist"))
             {
-                sd.setLoginMessage("&aprobably some damn bot");
+                sd.setLoginMessage("&ban &aAutist");
                 plugin.sh.save(sd);
                 p.closeInventory();
                 p.sendMessage(ChatColor.GREEN + "Your login message is now " + createLoginMessage(p, sd.getLoginMessage()));
             }
-            else if (is.getItemMeta().getDisplayName().equals(ChatColor.GOLD + "RigelMC Addict"))
+            else if (is.getItemMeta().getDisplayName().equals(ChatColor.RED + "Anti Jake Pauler"))
             {
-                sd.setLoginMessage("an &7&lRigel&8&lMC &e&lAddict");
+                sd.setLoginMessage("&ban &cAnti Jake Pauler");
                 plugin.sh.save(sd);
                 p.closeInventory();
                 p.sendMessage(ChatColor.GREEN + "Your login message is now " + createLoginMessage(p, sd.getLoginMessage()));
             }
-            else if (is.getItemMeta().getDisplayName().equals(ChatColor.LIGHT_PURPLE + "RWBY Fan"))
+            else if (is.getItemMeta().getDisplayName().equals(ChatColor.GOLD + "Depressed Memer"))
             {
-                sd.setLoginMessage("a &4R&fW&8B&6Y &dFan");
-                plugin.sh.save(sd);
-                p.closeInventory();
-                p.sendMessage(ChatColor.GREEN + "Your login message is now " + createLoginMessage(p, sd.getLoginMessage()));
-            }
-            else if (is.getItemMeta().getDisplayName().equals(ChatColor.DARK_RED + "motherfuckin' savage"))
-            {
-                sd.setLoginMessage("a &9motherfuckin' &bsavage");
+                sd.setLoginMessage("&ba &6Depressed Memer");
                 plugin.sh.save(sd);
                 p.closeInventory();
                 p.sendMessage(ChatColor.GREEN + "Your login message is now " + createLoginMessage(p, sd.getLoginMessage()));
             }
         }
     }
-    
+
     public String createLoginMessage(Player player, String msg)
     {
         String loginMessage = ChatColor.AQUA + player.getName() + " is " + plugin.rm.getDisplay(player).getDeterminer() + " "
                 + plugin.rm.getDisplay(player).getItalicColoredName() + ChatColor.AQUA + " and " + FUtil.colorize(msg);
         return loginMessage;
     }
-    
+
     public boolean canAfford(int price, int coins)
     {
         return (coins >= price);

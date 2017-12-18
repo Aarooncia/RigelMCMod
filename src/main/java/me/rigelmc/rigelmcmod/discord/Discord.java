@@ -1,6 +1,5 @@
 package me.rigelmc.rigelmcmod.discord;
 
-import me.rigelmc.rigelmcmod.discord.MessageListener;
 import me.rigelmc.rigelmcmod.util.FLog;
 import me.rigelmc.rigelmcmod.admin.Admin;
 import me.rigelmc.rigelmcmod.config.ConfigEntry;
@@ -15,6 +14,8 @@ import java.util.ArrayList;
 import javax.security.auth.login.LoginException;
 import me.rigelmc.rigelmcmod.FreedomService;
 import me.rigelmc.rigelmcmod.RigelMCMod;
+import net.dv8tion.jda.core.entities.Message;
+import net.dv8tion.jda.core.requests.RestAction;
 
 public class Discord extends FreedomService
 {
@@ -78,10 +79,9 @@ public class Discord extends FreedomService
         startBot();
     }
 
-    @SuppressWarnings("ResultOfMethodCallIgnored")
     public static void sendMessage(MessageChannel channel, String message)
     {
-        channel.sendMessage(message);
+        channel.sendMessage(message).complete();
     }
 
     public static String getCodeForAdmin(Admin admin)

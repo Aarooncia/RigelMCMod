@@ -78,11 +78,10 @@ public class LoginProcess extends FreedomService
     @EventHandler(priority = EventPriority.HIGH)
     public void onPlayerLogin(PlayerLoginEvent event)
     {
-        
+
         final Player player = event.getPlayer();
         final String username = player.getName();
         final String ip = event.getAddress().getHostAddress().trim();
-
 
         // Check username length
         if (username.length() < MIN_USERNAME_LENGTH || username.length() > MAX_USERNAME_LENGTH)
@@ -197,13 +196,13 @@ public class LoginProcess extends FreedomService
             player.setOp(true);
             player.sendMessage(FreedomCommand.YOU_ARE_OP);
         }
-        
+
         // Has shop custom login message
         if (!plugin.al.isAdmin(player) && !plugin.al.isAdminImpostor(player) && sd.isCustomLoginMessage() && !sd.getLoginMessage().equalsIgnoreCase("none"))
         {
             FUtil.bcastMsg(plugin.sl.createLoginMessage(player, sd.getLoginMessage()));
         }
-        
+
         new BukkitRunnable()
         {
             @Override

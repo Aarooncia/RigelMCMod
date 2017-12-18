@@ -13,6 +13,7 @@ import org.bukkit.entity.Player;
 @CommandParameters(description = "Manage the shop", usage = "/<command> <coins: <add | set | remove> <amount> <player | all>>", aliases = "ms")
 public class Command_manageshop extends FreedomCommand
 {
+
     @Override
     public boolean run(final CommandSender sender, final Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
@@ -32,7 +33,7 @@ public class Command_manageshop extends FreedomCommand
             if (args[0].equalsIgnoreCase("coins"))
             {
                 if (getPlayer(args[3]) != null || args[3].equals("all"))
-                {   
+                {
                     Player p = null;
                     ShopData sd = null;
                     if (!args[3].equals("all"))

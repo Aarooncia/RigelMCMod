@@ -26,7 +26,10 @@ public class History
         new BukkitRunnable()
         {
             @Override
-            @SuppressWarnings({"UseSpecificCatch", "ConvertToTryWithResources"})
+            @SuppressWarnings(
+                    {
+                        "UseSpecificCatch", "ConvertToTryWithResources"
+                    })
             public void run()
             {
                 UUID uuid = UUIDFetcher.fetch(username);

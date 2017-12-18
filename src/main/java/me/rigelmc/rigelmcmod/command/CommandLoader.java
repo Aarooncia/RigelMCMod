@@ -9,7 +9,7 @@ import org.bukkit.ChatColor;
 
 public class CommandLoader extends FreedomService
 {
-    
+
     public int totalCommands;
 
     @Getter

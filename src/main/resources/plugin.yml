@@ -1,9 +1,9 @@
 name: RigelMCMod
 main: me.rigelmc.rigelmcmod.RigelMCMod
-version: 2.2
+version: ${project.version}
 description: Plugin for the RigelMC server.
 depend: [Aero, WorldEdit]
 softdepend: [BukkitTelnet, RMC-Essentials, LibsDisguises]
-authors: [Madgeek1450, Prozza, LightWarp, OxLemonxO]
+authors: [Madgeek1450, Prozza, LightWarp, OxLemonxO, _Fleek]
 
 # plugin.yml is no longer used to define commands.

@@ -21,6 +21,7 @@ import org.bukkit.enchantments.Enchantment;
 
 public class Minigun extends FreedomService
 {
+
     public List<Integer> bullets = new ArrayList<>();
 
     public Minigun(RigelMCMod plugin)
@@ -37,8 +38,7 @@ public class Minigun extends FreedomService
     protected void onStop()
     {
     }
-    
-    
+
     @EventHandler(priority = EventPriority.HIGH)
     public void onPlayerRightClick(PlayerInteractEvent event)
     {
@@ -55,7 +55,7 @@ public class Minigun extends FreedomService
             }
         }
     }
-    
+
     public ItemStack getMinigun()
     {
         ItemStack minigun = new ItemStack(Material.IRON_BARDING);

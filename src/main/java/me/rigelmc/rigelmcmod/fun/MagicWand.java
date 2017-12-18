@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package me.rigelmc.rigelmcmod.fun;
 
 import me.rigelmc.rigelmcmod.FreedomService;
@@ -13,7 +8,6 @@ import me.rigelmc.rigelmcmod.util.FUtil;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
-import net.pravian.aero.util.Ips;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.Location;
@@ -41,7 +35,8 @@ import org.bukkit.FireworkEffect.Type;
 
 public class MagicWand extends FreedomService
 {
-    public HashMap<String, Long> cooldowns = new HashMap<String, Long>();
+
+    public HashMap<String, Long> cooldowns = new HashMap<>();
     public List<Integer> bullets = new ArrayList<>();
     public final long cooldownTime = 30;
     public final int use_price = ConfigEntry.SHOP_MAGIC_WAND_USE_PRICE.getInteger();
@@ -60,24 +55,24 @@ public class MagicWand extends FreedomService
     protected void onStop()
     {
     }
-    
+
     @EventHandler(priority = EventPriority.HIGH)
     public void onBulletImpact(ProjectileHitEvent event)
     {
         if (event.getEntity() instanceof Arrow && bullets.contains(event.getEntity().getEntityId()))
         {
-            Arrow bullet = (Arrow)event.getEntity();
-            bullets.remove((Integer)bullet.getEntityId());
+            Arrow bullet = (Arrow) event.getEntity();
+            bullets.remove((Integer) bullet.getEntityId());
 
             if (event.getHitEntity() != null && event.getHitEntity() instanceof LivingEntity)
             {
                 if (bullet.getShooter() != null && bullet.getShooter() instanceof Player)
                 {
-                    Player shooter = (Player)bullet.getShooter();
-                    LivingEntity hitEntity = (LivingEntity)event.getHitEntity();
+                    Player shooter = (Player) bullet.getShooter();
+                    LivingEntity hitEntity = (LivingEntity) event.getHitEntity();
                     if (event.getHitEntity() instanceof Player)
                     {
-                        Player target = (Player)event.getHitEntity();
+                        Player target = (Player) event.getHitEntity();
                         if (plugin.al.isAdmin(target) && !FUtil.isExecutive(shooter.getName()))
                         {
                             FUtil.playerMsg(shooter, "Sorry, but you can't attack staff members with Magic Wand!", ChatColor.RED);
@@ -111,12 +106,12 @@ public class MagicWand extends FreedomService
             }
         }
     }
-    
+
     @EventHandler(priority = EventPriority.HIGH)
     public void onPlayerRightClick(PlayerInteractEvent event)
     {
-    	if (event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK))
-    	{
+        if (event.getAction().equals(Action.RIGHT_CLICK_AIR) || event.getAction().equals(Action.RIGHT_CLICK_BLOCK))
+        {
             Player p = event.getPlayer();
             if (p.getInventory().getItemInMainHand().equals(getMagicWand()))
             {
@@ -161,14 +156,14 @@ public class MagicWand extends FreedomService
     @EventHandler(priority = EventPriority.HIGH)
     public void onPlayerAttack(EntityDamageByEntityEvent event)
     {
-    	Entity attacker = event.getDamager();
-    	Entity target = event.getEntity();
+        Entity attacker = event.getDamager();
+        Entity target = event.getEntity();
         if (attacker instanceof Player && target instanceof LivingEntity)
         {
-            Player p = (Player)attacker;
+            Player p = (Player) attacker;
             ItemStack i = p.getInventory().getItemInMainHand();
             if (i != null && i.equals(getMagicWand()))
-            {	 
+            {
                 ShopData sd = plugin.sh.getData(p);
                 if (sd.isMagicWand())
                 {
@@ -194,8 +189,8 @@ public class MagicWand extends FreedomService
                             return;
                         }
                     }
-                    if (target instanceof Player && !plugin.al.isAdmin(p) && plugin.al.isAdmin((Player)target))
-                    {	
+                    if (target instanceof Player && !plugin.al.isAdmin(p) && plugin.al.isAdmin((Player) target))
+                    {
                         FUtil.playerMsg(p, "Sorry, but you can't attack staff members with the Magic Wand!", ChatColor.RED);
                         return;
                     }
@@ -209,13 +204,13 @@ public class MagicWand extends FreedomService
                     target.getWorld().playSound(target.getLocation(), Sound.ENTITY_PLAYER_ATTACK_STRONG, 100F, 0.1F);
 
                     // Deliver the final blow
-                    LivingEntity t = (LivingEntity)target;
+                    LivingEntity t = (LivingEntity) target;
                     t.setHealth(0);
                 }
             }
         }
     }
-    
+
     public ItemStack getMagicWand()
     {
         ItemStack MAGIC_WAND = new ItemStack(Material.STICK);

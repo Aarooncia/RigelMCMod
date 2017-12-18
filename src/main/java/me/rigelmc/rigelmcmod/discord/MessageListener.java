@@ -4,6 +4,8 @@ import me.rigelmc.rigelmcmod.RigelMCMod;
 import me.rigelmc.rigelmcmod.admin.Admin;
 import net.dv8tion.jda.core.events.message.priv.PrivateMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
 
 public class MessageListener extends ListenerAdapter
 {
@@ -11,20 +13,24 @@ public class MessageListener extends ListenerAdapter
     @Override
     public void onPrivateMessageReceived(PrivateMessageReceivedEvent event)
     {
-        if (!event.getAuthor().getId().equals(RigelMCMod.plugin().dc.bot.getSelfUser().getId()))
+        if (!event.getAuthor().getId().equals(Discord.bot.getSelfUser().getId()))
         {
 
             // Handle link code
             if (event.getMessage().getRawContent().matches("[0-9][0-9][0-9][0-9][0-9]"))
             {
                 String code = event.getMessage().getRawContent();
-                if (RigelMCMod.plugin().dc.LINK_CODES.get(code) != null)
+                if (Discord.LINK_CODES.get(code) != null)
                 {
-                    Admin admin = RigelMCMod.plugin().dc.LINK_CODES.get(code);
+                    Admin admin = Discord.LINK_CODES.get(code);
                     admin.setDiscordID(event.getMessage().getAuthor().getId());
-                    RigelMCMod.plugin().dc.LINK_CODES.remove(code);
-                    RigelMCMod.plugin().dc.sendMessage(event.getChannel(), "Link successful. Now this Discord account is linked with the Minecraft account `" + admin.getName() + "`.");
-                    RigelMCMod.plugin().dc.sendMessage(event.getChannel(), "Now when you are an impostor on the server you may now use `/verify` to verify.");
+                    Discord.LINK_CODES.remove(code);
+                    Discord.sendMessage(event.getChannel(), "The linking process has been succesful. This discord account is now linked with `" + admin.getName() + "`.");
+                    Discord.sendMessage(event.getChannel(), "If you show up as an impostor, you may use `/verify`.");
+                    Player player = RigelMCMod.plugin().getServer().getPlayer(admin.getName());
+                    player.sendMessage(ChatColor.GREEN + "Successfully linked " + event.getMessage().getAuthor().getName()
+                            + "#" + event.getMessage().getAuthor().getDiscriminator()
+                            + " to this account!");
                 }
             }
         }
