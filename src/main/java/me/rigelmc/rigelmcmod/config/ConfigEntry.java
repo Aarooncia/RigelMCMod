@@ -112,14 +112,8 @@ public enum ConfigEntry
     OVERLORD_IPS(List.class, "overlord_ips"),
     NOADMIN_IPS(List.class, "noadmin_ips"),
     ADMIN_ONLY_MODE(Boolean.class, "admin_only_mode"),
-<<<<<<< HEAD
     AUTO_ENTITY_WIPE(Boolean.class, "auto_wipe"),
     ADMIN_LOGIN_MESSAGE(List.class, "admin_login_message");
-    
-=======
-    AUTO_ENTITY_WIPE(Boolean.class, "auto_wipe");
-
->>>>>>> 1c5c46d6a89998279b7a9407fa7354de59af3cf7
     //
     private final Class<?> type;
     private final String configName;

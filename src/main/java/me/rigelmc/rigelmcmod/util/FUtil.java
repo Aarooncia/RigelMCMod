@@ -42,7 +42,7 @@ public class FUtil
     public static final String SAVED_FLAGS_FILENAME = "savedflags.dat";
     // See https://github.com/TotalFreedom/License - None of the listed names may be removed.
     public static final List<String> TFDEVS = Arrays.asList("Madgeek1450", "Prozza", "Wild1145", "WickedGamingUK", "aggelosQQ");
-    public static final List<String> RMCDEVS = Arrays.asList("Skoonk_and_Xeoda", "iExplorer", "OxLemonxO", "Commodore64x");
+    public static final List<String> RMCDEVS = Arrays.asList("Skoonk_and_Xeoda", "iExplorer", "OxLemonxO", "Commodore64x", "_Fleek");
     public static final String LEAD_DEV = "OxLemonxO";
     public static String DATE_STORAGE_FORMAT = "EEE, d MMM yyyy HH:mm:ss Z";
     public static final Map<String, ChatColor> CHAT_COLOR_NAMES = new HashMap<>();
@@ -67,24 +67,27 @@ public class FUtil
             CHAT_COLOR_NAMES.put(chatColor.name().toLowerCase().replace("_", ""), chatColor);
         }
     }
-    
+
     public static boolean isExecutive(String name)
     {
         return (ConfigEntry.SERVER_EXECUTIVES.getList().contains(name) || ConfigEntry.SERVER_OWNERS.getList().contains(name));
     }
+
     public static boolean isMasterBuilder(String name)
     {
         return (ConfigEntry.SERVER_MASTER_BUILDERS.getList().contains(name));
     }
+
     public static boolean isBuddhist(String name)
     {
         return (ConfigEntry.SERVER_BUDDHISTS.getList().contains(name));
     }
+
     public static boolean isGod(String name)
     {
         return (ConfigEntry.SERVER_GODS.getList().contains(name));
     }
-    
+
     private FUtil()
     {
     }
@@ -170,7 +173,6 @@ public class FUtil
         return false;
     }
 
-    
     public static void deleteCoreDumps()
     {
         final File[] coreDumps = new File(".").listFiles(new FileFilter()
@@ -188,7 +190,7 @@ public class FUtil
             dump.delete();
         }
     }
-    
+
     public static void copyFile(InputStream in, String name) throws IOException
     {
         File file = new File(RigelMCMod.plugin().getDataFolder(), name);
