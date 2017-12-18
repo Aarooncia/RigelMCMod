@@ -11,7 +11,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.ChatColor;
 import java.util.Random;
 import java.util.Date;
+import net.dv8tion.jda.core.entities.PrivateChannel;
 import net.pravian.aero.util.Ips;
+import org.bukkit.scheduler.BukkitRunnable;
 
 @CommandPermissions(level = Rank.IMPOSTOR, source = SourceType.ONLY_IN_GAME)
 @CommandParameters(description = "Sends a verification code to the player, or the player can input the sent code.", usage = "/<command> [code]")
@@ -50,8 +52,25 @@ public class Command_verify extends FreedomCommand
                 code += random.nextInt(10);
             }
             plugin.dc.VERIFY_CODES.add(code);
-            plugin.dc.bot.getUserById(admin.getDiscordID()).openPrivateChannel().complete().sendMessage("A user with the ip `" + Ips.getIp(playerSender) + "` has sent a verification request. Please run the following in-game command: `/verify " + code + "`");
-            msg("A verification code has been sent to your account, please copy the code and do /verify <code>", ChatColor.GREEN);
+            final String c = code;
+
+            new BukkitRunnable()
+            {
+                @Override
+                public void run()
+                {
+                    if (plugin.dc.VERIFY_CODES.contains(c))
+                    {
+                        plugin.dc.VERIFY_CODES.remove(c);
+                    }
+                }
+            }.runTaskLater(plugin, 60L * 20L * 5L);
+
+            PrivateChannel channel = plugin.dc.bot.getUserById(admin.getDiscordID()).openPrivateChannel().complete();
+            channel.sendMessage("Please copy and paste the following into your chat: `/verify " + code + "`."
+                    + "\nIf you did not request for verification, you can safely ignore it."
+                    + "\nThe code will expire in 5 minutes.").complete();
+            msg("A verification code has been sent to your DM! The code will expire in 5 minutes.", ChatColor.GREEN);
         }
         else
         {
@@ -64,13 +83,10 @@ public class Command_verify extends FreedomCommand
             else
             {
                 plugin.dc.VERIFY_CODES.remove(code);
-                FUtil.bcastMsg(playerSender.getName() + " has verified themself!", ChatColor.GOLD);
-                FUtil.adminAction(ConfigEntry.SERVER_NAME.getString(), "Readding " + admin.getName() + " to the Admin list", true);
-                if (playerSender != null)
-                {
-                    admin.setName(playerSender.getName());
-                    admin.addIp(Ips.getIp(playerSender));
-                }
+                FUtil.bcastMsg(playerSender.getName() + " has verified through the discord verification system!", ChatColor.GOLD);
+                FUtil.adminAction(ConfigEntry.SERVER_NAME.getString(), "Readding " + admin.getName() + " to the admin list", true);
+                admin.setName(playerSender.getName());
+                admin.addIp(Ips.getIp(playerSender));
                 admin.setActive(true);
                 admin.setLastLogin(new Date());
                 plugin.al.save();

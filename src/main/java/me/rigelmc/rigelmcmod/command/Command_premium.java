@@ -1,6 +1,7 @@
 package me.rigelmc.rigelmcmod.command;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
@@ -68,7 +69,7 @@ public class Command_premium extends FreedomCommand
                     }.runTask(plugin);
 
                 }
-                catch (Exception ex)
+                catch (IOException | IllegalArgumentException | IllegalStateException ex)
                 {
                     FLog.severe(ex);
                     msg("There was an error querying the mojang server.", ChatColor.RED);

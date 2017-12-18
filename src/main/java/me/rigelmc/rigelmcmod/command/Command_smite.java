@@ -53,7 +53,7 @@ public class Command_smite extends FreedomCommand
 
         if (reason != null)
         {
-            FUtil.bcastMsg("  Reason: " + reason, ChatColor.YELLOW);
+            FUtil.bcastMsg("  Reason: " + ChatColor.YELLOW + reason, ChatColor.RED);
         }
 
         // Deop
@@ -82,7 +82,7 @@ public class Command_smite extends FreedomCommand
 
         if (reason != null)
         {
-            player.sendMessage(ChatColor.RED + "You've been smitten. Reason: " + ChatColor.YELLOW + reason);
+            player.sendMessage(ChatColor.RED + "You've been smitten.\nReason: " + ChatColor.YELLOW + reason);
         }
     }
 }
