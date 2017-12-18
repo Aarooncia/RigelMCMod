@@ -1,5 +1,7 @@
 package me.rigelmc.rigelmcmod;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 import lombok.Getter;
 import lombok.Setter;
@@ -215,6 +217,19 @@ public class LoginProcess extends FreedomService
                 if (lockdownEnabled)
                 {
                     FUtil.playerMsg(player, "Warning: Server is currenty in lockdown-mode, new players will not be able to join!", ChatColor.RED);
+                }
+                
+                if (plugin.al.isAdmin(player) && !ConfigEntry.ADMIN_LOGIN_MESSAGE.getList().isEmpty())
+                {
+                    List<String> messages = new ArrayList();
+                    for (Object msg : ConfigEntry.ADMIN_LOGIN_MESSAGE.getList())
+                    {
+                        messages.add(FUtil.colorize((String) msg));
+                    }
+                    for (int i = 0; i < messages.size(); i++)
+                    {
+                        player.sendMessage(messages.get(i));
+                    }
                 }
             }
         }.runTaskLater(plugin, 20L * 1L);
