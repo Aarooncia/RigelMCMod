@@ -22,6 +22,7 @@ public class Command_shop extends FreedomCommand
 
     public final int coloredChatPrice = ConfigEntry.SHOP_COLORED_CHAT_PRICE.getInteger();
     public final int customLoginMessagePrice = ConfigEntry.SHOP_LOGIN_MESSAGE_PRICE.getInteger();
+    public final int setLoginMessagePrice = ConfigEntry.SHOP_SET_LOGIN_MESSAGE_PRICE.getInteger();
     public final int thorHammerPrice = ConfigEntry.SHOP_THOR_HAMMER_PRICE.getInteger();
     public final int magicWandPrice = ConfigEntry.SHOP_MAGIC_WAND_PRICE.getInteger();
     public final int minigunPrice = ConfigEntry.SHOP_MINIGUN_PRICE.getInteger();
@@ -40,6 +41,7 @@ public class Command_shop extends FreedomCommand
         coins = sd.getCoins();
         Boolean hasColoredChat = sd.isColoredchat();
         Boolean hasCustomLoginMessages = sd.isCustomLoginMessage();
+        Boolean hasSetLoginMessage = sd.isCanSetOwnLogin();
         Boolean hasThorHammer = sd.isThorHammer();
         Boolean hasMagicWand = sd.isMagicWand();
         Boolean hasMinigun = sd.isMinigun();
@@ -62,27 +64,22 @@ public class Command_shop extends FreedomCommand
         i.setItem(16, magicWand);
         ItemStack minigun = newShopItem(new ItemStack(Material.IRON_BARDING), ChatColor.YELLOW, "Minigun", minigunPrice, hasMinigun);
         i.setItem(20, minigun);
+        ItemStack loginMessage = newShopItem(new ItemStack(Material.BANNER), ChatColor.BLUE, "Set Your Own Login Messages", setLoginMessagePrice, hasSetLoginMessage);
+        i.setItem(22, loginMessage);
         // Coins
-        ItemStack coins = new ItemStack(Material.GOLD_NUGGET);
-        ItemMeta m = coins.getItemMeta();
-        m.setDisplayName(FUtil.colorize("&c&lYou have &e&l" + sd.getCoins() + "&c&l coins"));
-        coins.setItemMeta(m);
-        i.setItem(35, coins);
+        ItemStack c = new ItemStack(Material.GOLD_NUGGET);
+        ItemMeta m = c.getItemMeta();
+        m.setDisplayName(FUtil.colorize("&c&lYou have &e&l" + coins + "&c&l coins"));
+        c.setItemMeta(m);
+        i.setItem(35, c);
 
         playerSender.openInventory(i);
         return true;
     }
 
-    public boolean canOfford(int p, int c)
+    public boolean canAfford(int p, int c)
     {
-        if (c >= p)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return c >= p;
     }
 
     public int amountNeeded(int p)
@@ -94,7 +91,7 @@ public class Command_shop extends FreedomCommand
     {
         ItemMeta m = is.getItemMeta();
         m.setDisplayName(color + name);
-        Boolean co = canOfford(price, coins);
+        Boolean co = canAfford(price, coins);
         List<String> l = new ArrayList();
         if (!purchased)
         {
@@ -119,13 +116,3 @@ public class Command_shop extends FreedomCommand
         return newShopItem(new ItemStack(mat), color, name, price, purchased);
     }
 }
-/*
-        Shop layout:
-        
-        Dimensions: 9x4
-        Key: c = Chat Color, l = Login Message, t = Thor's Hammer, r = Magic Wand, m = Minigun $ = Coins}
-        ---------
-        -c-l-t-r-
-        --m------
-        --------$
- */

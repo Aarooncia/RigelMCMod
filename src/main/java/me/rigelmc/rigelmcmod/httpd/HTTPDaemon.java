@@ -56,7 +56,6 @@ public class HTTPDaemon extends FreedomService
         module("schematic", Module_schematic.class, true);
         module("logfile", Module_logfile.class, true);
         module("bans", Module_bans.class, true);
-        module("staff", Module_staff.class, true);
 
         try
         {

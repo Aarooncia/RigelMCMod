@@ -30,6 +30,9 @@ public class ShopData implements ConfigLoadable, ConfigSavable, Validatable
     private boolean customLoginMessage = false;
     @Getter
     @Setter
+    private boolean canSetOwnLogin = false;
+    @Getter
+    @Setter
     private String loginMessage = null;
     @Getter
     @Setter
@@ -60,6 +63,7 @@ public class ShopData implements ConfigLoadable, ConfigSavable, Validatable
         this.coins = cs.getInt("coins", coins);
         this.coloredchat = cs.getBoolean("coloredchat", coloredchat);
         this.customLoginMessage = cs.getBoolean("customLoginMessage", customLoginMessage);
+        this.canSetOwnLogin = cs.getBoolean("canSetOwnLogin", canSetOwnLogin);
         this.loginMessage = cs.getString("loginMessage", loginMessage);
         this.thorHammer = cs.getBoolean("thorHammer", thorHammer);
         this.magicWand = cs.getBoolean("magicWand", magicWand);
@@ -75,6 +79,7 @@ public class ShopData implements ConfigLoadable, ConfigSavable, Validatable
         cs.set("coins", coins);
         cs.set("coloredchat", coloredchat);
         cs.set("customLoginMessage", customLoginMessage);
+        cs.set("canSetOwnLogin", canSetOwnLogin);
         cs.set("loginMessage", loginMessage);
         cs.set("thorHammer", thorHammer);
         cs.set("magicWand", magicWand);

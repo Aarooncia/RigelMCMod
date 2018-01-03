@@ -1,6 +1,5 @@
 package me.rigelmc.rigelmcmod.command;
 
-//import me.libraryaddict.disguise.DisallowedDisguises;
 import me.rigelmc.rigelmcmod.rank.Rank;
 import me.rigelmc.rigelmcmod.util.FUtil;
 import org.bukkit.command.Command;
@@ -15,28 +14,14 @@ public class Command_undisguiseall extends FreedomCommand
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
-        /*
         if (!plugin.ldb.isPluginEnabled())
         {
             msg("LibsDisguises is not enabled.");
             return true;
         }
 
-        if (DisallowedDisguises.disabled)
-        {
-            msg("Disguises are not enabled.");
-            return true;
-        }
-
         FUtil.adminAction(sender.getName(), "Undisguising all non-admins", true);
-
         plugin.ldb.undisguiseAll(false);
-
-        return true;
-
-         */
-
-        msg("This command has been disabled for technical reasons. Contact a developer for additional information.");
         return true;
     }
 }

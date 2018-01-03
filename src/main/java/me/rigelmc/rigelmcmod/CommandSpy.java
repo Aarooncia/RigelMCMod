@@ -27,16 +27,13 @@ public class CommandSpy extends FreedomService
     @EventHandler(priority = EventPriority.MONITOR)
     public void onPlayerCommandPreprocess(PlayerCommandPreprocessEvent event)
     {
-        if (plugin.al.isAdmin(event.getPlayer()))
+        Player player = event.getPlayer();
+        for (Player p : server.getOnlinePlayers())
         {
-            return;
-        }
-
-        for (Player player : server.getOnlinePlayers())
-        {
-            if (plugin.al.isAdmin(player) && plugin.pl.getPlayer(player).cmdspyEnabled())
+            if (plugin.al.isAdmin(p) && plugin.pl.getPlayer(p).cmdspyEnabled()
+                    && plugin.rm.getRank(p).isHigher(plugin.rm.getRank(player)))
             {
-                FUtil.playerMsg(player, event.getPlayer().getName() + ": " + event.getMessage());
+                p.sendMessage(FUtil.colorize(plugin.rm.getRank(player).getColoredTag() + " &7" + player.getName() + ": " + event.getMessage()));
             }
         }
     }
