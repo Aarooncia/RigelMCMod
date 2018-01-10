@@ -13,6 +13,7 @@ import me.rigelmc.rigelmcmod.blocking.EventBlocker;
 import me.rigelmc.rigelmcmod.blocking.InteractBlocker;
 import me.rigelmc.rigelmcmod.blocking.MobBlocker;
 import me.rigelmc.rigelmcmod.blocking.PotionBlocker;
+import me.rigelmc.rigelmcmod.blocking.PvPBlocker;
 import me.rigelmc.rigelmcmod.blocking.command.CommandBlocker;
 import me.rigelmc.rigelmcmod.bridge.BukkitTelnetBridge;
 import me.rigelmc.rigelmcmod.bridge.CoreProtectBridge;
@@ -139,7 +140,7 @@ public class RigelMCMod extends AeroPlugin<RigelMCMod>
     @Override
     public void enable()
     {
-        FLog.info("Created by Madgeek1450, Prozza, OxLemonxO, _Fleek and LightWarp");
+        FLog.info("Created by Madgeek1450, Prozza, OxLemonxO, _System and LightWarp");
         FLog.info("Version " + build.formattedVersion());
         FLog.info("Compiled " + build.date + " by " + build.author);
 
@@ -237,7 +238,7 @@ public class RigelMCMod extends AeroPlugin<RigelMCMod>
         bridges.start();
 
         timer.update();
-        FLog.info("Version " + pluginVersion + " for 1_12_R1 enabled in " + timer.getTotal() + "ms");
+        FLog.info("Version " + pluginVersion + " for v1_12_2_R1 enabled in " + timer.getTotal() + "ms");
 
         // Metrics @ http://mcstats.org/plugin/TotalFreedomMod
         try

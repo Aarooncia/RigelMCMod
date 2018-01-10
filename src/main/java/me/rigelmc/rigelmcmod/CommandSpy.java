@@ -1,6 +1,6 @@
 package me.rigelmc.rigelmcmod;
 
-import me.rigelmc.rigelmcmod.util.FUtil;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -33,7 +33,7 @@ public class CommandSpy extends FreedomService
             if (plugin.al.isAdmin(p) && plugin.pl.getPlayer(p).cmdspyEnabled()
                     && plugin.rm.getRank(p).isHigher(plugin.rm.getRank(player)))
             {
-                p.sendMessage(FUtil.colorize(plugin.rm.getRank(player).getColoredTag() + " &7" + player.getName() + ": " + event.getMessage()));
+                p.sendMessage(plugin.rm.getRank(player).getColoredTag() + ChatColor.GRAY + " " + player.getName() + ": " + event.getMessage());
             }
         }
     }

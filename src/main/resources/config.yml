@@ -87,9 +87,6 @@ shop:
   # How much should buying set your own login messages cost
   set_login_message_price: 200
   
-  # How much should setting your own login messages cost
-  setting_login_message_price: 5
-  
   # How much should the Thor Hammer cost
   thor_hammer_price: 150
   

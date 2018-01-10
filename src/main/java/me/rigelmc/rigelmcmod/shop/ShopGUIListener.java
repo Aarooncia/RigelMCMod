@@ -125,8 +125,6 @@ public class ShopGUIListener extends FreedomService
 
         else if (i.getTitle().equals(ChatColor.AQUA + "Login Messages"))
         {
-            int settingLoginMessagePrice = ConfigEntry.SHOP_SETTING_LOGIN_MESSAGE_PRICE.getInteger();
-
             if (is.getType().equals(Material.BARRIER))
             {
                 sd.setLoginMessage(null);
@@ -137,13 +135,6 @@ public class ShopGUIListener extends FreedomService
             else if (is.getItemMeta().getDisplayName().equals(ChatColor.YELLOW + "Buddhism Hotline Fan"))
             {
                 sd.setLoginMessage("&ba fan of the &eBuddhism Hotline");
-                plugin.sh.save(sd);
-                p.closeInventory();
-                p.sendMessage(ChatColor.GREEN + "Your login message is now " + createLoginMessage(p, sd.getLoginMessage()));
-            }
-            else if (is.getItemMeta().getDisplayName().equals(ChatColor.GREEN + "Autist"))
-            {
-                sd.setLoginMessage("&ban &aAutist");
                 plugin.sh.save(sd);
                 p.closeInventory();
                 p.sendMessage(ChatColor.GREEN + "Your login message is now " + createLoginMessage(p, sd.getLoginMessage()));
@@ -162,18 +153,8 @@ public class ShopGUIListener extends FreedomService
                 p.closeInventory();
                 p.sendMessage(ChatColor.GREEN + "Your login message is now " + createLoginMessage(p, sd.getLoginMessage()));
             }
-            else if (is.getItemMeta().getDisplayName().equals(ChatColor.BLUE + "Set Custom Login Message"))
+            else if (is.getItemMeta().getDisplayName().equals(ChatColor.BLUE + "Custom Login Message"))
             {
-                if (!canAfford(settingLoginMessagePrice, sd.getCoins()))
-                {
-                    p.sendMessage(ChatColor.RED + "Sorry, but you may not be able to set your own login message!"
-                            + "\nYou're required to have at least 5 coins in order to set your own login message.");
-                    p.closeInventory();
-                    return;
-                }
-
-                sd.setCoins(sd.getCoins() - settingLoginMessagePrice);
-
                 if (sd.isCanSetOwnLogin())
                 {
                     if (!SET_LOGIN.contains(p))

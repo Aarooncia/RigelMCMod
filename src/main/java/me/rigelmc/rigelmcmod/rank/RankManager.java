@@ -267,7 +267,7 @@ public class RankManager extends FreedomService
             final Displayable display = getDisplay(player);
             String loginMsg = display.getColoredLoginMessage();
 
-            if ((sd.isCustomLoginMessage() || sd.isCanSetOwnLogin()) && sd.hasLoginMessage())
+            if ((sd.isCustomLoginMessage() || sd.isCanSetOwnLogin()) && sd.hasLoginMessage() && !sd.getLoginMessage().equals("none"))
             {
                 loginMsg = loginMsg + FUtil.colorize(" &band " + sd.getLoginMessage());
             }
