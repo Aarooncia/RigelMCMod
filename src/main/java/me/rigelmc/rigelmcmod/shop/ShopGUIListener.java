@@ -1,5 +1,7 @@
 package me.rigelmc.rigelmcmod.shop;
 
+import java.util.ArrayList;
+import java.util.List;
 import me.rigelmc.rigelmcmod.FreedomService;
 import me.rigelmc.rigelmcmod.RigelMCMod;
 import me.rigelmc.rigelmcmod.config.ConfigEntry;
@@ -15,6 +17,8 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 
 public class ShopGUIListener extends FreedomService
 {
+
+    public final List<Player> SET_LOGIN = new ArrayList<>();
 
     public ShopGUIListener(RigelMCMod plugin)
     {
@@ -53,7 +57,8 @@ public class ShopGUIListener extends FreedomService
             int coins = sd.getCoins();
             int coloredChatPrice = ConfigEntry.SHOP_COLORED_CHAT_PRICE.getInteger();
             int customLoginMessagePrice = ConfigEntry.SHOP_LOGIN_MESSAGE_PRICE.getInteger();
-            int thorHammerPrice = ConfigEntry.SHOP_LOGIN_MESSAGE_PRICE.getInteger();
+            int setLoginMessagePrice = ConfigEntry.SHOP_SET_LOGIN_MESSAGE_PRICE.getInteger();
+            int thorHammerPrice = ConfigEntry.SHOP_THOR_HAMMER_PRICE.getInteger();
             int magicWandPrice = ConfigEntry.SHOP_MAGIC_WAND_PRICE.getInteger();
             int minigunPrice = ConfigEntry.SHOP_MINIGUN_PRICE.getInteger();
 
@@ -75,6 +80,16 @@ public class ShopGUIListener extends FreedomService
                 p.sendMessage(prefix + ChatColor.GREEN + "You have successfully bought " + ChatColor.BLUE + "Custom Login Messages" + ChatColor.GREEN + "! Do /loginmessage to set one!");
                 event.setCancelled(true);
                 p.closeInventory();
+            }
+
+            else if (is.getType().equals(Material.BANNER) && !sd.isCanSetOwnLogin() && canAfford(setLoginMessagePrice, coins))
+            {
+                sd.setCoins(coins - setLoginMessagePrice);
+                sd.setCanSetOwnLogin(true);
+                plugin.sh.save(sd);
+                p.sendMessage(prefix + ChatColor.GREEN + "You have successfully bought " + ChatColor.BLUE + "Set Custom Login Message" + ChatColor.GREEN + "! Do /loginmessage "
+                        + "and select Set Custom Login Message to set one.");
+                SET_LOGIN.add(p);
             }
 
             else if (is.getType().equals(Material.IRON_PICKAXE) && !sd.isThorHammer() && canAfford(thorHammerPrice, coins))
@@ -124,13 +139,6 @@ public class ShopGUIListener extends FreedomService
                 p.closeInventory();
                 p.sendMessage(ChatColor.GREEN + "Your login message is now " + createLoginMessage(p, sd.getLoginMessage()));
             }
-            else if (is.getItemMeta().getDisplayName().equals(ChatColor.GREEN + "Autist"))
-            {
-                sd.setLoginMessage("&ban &aAutist");
-                plugin.sh.save(sd);
-                p.closeInventory();
-                p.sendMessage(ChatColor.GREEN + "Your login message is now " + createLoginMessage(p, sd.getLoginMessage()));
-            }
             else if (is.getItemMeta().getDisplayName().equals(ChatColor.RED + "Anti Jake Pauler"))
             {
                 sd.setLoginMessage("&ban &cAnti Jake Pauler");
@@ -144,6 +152,19 @@ public class ShopGUIListener extends FreedomService
                 plugin.sh.save(sd);
                 p.closeInventory();
                 p.sendMessage(ChatColor.GREEN + "Your login message is now " + createLoginMessage(p, sd.getLoginMessage()));
+            }
+            else if (is.getItemMeta().getDisplayName().equals(ChatColor.BLUE + "Custom Login Message"))
+            {
+                if (sd.isCanSetOwnLogin())
+                {
+                    if (!SET_LOGIN.contains(p))
+                    {
+                        SET_LOGIN.add(p);
+                    }
+                }
+
+                p.closeInventory();
+                p.sendMessage((sd.isCanSetOwnLogin() ? ChatColor.GREEN + "You may now do /loginmessage <message>" : ChatColor.RED + "You haven't bought the custom login message from the shop!"));
             }
         }
     }

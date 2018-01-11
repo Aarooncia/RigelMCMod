@@ -195,7 +195,7 @@ public class RankManager extends FreedomService
                 }
                 else if (sd.isCustomLoginMessage() && sd.hasLoginMessage())
                 {
-                    loginMsg = display.getColoredLoginMessage() + FUtil.colorize(" &band " + sd.getLoginMessage());
+                    loginMsg = loginMsg + FUtil.colorize(" &band " + sd.getLoginMessage());
                 }
             }
 
@@ -225,7 +225,7 @@ public class RankManager extends FreedomService
             final Displayable display = getDisplay(player);
             String loginMsg = display.getColoredLoginMessage();
 
-            if (sd.isCustomLoginMessage() && sd.hasLoginMessage())
+            if ((sd.isCustomLoginMessage() || sd.isCanSetOwnLogin()) && sd.hasLoginMessage())
             {
                 loginMsg = loginMsg + FUtil.colorize(" &band " + sd.getLoginMessage());
             }
@@ -246,7 +246,7 @@ public class RankManager extends FreedomService
             final Displayable display = getDisplay(player);
             String loginMsg = display.getColoredLoginMessage();
 
-            if (sd.isCustomLoginMessage() && sd.hasLoginMessage())
+            if ((sd.isCustomLoginMessage() || sd.isCanSetOwnLogin()) && sd.hasLoginMessage())
             {
                 loginMsg = loginMsg + FUtil.colorize(" &band " + sd.getLoginMessage());
             }
@@ -267,7 +267,7 @@ public class RankManager extends FreedomService
             final Displayable display = getDisplay(player);
             String loginMsg = display.getColoredLoginMessage();
 
-            if (sd.isCustomLoginMessage() && sd.hasLoginMessage())
+            if ((sd.isCustomLoginMessage() || sd.isCanSetOwnLogin()) && sd.hasLoginMessage() && !sd.getLoginMessage().equals("none"))
             {
                 loginMsg = loginMsg + FUtil.colorize(" &band " + sd.getLoginMessage());
             }
@@ -282,10 +282,6 @@ public class RankManager extends FreedomService
             catch (IllegalArgumentException ex)
             {
             }
-        }
-        else if (!isAdmin && sd.isCustomLoginMessage() && sd.hasLoginMessage())
-        {
-            FUtil.bcastMsg(ChatColor.AQUA + player.getName() + " is " + FUtil.colorize(sd.getLoginMessage()));
         }
     }
 }

@@ -1,19 +1,18 @@
 package me.rigelmc.rigelmcmod.bridge;
 
-//import me.libraryaddict.disguise.DisallowedDisguises;
-//import me.libraryaddict.disguise.LibsDisguises;
-//import me.libraryaddict.disguise.DisguiseAPI;
+import me.libraryaddict.disguise.LibsDisguises;
+import me.libraryaddict.disguise.DisguiseAPI;
 import me.rigelmc.rigelmcmod.FreedomService;
 import me.rigelmc.rigelmcmod.RigelMCMod;
 import me.rigelmc.rigelmcmod.util.FLog;
 import org.bukkit.entity.Player;
-import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 
 public class LibsDisguisesBridge extends FreedomService
 {
 
-    // private LibsDisguises libsDisguisesPlugin = null;
+    private LibsDisguises libsDisguisesPlugin = null;
+
     public LibsDisguisesBridge(RigelMCMod plugin)
     {
         super(plugin);
@@ -28,7 +27,7 @@ public class LibsDisguisesBridge extends FreedomService
     protected void onStop()
     {
     }
-    /*
+
     public LibsDisguises getLibsDisguisesPlugin()
     {
         if (libsDisguisesPlugin == null)
@@ -99,7 +98,7 @@ public class LibsDisguisesBridge extends FreedomService
         }
     }
 
-    public void setDisguisesEnabled(boolean state)
+    /*public void setDisguisesEnabled(boolean state)
     {
         final LibsDisguises libsDisguises = getLibsDisguisesPlugin();
 
@@ -121,8 +120,7 @@ public class LibsDisguisesBridge extends FreedomService
     public boolean isDisguisesEnabled()
     {
         return !DisallowedDisguises.disabled;
-    }
-
+    }*/
     public boolean isPluginEnabled()
     {
         Plugin ld = getLibsDisguisesPlugin();
@@ -133,5 +131,5 @@ public class LibsDisguisesBridge extends FreedomService
         }
 
         return ld.isEnabled();
-    }*/
+    }
 }

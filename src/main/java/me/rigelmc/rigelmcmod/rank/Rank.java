@@ -85,6 +85,11 @@ public enum Rank implements Displayable
         return getConsoleVariant().getLevel() >= rank.getConsoleVariant().getLevel();
     }
 
+    public boolean isHigher(Rank rank)
+    {
+        return getLevel() > rank.getLevel();
+    }
+
     public boolean isAdmin()
     {
         return getType() == Type.ADMIN || getType() == Type.ADMIN_CONSOLE;

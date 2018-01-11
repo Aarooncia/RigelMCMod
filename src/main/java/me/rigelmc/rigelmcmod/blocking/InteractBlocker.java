@@ -101,6 +101,7 @@ public class InteractBlocker extends FreedomService
             case WALL_SIGN:
             {
                 player.sendMessage(ChatColor.GRAY + "Sign interaction is currently disabled.");
+                event.setCancelled(true);
                 break;
             }
         }

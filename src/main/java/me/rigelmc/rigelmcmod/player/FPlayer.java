@@ -37,8 +37,6 @@ public class FPlayer
     private BukkitTask unmuteTask;
     private BukkitTask UnlockRedstoneTask;
     private BukkitTask unblockEditTask;
-    private BukkitTask isPVPBlocked;
-    private BukkitTask isPVPProtect;
 
     @Getter
     private final FreezeData freezeData = new FreezeData(this);
@@ -61,11 +59,7 @@ public class FPlayer
     private BukkitTask mp44ScheduleTask = null;
     private boolean mp44Armed = false;
     private boolean mp44Firing = false;
-    @SuppressWarnings("FieldMayBeFinal")
     private boolean blockEditsBlocked = false;
-    @Getter
-    @Setter
-    private boolean pvpBlocked = false;
     @Getter
     @Setter
     private BukkitTask lockupScheduleTask = null;
@@ -356,36 +350,6 @@ public class FPlayer
             {
                 FUtil.adminAction("RigelMC", "Unblocking block edits for " + getPlayer().getName(), false);
                 setEditBlocked(false);
-            }
-        }.runTaskLater(plugin, AUTO_PURGE_TICKS);
-    }
-
-    public boolean isPVPBlock()
-    {
-        return isPVPBlocked != null;
-    }
-
-    public void setPVPBlock(boolean pvpblocked)
-    {
-        FUtil.cancel(isPVPBlocked);
-        isPVPBlocked = null;
-
-        if (!pvpblocked)
-        {
-            return;
-        }
-
-        if (getPlayer() == null)
-        {
-            return;
-        }
-        isPVPBlocked = new BukkitRunnable()
-        {
-            @Override
-            public void run()
-            {
-                FUtil.adminAction("RigelMC", "Enabling PVP mode for " + getPlayer().getName(), false);
-                setPVPBlock(false);
             }
         }.runTaskLater(plugin, AUTO_PURGE_TICKS);
     }

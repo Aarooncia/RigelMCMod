@@ -1,6 +1,6 @@
 package me.rigelmc.rigelmcmod;
 
-import me.rigelmc.rigelmcmod.util.FUtil;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -27,16 +27,13 @@ public class CommandSpy extends FreedomService
     @EventHandler(priority = EventPriority.MONITOR)
     public void onPlayerCommandPreprocess(PlayerCommandPreprocessEvent event)
     {
-        if (plugin.al.isAdmin(event.getPlayer()))
+        Player player = event.getPlayer();
+        for (Player p : server.getOnlinePlayers())
         {
-            return;
-        }
-
-        for (Player player : server.getOnlinePlayers())
-        {
-            if (plugin.al.isAdmin(player) && plugin.pl.getPlayer(player).cmdspyEnabled())
+            if (plugin.al.isAdmin(p) && plugin.pl.getPlayer(p).cmdspyEnabled()
+                    && plugin.rm.getRank(p).isHigher(plugin.rm.getRank(player)))
             {
-                FUtil.playerMsg(player, event.getPlayer().getName() + ": " + event.getMessage());
+                p.sendMessage(plugin.rm.getRank(player).getColoredTag() + ChatColor.GRAY + " " + player.getName() + ": " + event.getMessage());
             }
         }
     }

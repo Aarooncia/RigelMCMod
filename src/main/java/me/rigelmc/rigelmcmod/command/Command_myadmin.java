@@ -30,7 +30,7 @@ public class Command_myadmin extends FreedomCommand
 
         String[] forbidden =
         {
-            "&0", "&m", "&n"
+            "&0", "&m", "&n", "&k"
         };
         Player init = null;
         Admin target = getAdmin(playerSender);
@@ -178,22 +178,18 @@ public class Command_myadmin extends FreedomCommand
                 else
                 {
                     String shout = args[1];
-                    String replace = null;
+                    String rawShout = ChatColor.stripColor(shout);
 
                     for (String f : forbidden)
                     {
-                        if (shout.contains(f))
+                        if (rawShout.contains(f))
                         {
-                            replace = shout.replace(f, "");
-                        }
-                        else
-                        {
-                            replace = shout;
+                            shout = rawShout.replace(f, "");
                         }
                     }
 
-                    FUtil.adminAction(sender.getName(), "Setting shoutcolor" + (init == null ? "" : " for " + targetPlayer.getName()), false);
-                    target.setShoutColor(replace);
+                    FUtil.adminAction(sender.getName(), "Setting Shout color" + (init == null ? "" : " for " + targetPlayer.getName()), false);
+                    target.setShoutColor(shout);
                     plugin.al.save();
                     plugin.al.updateTables();
                     return true;
