@@ -65,7 +65,7 @@ public class RigelMCMod extends AeroPlugin<RigelMCMod>
     // Services
     public AntiSpamBot asb;
     public ServiceManager<RigelMCMod> services;
-    //public ServerInterface si;
+    public ServerInterface si;
     public SavedFlags sf;
     public WorldManager wm;
     public LogViewer lv;

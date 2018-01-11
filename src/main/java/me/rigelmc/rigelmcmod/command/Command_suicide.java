@@ -24,6 +24,12 @@ public class Command_suicide extends FreedomCommand
             FUtil.bcastMsg(playerSender.getName() + " has killed themself, and is a curtain now!", ChatColor.RED);
             return true;
         }
+        else if (FUtil.isGod(target.getName()))
+        {
+            playerSender.setHealth(0);
+            FUtil.bcastMsg(playerSender.getName() + " has killed themself, but cannot die!", ChatColor.RED);
+            return true;
+        }
         else
         {
             playerSender.setHealth(0);
